@@ -284,7 +284,7 @@
     tg.ox = o.x || 0; tg.oy = o.y || 0; tg.sc = o.scale || 1; tg.fade = o.fade == null ? 1 : o.fade;
   }
   function size() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5); W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; gl.viewport(0, 0, cv.width, cv.height);
   }
   size(); window.addEventListener('resize', size);
@@ -294,10 +294,19 @@
   }, { passive: true });
   window.addEventListener('pointerleave', function () { mouse.tx = 9; mouse.ty = 9; });
 
-  var t0 = performance.now(), vis = true, last = 0;
-  document.addEventListener('visibilitychange', function () { vis = !document.hidden; if (vis) requestAnimationFrame(frame); });
+  var t0 = performance.now(), vis = !document.hidden, last = 0, raf = 0, lost = false;
+  // um unico ciclo de animacao: nunca agenda um quadro se ja houver um pendente
+  function kick() { if (!raf && vis && !lost) raf = requestAnimationFrame(frame); }
+  document.addEventListener('visibilitychange', function () { vis = !document.hidden; if (vis) { last = 0; kick(); } });
+  cv.addEventListener('webglcontextlost', function (e) { e.preventDefault(); lost = true; cv.style.opacity = 0; });
+  cv.addEventListener('webglcontextrestored', function () {
+    var again = false; try { again = !sessionStorage.getItem('sp-glr'); sessionStorage.setItem('sp-glr', '1'); } catch (e) { }
+    if (again) location.reload();
+  });
   function frame(now) {
-    if (!vis) return;
+    raf = 0;
+    if (!vis || lost) return;
+    try {
     var dt = Math.min(.05, (now - last) / 1000 || .016); last = now;
     if (mode === 0) {
       mix += (mixT - mix) * Math.min(1, dt * 1.5); if (mixT - mix < .002) mix = 1;
@@ -319,10 +328,11 @@
     gl.uniform1f(U.uScale, st.sc * (W < 760 ? .62 : 1)); gl.uniform1f(U.uFade, st.fade);
     gl.uniform2f(U.uMouse, mouse.x, mouse.y); gl.uniform2f(U.uOff, st.ox, st.oy); gl.uniform2f(U.uTilt, tilt.x, tilt.y);
     gl.drawArrays(gl.POINTS, 0, N);
-    if (!still) requestAnimationFrame(frame);
+    } catch (e) { }
+    if (!still) kick();
   }
   if (still) { mix = 1; st = tg; }
-  requestAnimationFrame(frame);
+  kick();
 
   // a marca \u00e9 amostrada depois que a fonte carrega
   function logoReady() {
