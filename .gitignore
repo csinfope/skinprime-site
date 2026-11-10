@@ -1,0 +1,7 @@
+preview-artifact/
+preview-flat/
+preview-single/
+previa/
+*.zip
+__pycache__/
+build/*.v1.*
