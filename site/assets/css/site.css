@@ -51,7 +51,7 @@ p{margin:0}
 /* Safari nao pinta o degrade do <em> atraves de palavras em inline-block: o degrade vai em cada palavra */
 .split.sp em{background:none;-webkit-background-clip:border-box;background-clip:border-box;padding-right:0}
 .split.sp em .w>span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-right:.08em}
-.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.24em;margin-bottom:-.24em}
 .split .w>span{display:inline-block}
 .js .split .w>span{transform:translateY(105%);transition:transform 1s var(--ease)}
 .js .split.in .w>span{transform:none}
