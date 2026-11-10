@@ -1,0 +1,3462 @@
+[
+ {
+  "doenca": "Acantose nigricante",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Alguns lasers como o CO2 fracionado, 1550-nm erbium e long-pulsed alexandrite laser podem ser de ajuda no tratamento."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é clínico e a histopatologia pode ser confirmatória, evidenciando hiperqueratose e papilomatose, com mínima ou ausência de acantose e hiperpigmentação."
+   }
+  ],
+  "sem_correspondencia": [
+   "Laser Erbium"
+  ]
+ },
+ {
+  "doenca": "Acne",
+  "itens": [
+   {
+    "servico": "Preenchimento com ácido hialurônico",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "técnicas de preenchimento e excisão local;"
+   },
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "tratamento das cicatrizes atróficas através dos peelings químicos, luzes e lasers, microagulhamento;"
+   },
+   {
+    "servico": "Microagulhamento",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "tratamento das cicatrizes atróficas através dos peelings químicos, luzes e lasers, microagulhamento;"
+   },
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "tratamento das cicatrizes atróficas através dos peelings químicos, luzes e lasers, microagulhamento;"
+   },
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "crioterapia, fototerapia;"
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Procedimentos cirúrgicos só devem ser indicados 6-12 meses após o término do tratamento."
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Dieta."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Acrodermatite Enteropática",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Os achados histopatológicos têm uma contribuição menos significativa, uma vez que os aspectos microscópicos não são específicos."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Acropustulose infantil",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Agep",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Aids",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O próprio tratamento antiviral costuma produzir melhora do quadro ao lado de terapia tópica, fototerapia mínima e se necessário o uso de retinoide sistêmico (acitretina)."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…(preferencialmente) ou cauterização química com ácido tricloroacético a 45%, imiquimod, retinoides tópicos ou eletrocoagulação."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "A curetagem deve ser evitada face ao risco de sangramento."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Antibióticos sistêmicos e muitas vezes drenagem cirúrgica são necessários."
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "A razão não é clara, podendo ser decorrente do estado nutricional, imuno comprometimento ou da doença crônica."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia e cultura tornam-se fundamentais para confirmar uma suspeita clínica de tuberculose cutânea."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Alopecia Androgenética",
+  "itens": [
+   {
+    "servico": "Tricologia e tratamentos capilares",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Minoxidil."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Alopecia Areata",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…e total de 10-20mg, por aplicação semanal ou quinzenal), corticóides sistêmicos (prednisolona 30-100 mg/dia), PUVA (psoraleno mais UVA), cicloposrina A (3-5 mg/kg/dia);"
+   },
+   {
+    "servico": "Tricologia e tratamentos capilares",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "drogas de ação desconhecida como o minoxidil a 5%."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Alopecia Fibrosante Frontal",
+  "itens": [
+   {
+    "servico": "Tricologia e tratamentos capilares",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "minoxidil tópico;"
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Achados dermatoscópicos comuns na alopecia fibrosante frontal incluem hiperqueratose folicular e eritema perifolicular."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Amiloidose",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "– laser de CO2"
+   },
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "– fototerapia com UVB"
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "– eletrocoagulação"
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "– exérese cirúrgica"
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Cutâneas secundárias: não parece configurar uma real variante da amiloidose, refere-se ao encontro histopatológico de material amiloide no estroma conjuntivo de outros processos dermatológicos."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Angioedema",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…revela um componente de púrpura no local, com esmaecimento do eritema de base com manifestações sistêmicas e histopatologia de venulite necrotizante com degeneração fibrinoide na derme superior mais lecucocitoclasia."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Angioqueratoma",
+  "itens": [
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento pode ser feito por diatermia, curetagem, criocirurgia e ablação por laser, a depender do tamanho das lesões."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ticamente indesejáveis ou sintomáticas, várias modalidades de tratamento estão disponíveis, como crioterapia, eletrocoagulação, laser, escleroterapia e excisão cirúrgica"
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento pode ser feito por diatermia, curetagem, criocirurgia e ablação por laser, a depender do tamanho das lesões."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…rias modalidades de tratamento estão disponíveis, como crioterapia, eletrocoagulação, laser, escleroterapia e excisão cirúrgica"
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é clínico e pode ser confirmado com a análise histopatológica."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Anidrose",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "No primeiro caso, a biópsia de pele é a investigação de escolha."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Balanite de Zoon",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ram utilizadas outras formas de tratamento, incluindo a terapia fotodinâmica em lesões refratárias e o uso de laser de CO2."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A diferenciação clínica pode ser às vezes desafiadora, por isso é necessário o exame histopatológico."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Avanços na diferenciação BZ de outras entidades incluem microscopia confocal de reflectância e dermatoscopia."
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica"
+  ]
+ },
+ {
+  "doenca": "Bebê Colódio",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Bromidrose",
+  "itens": [
+   {
+    "servico": "Toxina botulínica",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "A toxina botulínica contribui para diminuir a hiperidrose axilar écrina."
+   },
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A remoção dos pelos axilares com laser está indicada."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O procedimento de sucção e curetagem modificado é uma ótima estratégia terapêutica para o tratamento da bromidrose axilar."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Ademais, é válido ressaltar o uso do ultrassom VASER (um sistema de ultrassom cirúrgico para emulsificação da gordura), que é seguro e eficaz para o tratamento da hiperidrose/bromidrose axilar."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Cancroide",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Candidíase",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Carcinoma basocelular (CBC)",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "A radiação ultravioleta é capaz de alterar o DNA e o seu sistema de reparação, sendo que a UVB (280 a 320nm) é mais carcinogênica do que a UVA (320 a 400nm)."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Curetagem e eletrocauterização – Este é um tratamento comum para pequenos carcinomas basocelulares."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Curetagem e eletrocauterização – Este é um tratamento comum para pequenos carcinomas basocelulares."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Pode ser difícil discernir os limites do tumor, devendo ser valorizada uma boa margem de segurança na sua excisão."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…nica atípica e raridade, é usual que o diagnóstico não seja suspeitado clinicamente, apenas revelado no exame histopatológico."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…za-se como pápula ou nódulo com aspecto perolado, muitas vezes com telangiectasias de padrão característico à dermatoscopia, que posteriormente ulcera, podendo invadir os tecidos subjacentes, já que essa evolução revela tendência para a progressão do t…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica",
+   "Cirurgia micrográfica de Mohs",
+   "Infiltração intralesional",
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Carcinoma espinocelular (CEC)",
+  "itens": [
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…que sugerem baixo risco de recorrência e metástase são excisão cirúrgica (maioria), radioterapia, curetagem e eletrocauterização e crioterapia."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…cterísticas que sugerem baixo risco de recorrência e metástase são excisão cirúrgica (maioria), radioterapia, curetagem e eletrocauterização e crioterapia."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "As opções de tratamento para CEC com características que sugerem baixo risco de recorrência e metástase são excisão cirúrgica (maioria), radioterapia, curetagem e eletrocauterização e crioterapia."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Neste caso, merece destaque especial o ceratoacantoma, pelas dificuldades de diagnóstico clínico e histopatológico."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica",
+   "Cirurgia micrográfica de Mohs",
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Celulite e Erisipela",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ceratoacantoma",
+  "itens": [
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento pode ser feito com curetagem e coagulação da base, exérese e sutura, 5-fluoruracil tópico ou methotrexate intralesional."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento pode ser feito com curetagem e coagulação da base, exérese e sutura, 5-fluoruracil tópico ou methotrexate intralesional."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "As semelhanças clínicas e histopatológicas entre KA e cSCC, particularmente a variante bem diferenciada de cSCC, dificultaram ou impossibilitaram a diferenciação defini…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Ceratose actínica",
+  "itens": [
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Outros tratamentos incluem: peelings químicos, imiquimod, diclofenaco tópico a 3% dermabrasão, laser de CO2, retinoides, cirurgia (curetagem e eletrodessecação) e te…"
+   },
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Outros tratamentos incluem: peelings químicos, imiquimod, diclofenaco tópico a 3% dermabrasão, laser de CO2, retinoides, cirurgia (curetagem e eletrodessecação) e terapia fotodinâmica."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Outros tratamentos incluem: peelings químicos, imiquimod, diclofenaco tópico a 3% dermabrasão, laser de CO2, retinoides, cirurgia (curetagem e eletrodessecação) e terapia fotodinâmica."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…cluem: peelings químicos, imiquimod, diclofenaco tópico a 3% dermabrasão, laser de CO2, retinoides, cirurgia (curetagem e eletrodessecação) e terapia fotodinâmica."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…amentos incluem: peelings químicos, imiquimod, diclofenaco tópico a 3% dermabrasão, laser de CO2, retinoides, cirurgia (curetagem e eletrodessecação) e terapia fotodinâmica."
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Está provado que a fotoproteção e dietas pobres em lipídios reduzem a ocorrência e recorrência das ceratoses actínicas."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Biópsia da lesão deve ser realizada nos casos mais exuberantes, em que há a suspeita de carcinoma espinocelular (lesões com eritema ou hi…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica"
+  ]
+ },
+ {
+  "doenca": "Ceratose Pilar",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O laser de CO2 também tem sido usado com sucesso de até 33%."
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Também tem sido usados Nd-YAG, Alexandrite e diodo 810nm."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Uma biópsia geralmente não é necessária para o diagnóstico."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "No entanto, a avaliação das lesões cutâneas com o dermatoscópio pode auxiliar no diagnóstico."
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica"
+  ]
+ },
+ {
+  "doenca": "Ceratose seborreica",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Podem ser retiradas por curetagem, crioterapia, eletrodissecação, eletrocoagulação ou laser de CO2."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Podem ser retiradas por curetagem, crioterapia, eletrodissecação, eletrocoagulação ou laser de CO2."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Podem ser retiradas por curetagem, crioterapia, eletrodissecação, eletrocoagulação ou laser de CO2."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "As contrapartes histopatológicas dos achados dermatoscópicos são: epiderme papilomatosa, capilares dérmicos aumentados, cistos pseudocórneos e cistos intraepi…"
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "No entanto, a maioria dos casos de CS exibe os achados dermatoscópicos típicos de fissuras e cristas, vasos em gancho com halo branco, aberturas semelhantes a comedos e cistos semelhantes à milia."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Chikungunya",
+  "itens": [
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Peeling, Kathryn E."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Cisto Epidérmico",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento é a remoção cirúrgica do cisto com remoção completa da cápsula, que caso permaneça, pode gerar recidiva do cisto."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia demonstra cistos revestidos de epitélio escamoso estratificado contendo uma camada granular."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Cisto Pilonidal",
+  "itens": [
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "É recomendado se retirar os pelos de toda a região sacra e do sulco interglúteo com laser para evitar o surgimento de novas lesões."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A depender do avanço do cisto, deve-se drená-lo ou removê-lo por completo por meio de cirurgia."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Cisto Triquilemal ou Pilar",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Citomegalovírus",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Colestase Intra-hepática da Gravidez",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Condiloma acuminado",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "Seu tratamento é cirúrgico, devendo-se evitar a radioterapia, que pode precipitar a transformação em carcinoma anaplástico."
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica",
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Condrodermatite Nodular da Hélice",
+  "itens": [
+   {
+    "servico": "Preenchimento com ácido hialurônico",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "…õem as pessoas ao desenvolvimento desta condição, pois a orelha tem pouco tecido subcutâneo para isolamento e preenchimento, e apenas pequenos vasos sanguíneos."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "As abordagens cirúrgicas incluem crioterapia, curetagem, ablação a laser de CO2, excisão em cunha e remoção de cartilagem."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "As abordagens cirúrgicas incluem crioterapia, curetagem, ablação a laser de CO2, excisão em cunha e remoção de cartilagem."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "As abordagens cirúrgicas incluem crioterapia, curetagem, ablação a laser de CO2, excisão em cunha e remoção de cartilagem."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Nos casos duvidosos, a lesão deve ser excisada e enviada para exame histopatológico."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Corno Cutâneo",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A conduta utilizada para o tratamento do corno cutâneo é a exérese cirúrgica seguida de avaliação histopatológica para confirmação do diagnóstico específico de sua base."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é confirmado através de biópsia de pele."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Cromidrose",
+  "itens": [
+   {
+    "servico": "Toxina botulínica",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Cloreto de alumínio tópico e injeções de toxina botulínica tipo A também mostraram benefícios em alguns pacientes."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Biópsias de pele podem ser enviadas para coloração de hematoxilina/eosina e microscopia de fluorescência para detectar e medir lipofuscin…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Cromomicose",
+  "itens": [
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A adição de terapias físicas (crioterapia, termoterapia, terapia a laser) à terapia antifúngica oral também pode ser útil."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A excisão cirúrgica pode ser curativa e é a abordagem terapêutica recomendada para doença leve."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…óstico pode ser confirmado através da detecção de estruturas de fungos pigmentados com a preparação de KOH ou biópsia de pele."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Cutis Vertice Gyrata",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "Porém, pacientes com lesões extensas podem realizar excisão do couro cabeludo após uso de expansores, por razões estéticas."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Nesses casos, a biópsia do couro cabeludo geralmente não é necessária para confirmar o diagnóstico."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dengue",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatite Atópica",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Fototerapia com UVA ou UVB ou Narrow-band ou combinados, e a fotoquimioterapia (PUVA) tem sido de ajuda em pacientes adultos com componente i…"
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "Repetindo em 2 a 3 ocasiões, e assim, deixando na dieta aqueles que não alterem a doença."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatite de Contato",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia do eczema agudo mostra na epiderme espongiose, vesiculação e células inflamatórias (exocitose) e na derme edema com vasodilataç…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Dermatite Flagelada",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatite Herpetiforme",
+  "itens": [
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Dieta sem glúten."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Histopatologia."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Dermatite Perioral",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatite Seborreica",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatofibroma",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Quando indicado tratamento, procede-se a excisão cirúrgica da lesão com retirada até o subcutâneo."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é clínico, podendo ser auxiliado pela dermatoscopia, que exibe pseudorede periférica com área central branca ou hipocrômica."
+   }
+  ],
+  "sem_correspondencia": [
+   "Laser de corante pulsado (dye laser)"
+  ]
+ },
+ {
+  "doenca": "Dermatofibrossarcoma Protuberans",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento é fundamentalmente cirúrgico, com margens amplas de 2 cm ou mais, e/ou de preferencialmente, cirurgia micrográfica de Mohs."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O exame histopatológico é fundamental para confirmação diagnóstica, auxiliado pelo estudo de imuno-histoquímica que evidencia moderada a forte positiv…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Cirurgia micrográfica de Mohs",
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Dermatofitoses",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatomiosite",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Em alguns casos, excisão cirúrgica do tecido calcificado torna-se necessária para correção de distúrbios funcionais."
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Agentes quelantes do cálcio como difosfonatos, hidróxido de alumínio e dieta pobre em cálcio podem ser utilizados."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Eletromiografia e ressonância magnética: Ajudam a orientar o local da biópsia."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatose Papulosa Nigra (DPN)",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "…nm, laser de corante pulsado de 585 nm, laser de granada de ítrio e alumínio dopado com neodímio de 1.064 nm, laser fracionado dopado com érbio de 1.550 nm e dióxido de carbono de 10.600 nm foram relatados com sucesso."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…m abrasiva com ou sem anestesia, crioterapia superficial com nitrogênio líquido para pacientes de pele clara, eletrodissecção seguida de curetagem pode ser eficaz."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Curetagem abrasiva com ou sem anestesia, crioterapia superficial com nitrogênio líquido para pacientes de pele clara, eletrodissecção segui…"
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Na dermatoscopia, a DPN mostra aberturas, fissuras e cristas semelhantes a comedão, mostrando um padrão cerebriforme."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Laser de corante pulsado (dye laser)"
+  ]
+ },
+ {
+  "doenca": "Dermatose por IgA linear",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia revela bolha subepidérmica contendo principalmente neutrófilos e ocasionalmente eosinófilos, podendo ser confundida com a derma…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatose pustular erosiva do couro cabeludo",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "…nantemente em indivíduos idosos, particularmente aqueles com histórico de pele danificada pelo sol, trauma ou cirurgia prévia no couro cabeludo."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A dermatoscopia e a histopatologia são essenciais para o diagnóstico, revelando pústulas estéreis, atrofia epidérmica e inflamação crônica."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A dermatoscopia e a histopatologia são essenciais para o diagnóstico, revelando pústulas estéreis, atrofia epidérmica e inflamação crônica."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatoses da Gravidez",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia é inespecífica e evidencia infiltrado inflamatório predominantemente linfocitário na derme superior, sem eosinófilos, com prese…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dermatoses neutrofílicas",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…rofílicas (DN) são um grupo de doenças inflamatórias da pele caracterizadas por um infiltrado neutrofílico na histopatologia sem evidência de infecção."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Disidrose",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Fototerapia: Em casos persistentes, a terapia com luz ultravioleta pode ser considerada."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença da Arranhadura do Gato",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Nos demais pacientes a biópsia e testes sorológicos e a PCR podem ajudar a estabelecer o diagnóstico."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença de Bowen",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "É válido destacar a possibilidade do uso de terapia fotodinâmica e laser de argônio ou CO2."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Entretanto, o mais seguro é a excisão cirúrgica, com possibilidades mínimas de recidiva."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A biópsia de pele torna-se imprescindível para a confirmação do diagnóstico de doença de Bowen."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Na dermatoscopia as características mais típicas da doença de Bowen incluem vasos glomerulares e superfície escamosa."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica",
+   "Infiltração intralesional",
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Doença de Darier",
+  "itens": [
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Medidas cirúrgicas tem sido relatadas em lesões localizadas ou espessas: dermabrasão, eletrocirurgia, cirurgia micrográfica de Mohs e excisão cirúrgica."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Como nova modalidade para lesões recalcitrantes tem sido descrita ablação a laser (laser de CO2, Er:YAG, dye-laser, laser fracionado erbium 1550nm)."
+   },
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "O quadro é crônico e exacerbações podem ocorrer devido a calor, sudorese, luz solar, exposição UVB, uso de lítio ou corticoides orais, traumas mecânicos ou período “perimenstrual”."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Medidas cirúrgicas tem sido relatadas em lesões localizadas ou espessas: dermabrasão, eletrocirurgia, cirurgia micrográfica de Mohs e excisão cirúrgica."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ido relatadas em lesões localizadas ou espessas: dermabrasão, eletrocirurgia, cirurgia micrográfica de Mohs e excisão cirúrgica."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Tais alterações levam aos achados histopatológicos da doença, que são adesão anormal entre os queratinócitos e queratinização aberrante."
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica",
+   "Cirurgia micrográfica de Mohs",
+   "Laser Erbium"
+  ]
+ },
+ {
+  "doenca": "Doença de Dupuytren",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Isso pode ser obtido por excisão, ruptura ou dissolução do cordão fibroso, permitindo a extensão do dedo afetado e, assim, melhorando a função da mão."
+   }
+  ],
+  "sem_correspondencia": [
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Doença de Fox-Fordyce",
+  "itens": [
+   {
+    "servico": "Toxina botulínica",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Injeções de toxina botulínica (Botox) para reduzir a transpiração e os sintomas."
+   },
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Já foram tentados esteroides tópicos, clindamicina, radiação UV, dermabrasão e excisão cirúrgica."
+   },
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Todavia, alguns relatos de casos revelaram que a terapia de depilação a laser pode causar a doença."
+   },
+   {
+    "servico": "Depilação a laser",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Todavia, alguns relatos de casos revelaram que a terapia de depilação a laser pode causar a doença."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Há relato de curetagem com lipossucção assistida."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Já foram tentados esteroides tópicos, clindamicina, radiação UV, dermabrasão e excisão cirúrgica."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Quanto a esse, pode ser obtido clinicamente e, caso optado pelo exame histopatológico, células espumosas perifoliculares podem ser a marca histopatológica desta doença."
+   }
+  ],
+  "sem_correspondencia": [
+   "Laser de corante pulsado (dye laser)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Doença de Grover",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Novas abordagens indicam o uso de fototerapia com êxito."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia evidenciará acantólise suprabasal focal e disqueratose, podendo ser indistinguível do histopatológico do pênfigo vulgar, Doença…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença de Hailey-Hailey",
+  "itens": [
+   {
+    "servico": "Toxina botulínica",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Recentemente, o uso de toxina botulínica tópica tem sido explorado para reduzir a sudorese e melhorar as lesões em áreas de dobras."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Laser de CO2 fracionado ou ablativo para remover áreas afetadas e promover a cicatrização."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Terapias com Laser e Cirúrgicas:"
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é baseado na história clínica, exame físico e confirmação histopatológica."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença de Kawasaki",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença de Ledderhose",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento cirúrgico está indicado nos casos de dor persistente, lesões grandes e infiltrativas que são refratárias ao tratamento conservador."
+   }
+  ],
+  "sem_correspondencia": [
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Doença de Lyme",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença de Paget",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O creme de imiquimode a 5%, creme de 5-fluorouracil a 5%, laser de CO2 e a associação de duas ou mais abordagens terapêuticas também podem ser usadas com resultados variáveis."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento conservador inclui excisão local do mamilo, segmentectomia e radioterapia."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O painel diagnóstico útil de imuno-histoquímica para biópsia de mamilo sem câncer invasivo subjacente ou carcinoma ductal in situ pode incluir CK7, CK20, CEA (monoclonal), ER, HER2 e MART-1…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica",
+   "Cirurgia micrográfica de Mohs",
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Doença de Peyronie",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…um estudo realizado na Holanda, para 730 homens com doença de Dupuytren, a taxa de prevalência relatada pelos cirurgiões da doença de Peyronie foi de 7,8%, o que pode indicar uma relação entre essas duas patologias."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença Do Enxerto Versus Hospedeiro",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A fototerapia com PUVA ou Narrow-band pode ser de ajuda em alguns pacientes."
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "O manejo da GVHD requer uma abordagem multidisciplinar, incluindo suporte nutricional, controle de infecções e tratamento de complicações como fibrose e insuficiência orgânica."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…l para corroborar uma impressão clínica, já que a pele e o trato gastrointestinal são relativamente fáceis de biopsiar."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doença Mão, Pé e Boca",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Doenças Sexualmente Transmissíveis ou DST",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Dress",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "•\tBiópsia de pele: Pode mostrar infiltrado linfocitário e eosinofilia."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ectima",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Casos graves: Antibióticos intravenosos ou cirurgia para remover tecido necrótico no ectima gangrenoso."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Em alguns casos, pode ser necessária uma biópsia ou cultura bacteriana para identificar o agente causador."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eczema de Estase",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "•\tHistórico de cirurgias ou traumas nas pernas;"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eczema numular",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eczemas",
+  "itens": [
+   {
+    "servico": "Preenchimento com ácido hialurônico",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "No eczema agudo, a espongiose está associada à superprodução de ácido hialurônico, à secreção de galectina-7 autoprotetora e à diminuição da expressão de E-caderina."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Efélides ou sardas",
+  "itens": [
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Os peelings químicos também apresentam uma ótima resposta ao tratatamento."
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "…itam tratamento, a não ser por razões estéticas, quando então pode se usar lasers como o Ruby, alexandrite ou Nd-YAG."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Epidermodisplasia verruciforme",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Cirurgia: Para remover lesões pré-cancerosas ou cancerosas."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "É baseado na aparência clínica das lesões, história familiar e confirmado por biópsia da pele, que pode revelar a presença de HPV."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica"
+  ]
+ },
+ {
+  "doenca": "Epidermólise bolhosa",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "•\tCirurgia: Em casos de estreitamento do esôfago ou deformidades graves."
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "•\tNutrição: Dieta balanceada e suplementos, especialmente em casos de dificuldade de alimentação."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "•\tBiópsia de pele para análise microscópica."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Epidermólise bolhosa adquirida",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Biópsia de pele:"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Erisipela",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Erisipeloide",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Cultura da lesão ou biópsia (a bactéria é de crescimento lento em laboratório)."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritema Ab Igne",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Portanto, a biópsia deve ser considerada apenas em casos selecionados e para descartar malignidade se as lesões ulcerarem ou engrossarem."
+   }
+  ],
+  "sem_correspondencia": [
+   "Laser de corante pulsado (dye laser)"
+  ]
+ },
+ {
+  "doenca": "Eritema anular centrífugo",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é clínico e uma biópsia de pele pode ser necessária para confirmar o diagnóstico."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritema Fixo Medicamentoso",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "o\tBiópsia cutânea: Revela dermatite de interface com apoptose de queratinócitos e melanófagos na derme."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritema Gyratum Repens",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ntenso, depende do reconhecimento e tratamento da malignidade subjacente (ex.: quimioterapia, radioterapia ou cirurgia para o câncer)."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O EGR possui características histopatológicas inespecíficas, tais como: acantose, hiperqueratose leve, paraqueratose focal e espongiose confinados à epiderme e derme super…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Eritema infeccioso",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritema Marginado",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritema Migratório Necrolítico",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "o\tCirurgia para ressecção do glucagonoma (curativa na maioria dos casos)."
+   },
+   {
+    "servico": "Nutrição",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "o\tSuplementação nutricional (aminoácidos, zinco, ácidos graxos) em deficiências."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "•\tBiópsia da Pele: Revela necrólise da camada superior da epiderme."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritema Multiforme ou Polimorfo",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Em caso de dúvida o exame histopatológico e a imunofluorescência permitem a diferenciação."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritema Tóxico Neonatal",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritemas Figurados",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritrodermia Ictiosiforme Não Bolhosa",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Eritroplasia de Queyrat",
+  "itens": [
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A EQ peniana pode ser tratada com ressecção local, terapia a laser, terapia fotodinâmica e tópica com 5-fluorouracil ou creme de imiquimod a 5%."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "A avaliação patológica das margens cirúrgicas é fundamental na tentativa de reduzir as taxas de recorrência local."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A biópsia da lesão é imperativa e o quadro hispatológico é característico, semelhante à doença de Bowen."
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica"
+  ]
+ },
+ {
+  "doenca": "Erupção Liquenóide por Drogas",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Escabiose",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "No exame histopatológico, estes nódulos podem ser confundidos com o diagnóstico da  histiocitose, linfoma ou picada de inseto."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Esclerodermia",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Histopatologia: Na esclerodermia cutânea, comumente na fase inicial, inflamatória, observa-se espessamento dos feixes colágenos na derme retic…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Esclerose Tuberosa",
+  "itens": [
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Por razões cosméticas os hamartomas cutâneos podem ser removidos por dermoabrasão, uso do laser de CO2, crioterapia ou eletrocirurgia."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Por razões cosméticas os hamartomas cutâneos podem ser removidos por dermoabrasão, uso do laser de CO2, crioterapia ou eletrocirurgia."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…s cosméticas os hamartomas cutâneos podem ser removidos por dermoabrasão, uso do laser de CO2, crioterapia ou eletrocirurgia."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "É uma alternativa não invasiva aos procedimentos cirúrgicos para angiofibromas associados à esclerose tuberosa."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Espiroadenoma Écrino",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Assim, tem prognóstico benigno e geralmente favorável, sendo a melhor terapêutica a ressecção cirúrgica total."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Esporotricose",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Cultura: Utiliza-se um macerado de biópsia colocado no meio de Ágar Sabouraud."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Esteatocistoma Múltiplo",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Estrófulo",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Exantema Súbito",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Exantema Virais",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Farmacodermias",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Fitofotodermatite",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Foliculite decalvante",
+  "itens": [
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "…cicatriciais, e há relatos de bons resultados no controle da atividade da doença com uso do laser epilatório Nd-YAG 1064 em casos de foliculite decalvante de membros inferiores, com remissão completa das lesões inflamatórias, e sem hipercromia r…"
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O histopatológico evidencia fibrose ou processo cicatricial com perda dos folículos, com infiltrado predominantemente neutrofílico."
+   },
+   {
+    "servico": "Tricologia e tratamentos capilares",
+    "tipo": "Tratamento",
+    "nivel": "Área de atuação (pelo nome da doença)",
+    "trecho": "Doença do couro cabeludo/cabelos; a clínica divulga Tricologia e tratamentos capilares."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Foliculite dissecante",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Drenagem ou excisão cirúrgica pode estar indicada, em alguns casos."
+   },
+   {
+    "servico": "Tricologia e tratamentos capilares",
+    "tipo": "Tratamento",
+    "nivel": "Área de atuação (pelo nome da doença)",
+    "trecho": "Doença do couro cabeludo/cabelos; a clínica divulga Tricologia e tratamentos capilares."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Foliculite queloidiana da nuca",
+  "itens": [
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "A ablação a laser deve ser considerada nas lesões refratárias a outros tratamentos, com intuito de evitar cicatrizes."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Foliculite Selvagem - Pênfigos",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Histopatológico."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Foliculites",
+  "itens": [
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A cura definitiva somente é possível com a remoção permanente do pêlo através de lasers específicos."
+   },
+   {
+    "servico": "Depilação a laser",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Uma foliculite traumática pode ser observada após depilação."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…rônica da pele com furúnculos, fístulas e abscessos, mais comumente localizada nas axilas e virilhas, sendo o tratamento cirúrgico o método de escolha."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Gianotti-Crosti",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O histopatológico é inespecífico."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Gota",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Essas condições incluem trauma, cirurgia, alimentos gordurosos, desidratação e ingestão de drogas que afetam as concentrações séricas de urato (por exemplo, tiazídicos,…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Granuloma anular",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…asos mais extensos, como nas formas disseminadas, medicações orais podem ser necessárias, como isotretinoína, PUVA, dapsona, hidroxicloroquina, ésteres fumarínicos, iodeto de potássio e medicações anti-TNF."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Baseado na regressão espontânea após a biópsia, a realização de puncturas nas lesões também pode levar ao seu desaparecimento, assim como crioterapia com nitrogênio líquido."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Laser de corante pulsado (dye laser)",
+   "Excimer laser"
+  ]
+ },
+ {
+  "doenca": "Granuloma piogênico",
+  "itens": [
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O melhor tratamento é a eletrocoagulação de sua base."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Grânulos de Fordyce",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Existem relatos de casos onde foram utilizados o ácido bicloroacético, laser de CO2, terapia fotodinâmica usando ácido 5-aminolevulínico, isotretoína oral e curetagem com eletrocoagulação (1, 7, 8, 9, 10)."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…oacético, laser de CO2, terapia fotodinâmica usando ácido 5-aminolevulínico, isotretoína oral e curetagem com eletrocoagulação (1, 7, 8, 9, 10)."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…o ácido bicloroacético, laser de CO2, terapia fotodinâmica usando ácido 5-aminolevulínico, isotretoína oral e curetagem com eletrocoagulação (1, 7, 8, 9, 10)."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "É utilizado há mais de trinta anos na Dermatologia cirúrgica por sua eficiência em vaporizar, cortar tecidos e produzir hemostasia intra-operatória efetiva (11)."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Histopatologicamente, as lesões são indistinguíveis das glândulas sebáceas, porém não estão associadas ao folículo piloso e seu ducto se abre…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Hanseníase",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Esses grupos propostos foram definidos considerando aspectos clínico, bacteriológico, histopatológico e imunológico: Tuberculóide (TT) que corresponde à forma polar, benigna, estável, da Classificação de Madri:Borderline tubercu…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Hemangioma infantil",
+  "itens": [
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ão os corticóides intralesionais (para as pálpebras), laser como o flashlamp-pumped pulsed dye laser (585nm), Nd:YAG ou a luz pulsada, compressão, excisão cirúrgica, crioterapia e embolização."
+   },
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…óides intralesionais (para as pálpebras), laser como o flashlamp-pumped pulsed dye laser (585nm), Nd:YAG ou a luz pulsada, compressão, excisão cirúrgica, crioterapia e embolização."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…a as pálpebras), laser como o flashlamp-pumped pulsed dye laser (585nm), Nd:YAG ou a luz pulsada, compressão, excisão cirúrgica, crioterapia e embolização."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Laser de corante pulsado (dye laser)"
+  ]
+ },
+ {
+  "doenca": "Herpes simples",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Os fatores relacionados à reatividade viral são: febre, estresse, luz solar, frio, cirurgia, menstruação, trauma local, fadiga, doenças infecciosas e imunodepressão."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "No histopatológico temos a presença de vesículas intra-epiteliais onde se observa nas células afetadas  a degeneração balonizante."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Herpes zoster",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O citodiagnóstico de Tzanck e o exame histopatológico demonstram a presença de células gigantes multinucleadas (com até 15 núcleos) na base da vesícula, não sendo possível diferenc…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Hidradenite supurativa",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O laser de CO2,  induz vaporização das lesões e tem efeito bactericida gerado pelo calor, mostra excelentes resultados."
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O laser Nd-YAG mensal em média de 3 a 4 sessões, evidenciaram melhora significativa em todos os pacientes tratados em estudos prospectivos e con…"
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Para redução da inflamação, tratamentos tópicos, sistêmicos, lasers e cirurgias podem ser realizados."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Hiperceratose Epidermolítica",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Hiperidrose",
+  "itens": [
+   {
+    "servico": "Toxina botulínica",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…de alumínio, formol 2%, zircônio), iontoforese, anticolinérgicos orais, tranqüilizantes, infiltração local de toxina botulínica, e em casos extremos o tratamento cirúrgico com z-plastia ou simpatectomia transtorácica endoscópica bilateral."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…orese, anticolinérgicos orais, tranqüilizantes, infiltração local de toxina botulínica, e em casos extremos o tratamento cirúrgico com z-plastia ou simpatectomia transtorácica endoscópica bilateral."
+   },
+   {
+    "servico": "Radiofrequência",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O uso de micro-ondas e de radiofrequência com microagulhas também é analisado como alternativa de tratamento."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Hiperplasia Sebácea",
+  "itens": [
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "As opções terapêuticas incluem terapia fotodinâmica, crioterapia, cauterização ou eletrocoagulação, tratamento químico tópico com ATA, tratamento com laser de argônio, dióxido de carbono ou laser de corante pulsado."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica",
+   "Laser de corante pulsado (dye laser)"
+  ]
+ },
+ {
+  "doenca": "Hipomelanose macular",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "fototerapia;"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Hordéolo ou Terçol",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Trata-se de um quadro mais crônico e arrastado, e que muitas vezes necessita de intervenção cirúrgica."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ictiose Autossômica Recessiva",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ictiose Hystrix",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ictiose Lamelar",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ictiose Recessiva Ligada ao Sexo",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ictiose Vulgar",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ictioses",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…assificação: As ictioses são classificadas de acordo com o modo de herança, comportamento clínico, alterações histopatológicas e defeito básico."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Impetigo",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Larva Migrans",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Leiomioma",
+  "itens": [
+   {
+    "servico": "Toxina botulínica",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "e toxina botulínica."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Nesses casos, pode-se utilizar laser de CO2;"
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A excisão cirúrgica é o tratamento de escolha para leiomiomas cutâneos isolados ou com número limitado."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A biópsia é necessária para confirmar o diagnóstico."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Leishmaniose",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A sorologia normalmente é positiva, a IDRM negativa e amostras histopatológicas revelam grande quantidade de parasitas, demonstrando a resposta imunológica celular deficiente."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Lentigo",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…nte em 90% de brancos acima de 60 anos e ocorre em 50% dos indivíduos submetidos a 5,7 anos de tratamento com PUVA."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Leucodermia gutata",
+  "itens": [
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Crioterapia, dermabrasão, corticóides tópicos, retinóides, e imunomoduladores como pimecrolimus podem ser usados com resultados variáveis."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Laser de CO2 fracionado vem sendo utilizado com relativo sucesso."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Leucoplasia Oral Pilosa",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O histopatológico evidenciará hiperqueratose, papilomatose e acantose, além de degeneração baloniforme da epiderme."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Linfangioma",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Lipoma",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Na maior parte dos casos, porém, a extração cirúrgica do lipoma é o procedimento mais utilizado."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Quatro outros tipos de lipomas podem ser observados em uma amostra de biópsia."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Líquen Escleroso e Atrófico (LEA)",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Acitretin sistêmico ou ablação com laser de CO2 nos casos rebeldes."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia mostra atrofia da epiderme com hiperqueratose folicular e na derme observamos uma faixa de edema e hialinização do colágeno com…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Líquen Estriado",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Líquen Nítido",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Líquen Plano",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A PUVA terapia e a narrow-band se mostraram satisfatórias em alguns casos."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Histopatologia:É típica, com degeneração hidrópica das células da camada basal levando a formação de queratinócitos necróticos (corpos colóide), hipergranulose focal, hiperceratose ortoceratótica, acantose em “dentes de serra”, incontinênci"
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Lúpia",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Lúpus Eritematoso",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Interferon (INF-a) intralesional e laser de CO2 têm sido usados com sucesso em lesões localizadas."
+   },
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O LE telangiectásico responde ao flashlamp-pumped pulsed dye laser ou à luz pulsada."
+   },
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A radiação UV (tanto UVB como UVA) induz e exacerba as lesões de LES."
+   },
+   {
+    "servico": "LED",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "As alterações histológicas são semelhantes ao LED."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Diagnóstico: O diagnóstico é confirmado pela histopatologia e pela imunofluorescência direta da lesão."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Laser de corante pulsado (dye laser)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Lúpus Eritematoso Discóide",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Interferon (INF-a) intralesional e laser de CO2 têm sido usados com sucesso em lesões localizadas."
+   },
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O LE telangiectásico responde ao flashlamp-pumped pulsed dye laser ou à luz pulsada."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Diagnóstico: O diagnóstico é confirmado pela histopatologia e pela imunofluorescência direta da lesão."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Laser de corante pulsado (dye laser)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Lúpus Eritematoso Profundo ou Paniculite Lúpica",
+  "itens": [],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Lúpus Eritematoso Sistêmico",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Embora a luz UV, especialmente UVB, possa exacerbar o LES, tem-se demonstrado que a exposição à UVA-1 (340-400nm) na dose de 60kJ/m2 três vezes por semana, reduz a…"
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O exame histopatológico é muito específico para o diagnóstico de lúpus eritematoso e sua precisão chega a 97% sendo, raramente, necessária o uso da im…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Lúpus Eritematoso Subagudo",
+  "itens": [
+   {
+    "servico": "LED",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "As alterações histológicas são semelhantes ao LED."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Lúpus Neonatal",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Malformações Vasculares Capilares",
+  "itens": [
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Apresentam boa resposta ao lasers de 585nm e à luz pulsada (Photoderm)."
+   },
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Apresentam boa resposta ao lasers de 585nm e à luz pulsada (Photoderm)."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Mancha Café-au-lait",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Mancha Mongólica",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Melanoma",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Tais dados indicam uma correlação do melanoma com a latitude e radiação UVB medida, significando que a incidência aumenta à medida que aumenta a latitude."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Em caso de melanoma in situ, a excisão cirúrgica com margem de 0,5cm é satisfatória."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…ápido de pigmentação ungueal difusa ou faixa longitudinal escura na lâmina ungueal, justifica a realização de biópsia da matriz ungueal para afastar melanoma."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…lização de estruturas anatômicas em lesões pigmentadas, chamada microscopia de superfície (epiluminescente ou dermatoscopia)."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Melanose pustulosa transitória neonatal",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Melanose solar",
+  "itens": [
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A opção por um peeling  de ácido tricloroacético em toda superfície acometida apresenta bons resultados, com a desvantagem de ser um procedimento relati…"
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…o resultados excelentes para o tratamento das melanoses solares, assim como os lasers de pulso curto, como o  Nd-YAG Q-Switch."
+   },
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A luz intensa pulsada tem apresentado resultados excelentes para o tratamento das melanoses solares, assim como os lasers de pulso curto, como o  Nd-YA…"
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A cauterização química pode ser realizada pela aplicação pontual de ácido tricloroacético na superfície da lesão."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Melasma",
+  "itens": [
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Esfoliação química suave com solução de Jessner pode dar boa resposta, mas esfoliação com ATA 35-50% ou dermatoabrasão deve ser evitada, principalme…"
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Quando se usa os lasers QS Nd:YAG e Alexandrite com baixas fluências para o tratamento do melasma as taxas de melhora são superioes em pacientes com melasma castan…"
+   },
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ácido glicólico combinado com a fórmula de Kligman (tretinoína 0,1%, hidroquinona 5,0% e dexametasona 0,1%), luz intensa pulsada (IPL) combinada com laser de rubi Q-switched, e Nd:YAG QS combinado com 7% alfa-arbutin em solução apresentou melhores resultados…"
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…uma forma de poiquilodermia de Civatte, porque os pacientes estão muitas vezes na pós-menopausa e amostras de biópsia revelam significativo dano actínico (14)."
+   }
+  ],
+  "sem_correspondencia": [
+   "Laser de corante pulsado (dye laser)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Micobacterioses atípicas",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…acteriose de largo espectro principalmente em lesões que surgem após traumatismos com injeção, mesoterapia ou cirurgia."
+   },
+   {
+    "servico": "Tricologia e tratamentos capilares",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…peitar de micobacteriose de largo espectro principalmente em lesões que surgem após traumatismos com injeção, mesoterapia ou cirurgia."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Os achados histopatológicos são variáveis, podendo serem vistos apenas infiltrados linfohistiocitários, como também, granulomas completos com necrose cas…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Micose Fungóide",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Na fase infiltrativa da micose fungóide, as manifestações clínicas e histopatológicas são características."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Miliária",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Mílio",
+  "itens": [
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Milia secundária pode surgir após trauma, como dermoabrasão ou radioterapia."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Outras opções de tratamento para milia múltipla incluem retinóides tópicos e eletrodissecação ou eletrocautério."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "…ria, juntamente com a milia secundária, podem não se resolver sozinhas, e podem ser tratadas com intervenções cirúrgicas simples, como evacuação, com uma pequena incisão com lâmina de bisturi e pressão tangencial aplicada com extrator de comedão o…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Molusco Contagioso",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…e pelo tratamento, objetiva-se a destruição do tecido infectado, o que pode ser feito pelo uso de uma cureta, laser de CO2, pulsed dye laser, cantaridina 0,7% ou criocirurgia."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Laser de corante pulsado (dye laser)"
+  ]
+ },
+ {
+  "doenca": "Moniletrix",
+  "itens": [
+   {
+    "servico": "Tricologia e tratamentos capilares",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…tamento farmacológico, alguns relatos de casos mostraram benefício com o uso de derivados do ácido retinóico, minoxidil e triancinolona, porém, com rebote após suspensão da medicação."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Antes do advento da dermatoscopia a moniletrix permaneceu não diagnosticada por vários anos."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Mucinose",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Nas primárias, a deposição de mucina é a característica histopatológica principal sendo responsável pelas lesões clínicas."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Necrobiose Lipoídica",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é feito com base nos achados clínicos e histopatológicos."
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A dermatoscopia pode ser uma ferramenta útil para o diagnóstico, com as seguintes características:"
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Necrólise Epidérmica Tóxica ou NET ou Síndrome de Lyell",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O histopatológico caracteriza-se por necrose dos queratinócitos, clivagem subepidérmica e discreta reação inflamatória dérmica."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Neurodermite Circunscrita",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Neurofibromatoses",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "É indicada a excisão de tumores desfigurantes ou que interfiram com a função."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo Azul",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo de Células Balonizantes",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é firmado através dos achados histopatológicos, que revelam uma preponderância de células balonizantes, quase sempre acima de 50%."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo de Ito",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo de Ota",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo de Spitz",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O tratamento de eleição é a excisão total."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo Displásico",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Realizar a exérese das lesões suspeitas de ser melanoma."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Deve ser feita excisão cirúrgica e estudo histopatológico de duas ou três lesões para confirmação diagnóstica."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo Epidérmico Verrucoso",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo Halo ou Nevo de Sutton",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Por outro lado se o halo é assimétrico, o nevo tem um caráter atípico e ocorre em paciente idoso a biópsia, se possível excisional, é indicada."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo Melanocítico",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ibilidade de lesão maligna os nevos intradérmicos e compostos podem ser retirados por lasers ablativos como o CO2 ou Er:YAG."
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "…tiva do pigmento melânico, com destruição secundária da célula névica, como o realizado pelo Q-switched ruby, Nd:YAG e Alexandrite."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "A exérese cirúrgica é sempre preconizada devido ao alto risco de malignização, porém muitas vezes é um tratamento de difícil realização dev…"
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Se são biopsiados NM na pele de crianças, jovens adultos e idosos, será encontrado que a maioria dos nevos nas crianças serão NM juncionais, em…"
+   },
+   {
+    "servico": "Dermatoscopia digital",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Na atualidade é de grande ajuda na avaliação das lesões melanocíticas o auxílio da dermatoscopia."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Nevo Sebáceo de Jadassohn",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Pêlo risco de transformação neoplásica e sua aparência cosmética deve ser removida durante a infância com excisão e sutura primária."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Nevo Spilus",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Ocronose Exógena",
+  "itens": [
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Peeling com ATA em diferentes concentrações é utilizado há vários anos para tratamento do fotoenvelhecimento, cicatrizes de acne e distúr…"
+   },
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Em relação à dermoabrasão, há um relato de caso em que houve remoção de hiperpigmentação em uma paciente branca."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Diven at al utilizaram uma combinação de dermoabrasão e laser de CO2 com resultados satisfatórios nas regiões periorbital e nasal em uma mulher negra."
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Boa resposta ao tratamento é relatado com uso de Q-switched 755nm alexandrite laser."
+   },
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Assim como os lasers, existem relatos sobre a eficácia da Luz Intensa Pulsada (LIP) para o tratamento de lesões pigmentadas."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O exame histopatológico das lesões de ocronose exógena revela filamentos ocronóticos amarelo-acastanhados ou verdes com formato de banana na derme pap…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Onicomicose",
+  "itens": [
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O laser de Nd-YAG é mais usado."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Além disso, podem ser usadas medidas cirúrgicas adjuvantes."
+   }
+  ],
+  "sem_correspondencia": [
+   "Terapia fotodinâmica"
+  ]
+ },
+ {
+  "doenca": "Orelha de couve-flor",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Aqueles que ocorreram há mais de 7 dias devem ser encaminhados a um otorrinolaringologista ou cirurgião plástico para desbridamento de novo crescimento pericondral."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Papilomatose Confluente e Reticulada de Gougerot-Carteaud",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Se o prurido estiver presente, o prurigo pigmentoso deve ser considerado, com uma biópsia de pele mostrando infiltrado linfocitário e múltiplos ceratinócitos necróticos."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Papulose Bowenóide",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…tamento incluem terapias localmente ablativas ou destrutivas, como vaporização a laser de dióxido de carbono (CO2), crioterapia, eletrocoagulação, terapia fotodinâmica mediada por ácido 5-aminolevulínico (ALA-PDT), cirurgia excisional e 5 fluo…"
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…apias localmente ablativas ou destrutivas, como vaporização a laser de dióxido de carbono (CO2), crioterapia, eletrocoagulação, terapia fotodinâmica mediada por ácido 5-aminolevulínico (ALA-PDT), cirurgia excisional e 5 fluorouracil (5-FU)."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ono (CO2), crioterapia, eletrocoagulação, terapia fotodinâmica mediada por ácido 5-aminolevulínico (ALA-PDT), cirurgia excisional e 5 fluorouracil (5-FU)."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "DIAGNÓSTICO: Devido ao seu potencial de transformação maligna, o diagnóstico geralmente é feito por biópsia de pele."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica"
+  ]
+ },
+ {
+  "doenca": "Paracoccidioidomicose",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Histopatologia: A epiderme pode estar ulcerada, com acantose ou hiperplasia pseudoepiteliomatosa."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Parapsoríases",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Tratamento: Emolientes tópicos, PUVA terapia."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Pediculoses",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Penfigóide Bolhoso",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Fatores físicos como irritação local, luz ultravioleta, PUVA e radioterapia podem induzir ou exacerbar o penfigóide bolhoso."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A área de eleição para a biópsia é a pele inflamada próxima a uma bolha (até 2 cm) onde são observados depósitos de IgG (90% dos casos) e C3 (100% dos casos), com…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Penfigóide Cicatricial ou das Membranas Mucosas",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Tratamento cirúrgico para resolução das estenoses das vias aéreas e do esôfago."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Diagnóstico: Histopatologia."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Penfigóide Gestacional",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Na histopatologia, a bolha é subepidérmica e contém numerosos eosinófilos."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Penfigóides",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Fatores físicos como irritação local, luz ultravioleta, PUVA e radioterapia podem induzir ou exacerbar o penfigóide bolhoso."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Tratamento cirúrgico para resolução das estenoses das vias aéreas e do esôfago."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A área de eleição para a biópsia é a pele inflamada próxima a uma bolha (até 2 cm) onde são observados depósitos de IgG (90% dos casos) e C3 (100% dos casos), com…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Radioterapia"
+  ]
+ },
+ {
+  "doenca": "Piedras",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Pioderma Gangrenoso",
+  "itens": [
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Devido a isso, os procedimentos cirúrgicos são considerados apenas em casos selecionados, como aqueles em que o acúmulo de tecido necrótico apresenta risco de infecção."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "Os achados clínicos, histopatológicos e laboratoriais no PG são inespecíficos, e o diagnóstico só pode ser feito uma vez que outras possibilidades forem excluídas."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Pitiríase Linquenóide e Varioiliforme Aguda (PLEVA)",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…anos orais como tetraciclina e eritromicina, pelo efeito imunomodulador, corticóides tópicos, coaltar tópico, fototerapia."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é feito ao se correlacionar a clínica aos achados histopatológios."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Pitiríase Rósea",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Pitiríase Rubra Pilar",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…são os retinóides orais, mas há relatos tratamentos com metotrexate, azatioprina, ciclosporina, corticóides, fototerapia ou infliximab."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é essencialmente clínico e histopatológico."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Pitiríase Versicolor",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Policondrite Recidivante",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Porfiria Cutânes Tarda",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia evidencia bolha subepidérmica com festonamento da derme papilar pra dentro da bolha e escasso infiltrado inflamatório."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Poroceratoses",
+  "itens": [
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…, terapia fotodinâmica, laser de CO2, ruby, dye laser e Nd:YAG têm sido usados, shaving, curetagem, excisão e dermabrasão."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…dem ser usadas: crioterapia, 5-fluoroacil, análogos tópicos da vitamina D-3, imiquimod, terapia fotodinâmica, laser de CO2, ruby, dye laser e Nd:YAG têm sido usados, shaving, curetagem, excisão e dermabrasão."
+   },
+   {
+    "servico": "Laser ND-YAG / Q-Switched (Spectra XT)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…luoroacil, análogos tópicos da vitamina D-3, imiquimod, terapia fotodinâmica, laser de CO2, ruby, dye laser e Nd:YAG têm sido usados, shaving, curetagem, excisão e dermabrasão."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…tamina D-3, imiquimod, terapia fotodinâmica, laser de CO2, ruby, dye laser e Nd:YAG têm sido usados, shaving, curetagem, excisão e dermabrasão."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…imiquimod, terapia fotodinâmica, laser de CO2, ruby, dye laser e Nd:YAG têm sido usados, shaving, curetagem, excisão e dermabrasão."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O diagnóstico é clínico e histopatológico."
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)",
+   "Terapia fotodinâmica",
+   "Laser de corante pulsado (dye laser)"
+  ]
+ },
+ {
+  "doenca": "Psoríase",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O método de Goeckerman compreende a associação do coaltar com a radiação ultravioleta B (UVB), sendo este um bom método para formas mais disseminadas."
+   },
+   {
+    "servico": "Curetagem",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "A curetagem metódica de Brocq fornece dados importantes."
+   },
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "A histopatologia pode ser útil na confirmação diagnóstica."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Rinofima",
+  "itens": [
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…ra corrigir os defeitos morfológicos produzidos por esta doença no nariz, vários métodos têm sido usados como dermoabrasão, eletrocauterização e laserterapia."
+   },
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O uso do laser de CO2 para o tratamento do rinofima é uma terapia adequada com excelentes resultados estéticos, mínima morbidade e pouco  risco cirúrgi…"
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…defeitos morfológicos produzidos por esta doença no nariz, vários métodos têm sido usados como dermoabrasão, eletrocauterização e laserterapia."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Remoção cirúrgica da massa tumoral hiperplásica é o tratamento de escolha para o rinofima."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Rosácea",
+  "itens": [
+   {
+    "servico": "Laser de CO2 / laser fracionado",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O rinofima pode ser retirado através da cirurgia, eletrocoagulação ou do laser de CO2."
+   },
+   {
+    "servico": "Luz intensa pulsada",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O uso de lasers absorvidos pela oxiemoglobina e a luz intensa pulsada podem ser de grande ajuda na resolução do componente vascular da rosácea, como eritema e telangiectasias."
+   },
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O rinofima pode ser retirado através da cirurgia, eletrocoagulação ou do laser de CO2."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "O rinofima pode ser retirado através da cirurgia, eletrocoagulação ou do laser de CO2."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Rubéola",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Sarampo",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Sarcoidose",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…adamente 25% dos pacientes e são divididas em lesões específicas e inespecíficas com base nas características histopatológicas."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Sífilis",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Síndrome de Stevens-Johnson",
+  "itens": [],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Siringoma",
+  "itens": [
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "• Dermoabrasão"
+   },
+   {
+    "servico": "Lasers (tipo a confirmar)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "• Laser de dióxido de carbono ou Er: YAG"
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Apenas citado",
+    "trecho": "Cuidados cirúrgicos"
+   }
+  ],
+  "sem_correspondencia": [
+   "Crioterapia / criocirurgia (nitrogênio líquido)"
+  ]
+ },
+ {
+  "doenca": "Tungíase",
+  "itens": [
+   {
+    "servico": "Eletrocauterização",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Tratamento: O tratamento consiste na completa remoção do “bicho de pé”, que pode ser feita por enucleação, excisão ou eletrocoagulação."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "Tratamento: O tratamento consiste na completa remoção do “bicho de pé”, que pode ser feita por enucleação, excisão ou eletrocoagulação."
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Urticária",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "…revela um componente de púrpura no local, com esmaecimento do eritema de base com manifestações sistêmicas e histopatologia de venulite necrotizante com degeneração fibrinóide na derme superior mais lecucocitoclasia."
+   }
+  ],
+  "sem_correspondencia": [
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Varicela",
+  "itens": [
+   {
+    "servico": "Biópsia",
+    "tipo": "Diagnóstico",
+    "nivel": "Citado como exame",
+    "trecho": "O citodiagnóstico de Tzanck e o exame histopatológico demonstram a presença de células gigantes multinucleadas (com até 15 núcleos) na base da vesícula, não sendo possível diferenc…"
+   }
+  ],
+  "sem_correspondencia": []
+ },
+ {
+  "doenca": "Vitiligo",
+  "itens": [
+   {
+    "servico": "Fototerapia",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "UVB e UVA são modalidades de primeira linha de tratamento para vitiligocom mais de 10-20% de comprometimento cutâneo."
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "Podemos também conseguir repigmentação mediante procedimentos cirúrgicos como: enxertos epidérmicos, enxertos dermoepidérmicos delgados, enxertos de pele total, minienxertos autólogos, enxertos autól…"
+   }
+  ],
+  "sem_correspondencia": [
+   "Excimer laser",
+   "Infiltração intralesional"
+  ]
+ },
+ {
+  "doenca": "Xeroderma Pigmentoso",
+  "itens": [
+   {
+    "servico": "Peelings químicos",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "Tem-se utilizados métodos como os peelings, a dermoabrasão e o uso de retinóides orais como o acitretin e a isotretinoina na tentativa de evitar o desenvolvimento de novos…"
+   },
+   {
+    "servico": "Dermoabrasão / microdermoabrasão / peeling de cristal",
+    "tipo": "Tratamento",
+    "nivel": "Revisar: frase com negação ou causa",
+    "trecho": "Tem-se utilizados métodos como os peelings, a dermoabrasão e o uso de retinóides orais como o acitretin e a isotretinoina na tentativa de evitar o desenvolvimento de novos tumores cutâneos…"
+   },
+   {
+    "servico": "Pequenas cirurgias (avaliar porte)",
+    "tipo": "Tratamento",
+    "nivel": "Indicado no texto",
+    "trecho": "…atoses actínicas e os tumores cutâneos devem ser tratados com rigor desde o uso tópico do 5-fluoruracil até a excisão com a técnica de Mohs."
+   }
+  ],
+  "sem_correspondencia": [
+   "Cirurgia micrográfica de Mohs"
+  ]
+ }
+]
