@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gera o site estático da Skin Prime em ../site a partir de build/data/*.json.
 Uso:  python3 build/build.py   (executar na raiz do projeto)"""
-import json, re, os, html, unicodedata, datetime, collections
+import json, re, os, html, unicodedata, datetime, collections, urllib.parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'site')
@@ -522,6 +522,84 @@ for i, p in enumerate(POSTS):
     write(f"tratamentos/{p['s']}.html", page('tratamentos/x.html', p['title'].strip(), p['excerpt'], body, 'tratamentos',
                                               f"assets/img/posts/{p['cover_f']}.jpg" if p['cover_f'] else 'assets/img/clinic/vista.jpg'))
 
+
+# bloco "Na Skin Prime" ao final de cada doença, a partir do cruzamento (build/cruzamento.py)
+try:
+    CRUZ = {c['doenca']: c for c in json.load(open(os.path.join(HERE, 'data', 'cruzamento.json'), encoding='utf-8'))}
+except OSError:
+    CRUZ = {}
+# serviço do cruzamento -> (nome exibido, trecho do título da publicação que o descreve)
+SERV = {
+    'Toxina botulínica': ('Toxina botulínica', 'toxina botulinica a'),
+    'Preenchimento com ácido hialurônico': ('Preenchimento com ácido hialurônico', 'acido hialuronico'),
+    'Peelings químicos': ('Peelings químicos', 'peelings quimicos'),
+    'Dermoabrasão / microdermoabrasão / peeling de cristal': ('Dermoabrasão e microdermoabrasão', 'dermoabrasao'),
+    'Microagulhamento': ('Microagulhamento', 'microagulhamento'),
+    'Laser de CO2 / laser fracionado': ('Laser de CO2', 'laser de co2'),
+    'Laser ND-YAG / Q-Switched (Spectra XT)': ('Laser ND-YAG / Q-Switched', 'q-switched'),
+    'Luz intensa pulsada': ('Luz intensa pulsada', 'luz intensa pulsada'),
+    'Lasers (tipo a confirmar)': ('Lasers', 'lasers'),
+    'Depilação a laser': ('Depilação a laser', 'depilacao a laser'),
+    'Fototerapia': ('Fototerapia', 'fototerapia'),
+    'LED': ('LED', 'led -'),
+    'Eletrocauterização': ('Eletrocauterização', 'eletrocauterizacao'),
+    'Curetagem': ('Curetagem dermatológica', 'curetagem'),
+    'Pequenas cirurgias (avaliar porte)': ('Pequenas cirurgias', 'pequenas cirurgias'),
+    'Tricologia e tratamentos capilares': ('Tricologia e tratamentos capilares', 'tricologia'),
+    'Radiofrequência': ('Radiofrequência', 'radiofrequencia'),
+    'Nutrição': ('Acompanhamento nutricional', 'nutricao funcional'),
+    'Biópsia': ('Biópsia', 'biopsia'),
+    'Dermatoscopia digital': ('Dermatoscopia digital', 'dermatoscopia'),
+}
+OK_LEVELS = ('Indicado no texto', 'Área de atuação', 'Citado como exame')
+
+
+def post_by(key):
+    for p in POSTS:
+        if key in norm(p['title']):
+            return p
+    return None
+
+
+def solucao(d):
+    """Bloco final da página da doença: o que a clínica oferece para aquela condição."""
+    c = CRUZ.get(d['t'], {'itens': []})
+    trat, diag = [], []
+    for it in c['itens']:
+        if not it['nivel'].startswith(OK_LEVELS) or it['servico'] not in SERV:
+            continue
+        nome, key = SERV[it['servico']]
+        p = post_by(key)
+        (diag if it['tipo'] == 'Diagnóstico' else trat).append((nome, p))
+    wa = WA + '?text=' + urllib.parse.quote(f"Olá, Skin Prime! Gostaria de agendar uma avaliação sobre {d['t']}.")
+
+    def lista(items):
+        out = ''
+        for nome, p in items:
+            if p:
+                out += f'<a class="sol__i glow" href="../tratamentos/{p["s"]}.html"><b>{E(nome)}</b><span>Saber mais →</span></a>'
+            else:
+                out += f'<span class="sol__i"><b>{E(nome)}</b></span>'
+        return out
+    if trat or diag:
+        intro = f'Entre os recursos citados para {E(d["t"])}, estes estão disponíveis na clínica:'
+        blocos = ''
+        if trat:
+            blocos += f'<p class="label">Tratamentos</p><div class="sol__g">{lista(trat)}</div>'
+        if diag:
+            blocos += f'<p class="label">Diagnóstico</p><div class="sol__g">{lista(diag)}</div>'
+    else:
+        intro = f'O texto sobre {E(d["t"])} não cita procedimentos específicos entre os oferecidos pela clínica. A conduta é definida em consulta: nossa equipe avalia as manifestações na pele e orienta o tratamento ou o encaminhamento adequado.'
+        blocos = ''
+    return f'''<section class="sol panel" id="na-clinica">
+<p class="label">Na Skin Prime</p>
+<h2>Como podemos ajudar</h2>
+<p class="sol__intro">{intro}</p>
+{blocos}
+<div class="sol__foot"><small>A escolha do tratamento depende de avaliação médica individual. Este conteúdo é informativo e não substitui a consulta.</small>
+<a class="btn btn--solid" href="{wa}" target="_blank" rel="noopener">{ICON_WA} Agendar avaliação</a></div>
+</section>'''
+
 # ---------------------------------------------------------------- doenças
 az = ''.join((f'<a href="#letra-{L}">{L}</a>' if L in BY_LETTER else f'<span>{L}</span>') for L in 'ABCDEFGHIJKLMNOPQRSTUVXZ')
 groups = ''.join(f'''<section class="letter" id="letra-{L}" data-group><b aria-hidden="true">{L}</b><ul>{''.join(
@@ -544,6 +622,7 @@ for i, d in enumerate(DIS):
     toc = ''.join(f'<li><a href="#{h}">{E(t)}</a></li>' for h, t in d['toc'])
     if d['imgs']:
         toc += '<li><a href="#imagens">Imagens</a></li>'
+    toc += '<li><a href="#na-clinica">Na Skin Prime</a></li>'
     gal = ''
     if d['imgs']:
         gal = f'''<h2 id="imagens" style="font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:2.2em;padding-top:.9em;border-top:1px solid var(--line);scroll-margin-top:110px">Atlas de imagens <span class="label label--mute" style="margin-left:10px">{len(d['imgs'])}</span></h2>
@@ -554,7 +633,7 @@ for i, d in enumerate(DIS):
 <section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap art">
 <aside class="art__side"><a class="arrow" style="justify-self:start" href="index.html">Voltar ao índice</a>{f'<ol>{toc}</ol>' if toc else ''}
 <p class="note">Conteúdo informativo. Não substitui a consulta com um dermatologista. <a href="{WA_MSG}" target="_blank" rel="noopener" style="color:var(--aqua)">Agende sua avaliação</a>.</p></aside>
-<article><div class="prose">{d['body']}</div>{gal}{bib}</article>
+<article><div class="prose">{d['body']}</div>{gal}{bib}{solucao(d)}</article>
 </div></section>
 <nav class="pn" aria-label="Outras doenças"><a href="{prev['s']}.html"><span class="label label--mute">← Anterior</span><b>{E(prev['t'])}</b></a><a href="{nxt['s']}.html"><span class="label label--mute">Próxima →</span><b>{E(nxt['t'])}</b></a></nav>'''
     write(f"doencas/{d['s']}.html", page('doencas/x.html', d['t'], d['lead'], body, 'doencas'))
