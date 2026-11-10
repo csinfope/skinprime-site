@@ -107,6 +107,7 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
 <a class="wa" href="{WA_MSG}" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">{ICON_WA}</a>
 <div class="pal" role="dialog" aria-modal="true" aria-label="Busca"><div class="pal__box"><div class="pal__in">{ICON_S}<label class="sr" for="pal-q">Buscar</label><input id="pal-q" type="search" placeholder="Busque um tratamento ou doença…" autocomplete="off"><kbd>esc</kbd></div><div class="pal__out"></div></div></div>
 <script src="{R}assets/js/data.js" defer></script>
+<script src="{R}assets/js/face.js" defer></script>
 <script src="{R}assets/js/fx.js" defer></script>
 <script src="{R}assets/js/site.js" defer></script>
 <script src="{R}assets/js/tour.js" defer></script>
