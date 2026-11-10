@@ -113,7 +113,7 @@
   /* ---------- part\u00edculas: forma por se\u00e7\u00e3o + controles */
   function fx() {
     var F = W.SPFX; if (!F) return;
-    var secs = $$('[data-fx]'), cur = null, hud = $('[data-hud-shape]'), LAB = { logo: 'Marca', helix: 'DNA', skin: 'Camadas da pele', cell: 'C\u00e9lula', ring: 'Lente' };
+    var secs = $$('[data-fx]'), cur = null, hud = $('[data-hud-shape]'), LAB = { logo: 'Marca', helix: 'DNA', skin: 'Camadas da pele', cell: 'C\u00e9lula', ring: 'Lente', toxin: 'Toxina botul\u00ednica', face: 'Rosto em transforma\u00e7\u00e3o' };
     var hn = $('[data-hud-n]'); if (hn) hn.textContent = F.count.toLocaleString('pt-BR');
     function apply(s, shape) {
       var m = W.innerWidth < 760;
@@ -131,7 +131,7 @@
     modes.forEach(function (b) { b.addEventListener('click', function () { auto = false; var n = b.getAttribute('data-go'); apply($('.hero') || secs[0], n); sync(n); }); });
     W.addEventListener('scroll', pick, { passive: true }); W.addEventListener('resize', function () { cur = null; pick(); }); pick();
     // no her\u00f3i, as formas se alternam sozinhas at\u00e9 o visitante escolher uma
-    var auto = !!$('.hero') && !still, seq = ['logo', 'helix', 'skin', 'cell'], si = 0;
+    var auto = !!$('.hero') && !still, seq = ['logo', 'face', 'helix', 'toxin', 'skin', 'cell'], si = 0;
     if (auto) setInterval(function () { if (!auto || cur !== $('.hero') || d.hidden) return; si = (si + 1) % seq.length; apply(cur, seq[si]); sync(seq[si]); }, 6500);
   }
   if (W.SPFX) fx(); else W.addEventListener('fx:ready', fx);

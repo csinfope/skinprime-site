@@ -340,11 +340,11 @@ home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" d
 <p class="lead">A experiência e a tecnologia se encontram para trazer uma estrutura clínica nunca vista no Recife quando o assunto é <strong>dermatologia, estética, nutrição e saúde</strong>.</p>
 <div class="hero__cta"><a class="btn btn--solid" href="#encontre">Encontre seu tratamento</a><a class="btn" href="{WA_MSG}" target="_blank" rel="noopener">{ICON_WA} Agendar pelo WhatsApp</a></div>
 <div class="modes" role="group" aria-label="Mudar a forma das partículas"><span>Interaja</span>
-<button class="chip" type="button" data-go="logo" aria-pressed="true">Marca</button><button class="chip" type="button" data-go="helix" aria-pressed="false">DNA</button><button class="chip" type="button" data-go="skin" aria-pressed="false">Camadas da pele</button><button class="chip" type="button" data-go="cell" aria-pressed="false">Célula</button></div>
+<button class="chip" type="button" data-go="logo" aria-pressed="true">Marca</button><button class="chip" type="button" data-go="helix" aria-pressed="false">DNA</button><button class="chip" type="button" data-go="skin" aria-pressed="false">Camadas da pele</button><button class="chip" type="button" data-go="face" aria-pressed="false">Rosto em transformação</button><button class="chip" type="button" data-go="toxin" aria-pressed="false">Toxina botulínica</button><button class="chip" type="button" data-go="cell" aria-pressed="false">Célula</button></div>
 <div class="facts"><div><b data-count="{len(TEAM)}">{len(TEAM)}</b><span>Especialistas</span></div><div><b data-count="{len(tech)}">{len(tech)}</b><span>Tecnologias</span></div><div><b data-count="{len(DIS)}">{len(DIS)}</b><span>Doenças catalogadas</span></div><div><b data-count="{N_IMG}">{NI}</b><span>Imagens no atlas</span></div></div>
 </div></section>
 
-<section class="sec" id="encontre" data-fx="skin" data-fx-x="0" data-fx-y="-.15" data-fx-s="1.5" data-fx-f=".3"><div class="wrap">
+<section class="sec" id="encontre" data-fx="face" data-fx-x=".7" data-fx-y=".3" data-fx-s=".8" data-fx-f=".4"><div class="wrap">
 <div class="sec__head"><p class="label">Explore</p><h2 class="split">O que você quer <em>cuidar</em> hoje?</h2><p>Escolha a região e o objetivo para ver os tratamentos relacionados que a clínica oferece. A indicação certa é definida em consulta, com avaliação do seu caso.</p></div>
 <div class="finder rv" data-finder>
 <div class="finder__l" data-finder-areas></div>
@@ -352,7 +352,7 @@ home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" d
 <div class="finder__foot"><small><span class="label" data-finder-sum></span><br>Conteúdo informativo; não substitui avaliação médica.</small><a class="btn btn--solid" data-finder-cta href="{WA_MSG}" target="_blank" rel="noopener">{ICON_WA} Quero uma avaliação</a></div></div>
 </div></div></section>
 
-<section class="sec" id="tecnologia" data-fx="ring" data-fx-x="-.62" data-fx-y="0" data-fx-s=".9" data-fx-f=".4"><div class="wrap">
+<section class="sec" id="tecnologia" data-fx="toxin" data-fx-x=".72" data-fx-y=".35" data-fx-s=".8" data-fx-f=".45"><div class="wrap">
 <div class="sec__head"><p class="label">Tecnologia</p><h2 class="split">O que há de mais <em>moderno</em> num só lugar.</h2><p>Passe o cursor ou toque em cada equipamento para conhecer o que ele faz. São {len(tech)} tecnologias disponíveis na clínica.</p></div>
 <div class="tech rv" data-tech><div class="tech__list" data-tech-list></div><div class="tech__panel panel" data-tech-panel></div></div>
 </div>

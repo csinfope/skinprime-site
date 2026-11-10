@@ -81,22 +81,98 @@
     }, 1100, 380, 3.1);
   }
 
-  var shapes = { helix: helix(), skin: skin(), cell: cell(), ring: ring() };
+  // seringa de toxina botulinica: agulha, canhao, corpo graduado com liquido, embolo e haste
+  function toxin() {
+    var a = new Float32Array(N * 3), tz = -.6, c = Math.cos(tz), s = Math.sin(tz);
+    for (var i = 0; i < N; i++) {
+      var k = rnd(), th = rnd() * Math.PI * 2, u, r;
+      if (k < .1) { u = .75 + rnd() * .55; r = .012; }                                   // agulha
+      else if (k < .16) { u = .62 + rnd() * .13; r = .1 - (u - .62) / .13 * .07; }       // canhao
+      else if (k < .4) { u = -.45 + rnd() * 1.07; r = .17; }                             // corpo
+      else if (k < .56) { u = -.45 + Math.round(rnd() * 10) / 10 * 1.07; r = .17; }      // graduacoes
+      else if (k < .76) { u = .08 + rnd() * .54; r = Math.sqrt(rnd()) * .15; }           // liquido
+      else if (k < .81) { u = .05 + rnd() * .04; r = Math.sqrt(rnd()) * .16; }           // embolo
+      else if (k < .87) { u = -.45; r = .17 + rnd() * .16; }                             // aba
+      else if (k < .95) { u = -1.05 + rnd() * 1.1; r = .045; }                           // haste
+      else if (k < .985) { u = -1.07 + rnd() * .03; r = Math.sqrt(rnd()) * .21; }        // apoio do polegar
+      else { u = 1.34 + rnd() * .22; r = rnd() * .02; }                                  // gota
+      var x = r * Math.cos(th) + gauss() * .004, z = r * Math.sin(th) + gauss() * .004, y = (u - .12) * .9; x *= .9; z *= .9;
+      a[i * 3] = x * c - y * s; a[i * 3 + 1] = x * s + y * c; a[i * 3 + 2] = z;
+    }
+    return a;
+  }
+  // rosto 3D em fatias (estilo malha de escaneamento), em dois estados com os mesmos pontos:
+  // t=0 contorno mais caido; t=1 contorno elevado e definido. A varredura alterna entre eles.
+  function lerpT(tab, y, t) {
+    for (var i = 0; i < tab.length - 1; i++) {
+      var p = tab[i], q = tab[i + 1];
+      if (y <= p[0] && y >= q[0]) {
+        var f = (p[0] - y) / (p[0] - q[0]); f = (1 - Math.cos(f * Math.PI)) / 2;
+        var va = p[1] + (p[2] - p[1]) * t, vb = q[1] + (q[2] - q[1]) * t; return va + (vb - va) * f;
+      }
+    }
+    var e = y > tab[0][0] ? tab[0] : tab[tab.length - 1]; return e[1] + (e[2] - e[1]) * t;
+  }
+  var FW = [[1.1, 0, 0], [1.0, .3, .3], [.8, .54, .54], [.5, .63, .63], [.2, .62, .62], [0, .6, .61], [-.25, .58, .55], [-.45, .54, .46], [-.62, .42, .32], [-.78, .3, .2], [-.9, .27, .24], [-1.15, .3, .28]];
+  var FF = [[1.1, 0, 0], [.95, .36, .36], [.7, .57, .57], [.42, .63, .64], [.28, .58, .58], [0, .6, .6], [-.18, .62, .62], [-.3, .62, .63], [-.43, .56, .55], [-.6, .58, .6], [-.72, .54, .46], [-.84, .4, .2], [-.95, .26, .2], [-1.15, .24, .22]];
+  var FB = [[1.1, 0, 0], [.9, -.5, -.5], [.5, -.76, -.76], [.1, -.74, -.74], [-.3, -.58, -.58], [-.7, -.36, -.36], [-1.15, -.33, -.33]];
+  function g(v, c, s) { v = (v - c) / s; return Math.exp(-v * v); }
+  function facePt(y, th, t, out, o) {
+    var w = lerpT(FW, y, t), cs = Math.cos(th), sn = Math.sin(th), at = Math.abs(th), lift = t * .03;
+    var x = w * sn, z = cs > 0 ? lerpT(FF, y, t) * cs : lerpT(FB, y, t) * cs * -1;
+    if (cs > 0) {
+      var ny = y > -.02 ? Math.max(0, 1 - (y + .02) / .32) : Math.max(0, 1 + (y + .02) / .1);
+      z += .3 * ny * g(th, 0, .16 + .12 * ny);                                           // nariz
+      z -= .1 * g(at, .5, .2) * g(y, .2 + lift, .085);                                   // olhos
+      z += .035 * g(at, .45, .3) * g(y, .34 + lift, .05);                                // sobrancelha
+      z += (.03 + .035 * t) * g(th, 0, .42) * (g(y, -.25, .045) + g(y, -.345, .05));     // labios
+      z -= .03 * g(th, 0, .5) * g(y, -.297, .018);
+      var ck = (.01 + .06 * t) * g(at, .85, .32) * g(y, .02 + lift, .2);                 // macas do rosto
+      z += ck; x *= 1 + ck;
+      z -= (1 - t) * .035 * g(at, .42, .1) * g(y, -.17, .13);                            // sulco nasolabial
+      z += (1 - t) * .03 * g(at, .75, .25) * g(y, -.55, .12);                            // flacidez na mandibula
+    }
+    out[o] = x; out[o + 1] = y * .95 + .02; out[o + 2] = z - .05;
+  }
+  function faces() {
+    var A = new Float32Array(N * 3), B = new Float32Array(N * 3), HP = Math.PI / 2;
+    for (var i = 0; i < N; i++) {
+      var k = rnd(), y, th, jy = 0, jt = 0, br = 0;
+      if (k < .7) { y = 1.1 - Math.round(rnd() * 36) / 36 * 2.25; th = (rnd() * 2 - 1) * Math.PI; }
+      else if (k < .91) { y = 1.1 - rnd() * 2.25; th = (Math.round(rnd() * 22) / 22 * 2 - 1) * Math.PI; }
+      else {
+        var f = rnd(), sgn = rnd() < .5 ? -1 : 1, u = rnd() * 2 - 1, an = rnd() * Math.PI * 2;
+        if (f < .34) { th = sgn * (.5 + Math.cos(an) * .17); y = .2 + Math.sin(an) * .034 * (1 - .5 * Math.cos(an) * Math.cos(an)); br = 1; }           // contorno dos olhos
+        else if (f < .56) { th = sgn * (.5 + u * .26); y = .335 - u * u * .03; br = 1; }                      // sobrancelhas
+        else if (f < .86) { th = u * .32; var lp = Math.pow(1 - u * u, .8); y = rnd() < .5 ? -.297 + .05 * lp : -.297 - .06 * lp; } // labios
+        else { th = u * .32; y = -.297; }                                        // base do nariz
+      }
+      if (k >= .7 && k < .91) jt = gauss() * .004;
+      facePt(y + jy, th + jt, 0, A, i * 3); facePt(y + jy + br * 0, th + jt, 1, B, i * 3);
+    }
+    return [A, B];
+  }
+  var fc = faces();
+  var shapes = { helix: helix(), skin: skin(), cell: cell(), ring: ring(), toxin: toxin(), face: fc[0], face2: fc[1] };
   shapes.logo = shapes.ring;
-  var spin = { logo: 0, helix: 1, skin: .25, cell: 1, ring: 0 };
+  // giro: positivo = rotacao continua; negativo = vai e volta (amplitude em radianos)
+  var spin = { logo: 0, helix: 1, skin: .25, cell: 1, ring: 0, toxin: -.7, face: -.8, face2: -.8 };
+  var pair = { face: 'face2', face2: 'face' };
 
   // ---------- GL
-  var VS = 'attribute vec3 aA;attribute vec3 aB;attribute float aS;uniform float uMix,uT,uAsp,uDpr,uSpinA,uSpinB,uScale,uFade;uniform vec2 uMouse,uOff,uTilt;varying float vA;varying float vS;' +
+  var VS = 'attribute vec3 aA;attribute vec3 aB;attribute float aS;uniform float uMix,uT,uAsp,uDpr,uSpinA,uSpinB,uScale,uFade,uMode;uniform vec2 uMouse,uOff,uTilt;varying float vA;varying float vS;' +
+    'float ang(float s){return s<0.?sin(uT*.45)*(-s):uT*.16*s;}' +
     'vec3 ry(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(p.x*c+p.z*s,p.y,-p.x*s+p.z*c);}' +
     'vec3 rx(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(p.x,p.y*c-p.z*s,p.y*s+p.z*c);}' +
-    'void main(){float d=aS*.45;float m=clamp((uMix-d)/(1.-.45),0.,1.);m=m*m*(3.-2.*m);' +
-    'vec3 a=ry(aA,uT*.16*uSpinA),b=ry(aB,uT*.16*uSpinB);vec3 p=mix(a,b,m);' +
-    'float burst=sin(m*3.14159);p+=burst*.55*vec3(sin(aS*91.),cos(aS*57.),sin(aS*33.));' +
+    'void main(){float d=aS*.45;float m=clamp((uMix-d)/(1.-.45),0.,1.);m=m*m*(3.-2.*m);float glow=0.;' +
+    'if(uMode>.5){float dd=aB.y-mix(1.45,-1.45,uMix);m=smoothstep(-.1,.1,dd);glow=exp(-dd*dd*110.);}' +
+    'vec3 a=ry(aA,ang(uSpinA)),b=ry(aB,ang(uSpinB));vec3 p=mix(a,b,m);' +
+    'float burst=sin(m*3.14159)*(1.-uMode);p+=burst*.55*vec3(sin(aS*91.),cos(aS*57.),sin(aS*33.));p.xz*=1.+glow*.05;' +
     'p+=.012*vec3(sin(uT*1.3+aS*40.),cos(uT*1.1+aS*70.),sin(uT*.9+aS*20.));' +
     'p=rx(ry(p,uTilt.x),uTilt.y);p*=uScale;float z=3.2-p.z;vec2 q=p.xy/z*2.1;q.x/=uAsp;q+=uOff;' +
     'vec2 dm=q-uMouse;dm.x*=uAsp;float dl=length(dm);float push=exp(-dl*dl*26.)*.085;q+=normalize(dm+1e-5)*push*vec2(1./uAsp,1.);' +
-    'gl_Position=vec4(q,0.,1.);gl_PointSize=(1.7+fract(aS*7.)*2.6)*uDpr*(3.2/z)*(1.+push*7.);' +
-    'vA=(.55+.45*fract(aS*13.))*uFade*clamp(1.9-z*.3,.35,1.)*(1.+push*6.);vS=aS;}';
+    'gl_Position=vec4(q,0.,1.);gl_PointSize=(1.7+fract(aS*7.)*2.6)*uDpr*(3.2/z)*(1.+push*7.)*(1.+glow*.7);' +
+    'vA=(.55+.45*fract(aS*13.))*uFade*clamp(1.9-z*.3,.35,1.)*(1.+push*6.)*(1.+glow*1.3);vS=aS;}';
   var FS = 'precision mediump float;varying float vA;varying float vS;void main(){vec2 c=gl_PointCoord-.5;float d=length(c);if(d>.5)discard;' +
     'float a=smoothstep(.5,.05,d);vec3 aq=vec3(.44,.89,.94),ro=vec3(.94,.66,.58),wh=vec3(.93,.97,.98);' +
     'vec3 col=fract(vS*3.7)<.14?ro:(fract(vS*5.3)<.3?wh:aq);gl_FragColor=vec4(col,a*vA);}';
@@ -104,7 +180,7 @@
   var pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr);
   if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { cv.remove(); return; }
   gl.useProgram(pr);
-  var U = {}; ['uMix', 'uT', 'uAsp', 'uDpr', 'uSpinA', 'uSpinB', 'uScale', 'uFade', 'uMouse', 'uOff', 'uTilt'].forEach(function (n) { U[n] = gl.getUniformLocation(pr, n); });
+  var U = {}; ['uMix', 'uT', 'uAsp', 'uDpr', 'uSpinA', 'uSpinB', 'uScale', 'uFade', 'uMode', 'uMouse', 'uOff', 'uTilt'].forEach(function (n) { U[n] = gl.getUniformLocation(pr, n); });
   var seeds = new Float32Array(N); for (var i = 0; i < N; i++) seeds[i] = Math.random();
   var bS = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, bS); gl.bufferData(gl.ARRAY_BUFFER, seeds, gl.STATIC_DRAW);
   var lS = gl.getAttribLocation(pr, 'aS'); gl.enableVertexAttribArray(lS); gl.vertexAttribPointer(lS, 1, gl.FLOAT, false, 0, 0);
@@ -125,9 +201,10 @@
   var mouse = { x: 9, y: 9, tx: 9, ty: 9 }, tilt = { x: 0, y: 0, tx: 0, ty: 0 };
   var W = 0, H = 0, dpr = 1;
 
+  var mode = 0, hold = 0; // mode 1 = varredura continua entre os dois estados do rosto
   function go(name) {
-    if (!shapes[name] || name === to) return;
-    if (mix < .98) { from = to; } else from = to;
+    if (!shapes[name] || name === to || (pair[name] && pair[to])) return;
+    if (mode === 1) { from = mix > .5 ? to : from; mode = 0; } else from = to;
     to = name; mix = 0; bind(lA, from); bind(lB, to);
     window.dispatchEvent(new CustomEvent('fx:shape', { detail: name }));
   }
@@ -150,7 +227,15 @@
   function frame(now) {
     if (!vis) return;
     var dt = Math.min(.05, (now - last) / 1000 || .016); last = now;
-    mix += (mixT - mix) * Math.min(1, dt * 1.5); if (mixT - mix < .002) mix = 1;
+    if (mode === 0) {
+      mix += (mixT - mix) * Math.min(1, dt * 1.5); if (mixT - mix < .002) mix = 1;
+      if (mix === 1 && pair[to] && !still) { mode = 1; from = to; to = pair[to]; mix = 0; hold = 1.2; bind(lA, from); bind(lB, to); }
+    } else if (hold > 0) hold -= dt;
+    else {
+      mix += dt / 3.4;
+      if (mix >= 1) { from = to; to = pair[to]; mix = 0; hold = 1.8; bind(lA, from); bind(lB, to); }
+    }
+    gl.uniform1f(U.uMode, mode);
     ['ox', 'oy', 'sc', 'fade'].forEach(function (k) { st[k] += (tg[k] - st[k]) * Math.min(1, dt * 3); });
     mouse.x += (mouse.tx - mouse.x) * .2; mouse.y += (mouse.ty - mouse.y) * .2;
     tilt.x += (tilt.tx - tilt.x) * .05; tilt.y += (tilt.ty - tilt.y) * .05;
