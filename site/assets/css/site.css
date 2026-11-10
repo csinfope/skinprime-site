@@ -48,6 +48,9 @@ p{margin:0}
 .lead{font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--mute);max-width:54ch}
 .lead strong{color:var(--bone);font-weight:400}
 .num{font-variant-numeric:lining-nums tabular-nums}
+/* Safari nao pinta o degrade do <em> atraves de palavras em inline-block: o degrade vai em cada palavra */
+.split.sp em{background:none;-webkit-background-clip:border-box;background-clip:border-box;padding-right:0}
+.split.sp em .w>span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-right:.08em}
 .split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
 .split .w>span{display:inline-block}
 .js .split .w>span{transform:translateY(105%);transition:transform 1s var(--ease)}

@@ -94,6 +94,7 @@
         } else if (c.nodeType === 1) walk(c);
       });
     })(h);
+    h.classList.add('sp');
   });
   function count(el) {
     var to = +el.getAttribute('data-count'), t0 = performance.now();
