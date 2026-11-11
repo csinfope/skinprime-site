@@ -387,8 +387,8 @@ home = f'''<section class="hero" data-fx="face" data-fx-x=".43" data-fx-y=".04" 
 <a class="glow" href="atlas/index.html"><span class="label">Atlas de imagens</span><b><span class="num">{NI}</span> imagens</b><span>Registros clínicos organizados por doença, para fins educativos.</span></a></div>
 </div></div></section>
 
-<section class="sec" style="padding-top:0"><div class="wrap mag">
-<img class="rv" src="assets/img/brand/revista.webp" alt="Revista digital Skin Prime — A arte da dermatologia" loading="lazy" width="1400" height="760">
+<section class="sec" style="padding-top:0;padding-bottom:clamp(48px,6vw,90px)"><div class="wrap mag">
+<img class="rv" src="assets/img/brand/revista.webp" alt="Revista digital Skin Prime — A arte da dermatologia" loading="lazy" width="1400" height="800">
 <div class="rv"><p class="label">Revista digital</p><h2 class="split">Clique e acesse nossa <em>revista</em>.</h2><p class="lead">A arte da dermatologia em páginas: tecnologias, tratamentos e a visão dos nossos especialistas.</p>
 <a class="btn" href="{REVISTA}" target="_blank" rel="noopener">Abrir a revista (PDF)</a></div>
 </div></section>
