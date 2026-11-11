@@ -119,7 +119,8 @@
     function apply(s, shape) {
       var m = W.innerWidth < 760;
       F.go(shape || s.getAttribute('data-fx'));
-      F.place({ x: m ? 0 : +(s.getAttribute('data-fx-x') || 0), y: m ? +(s.getAttribute('data-fx-my') || .34) : +(s.getAttribute('data-fx-y') || 0), scale: +(s.getAttribute('data-fx-s') || 1), fade: +(s.getAttribute('data-fx-f') || (m ? .5 : .8)) });
+      var kw = m ? 1 : Math.max(.7, Math.min(1, W.innerWidth / 1440)); // em janelas estreitas o rosto encolhe e vai para a direita, longe do texto
+      F.place({ x: m ? 0 : +(s.getAttribute('data-fx-x') || 0) + (1 - kw) * .62, y: m ? +(s.getAttribute('data-fx-my') || .34) : +(s.getAttribute('data-fx-y') || 0), scale: +(s.getAttribute('data-fx-s') || 1) * kw, fade: +(s.getAttribute('data-fx-f') || (m ? .5 : .8)) });
     }
     function pick() {
       var mid = W.innerHeight * .5, best = null, bd = 1e9;

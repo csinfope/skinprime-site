@@ -138,8 +138,11 @@ p{margin:0}
 
 /* herói */
 .hero{position:relative;min-height:min(100svh,980px);display:flex;flex-direction:column;justify-content:flex-end}
+/* veu claro atras do texto da abertura: garante leitura mesmo se o rosto passar por tras */
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(var(--base),.94) 0,rgba(var(--base),.86) 34%,rgba(var(--base),0) 60%)}
+@media(max-width:760px){.hero::before{background:linear-gradient(180deg,rgba(var(--base),0) 0,rgba(var(--base),0) 38svh,rgba(var(--base),.94) 47svh)}}
 .hero__in{width:100%;padding-block:150px 0}
-.hero h1{max-width:8.2em;margin-block:.26em .3em}
+.hero h1{max-width:min(8.2em,58vw);margin-block:.26em .3em}
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .modes{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(28px,5vh,54px);align-items:center}
 .modes>span{font:400 .64rem var(--f-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-right:8px}
@@ -540,3 +543,6 @@ body::after{display:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .split .w>span{transform:none}}
 @media print{.hdr,.wa,.ftr,.pn,.cta,#fx,.boot,.pal,.cur{display:none}body{color:#000}html{background:#fff}}
+
+@media(min-width:761px){.hero .lead,.hero .fpanel{max-width:min(54ch,46vw)}}
+@media(max-width:760px){.hero h1{max-width:none}}
