@@ -77,9 +77,9 @@ def J(o):
 boot = (boot.replace('__ASSETS__', J(assets)).replace('__PAGES__', J(pages)).replace('__CSS__', J(css))
         .replace('__JS__', J([js[n] for n in JSN])))
 html = ('<title>Skin Prime</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
-        '<style>:root{color-scheme:dark}body{margin:0;background:#1d2b2d;color:#f7f7f7;font:300 16px system-ui,sans-serif;'
+        '<style>:root{color-scheme:light}body{margin:0;background:#f7f7f7;color:#1d2b2d;font:300 16px system-ui,sans-serif;'
         'padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}</style>\n'
-        '<p style="padding-block:40vh 0;text-align:center;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:#a4d2db">Skin Prime · carregando</p>\n'
+        '<p style="padding-block:40vh 0;text-align:center;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:#4a7079">Skin Prime · carregando</p>\n'
         '<script>' + boot + '</script>\n')
 open(OUT + '/index.html', 'w', encoding='utf-8').write(html)
 print('paginas:', len(pages), '· imagens:', len(assets), '· tamanho: %.1f MB' % (len(html.encode()) / 1e6))

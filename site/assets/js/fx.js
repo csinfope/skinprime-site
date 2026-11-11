@@ -6,6 +6,7 @@
   var gl = cv.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: false });
   if (!gl) { cv.remove(); return; }
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var LIGHT = document.documentElement.getAttribute('data-theme') !== 'dark';
   var small = Math.min(window.innerWidth, window.innerHeight) < 700;
   var N = small ? 7000 : 15000;
   var R = document.documentElement.getAttribute('data-root') || '';
@@ -166,7 +167,7 @@
   var pair = { face: 'face2', face2: 'face' };
 
   // ---------- GL
-  var VS = 'attribute vec3 aA;attribute vec3 aB;attribute float aS;uniform float uMix,uT,uAsp,uDpr,uSpinA,uSpinB,uScale,uFade,uMode,uSm;uniform vec2 uMouse,uOff,uTilt;varying float vA;varying float vS;' +
+  var VS = 'attribute vec3 aA;attribute vec3 aB;attribute float aS;uniform float uMix,uT,uAsp,uDpr,uSpinA,uSpinB,uScale,uFade,uMode,uSm,uLightV;uniform vec2 uMouse,uOff,uTilt;varying float vA;varying float vS;' +
     'float ang(float s){return s<0.?sin(uT*.45)*(-s):uT*.16*s;}' +
     'vec3 ry(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(p.x*c+p.z*s,p.y,-p.x*s+p.z*c);}' +
     'vec3 rx(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(p.x,p.y*c-p.z*s,p.y*s+p.z*c);}' +
@@ -178,15 +179,16 @@
     'p=rx(ry(p,uTilt.x),uTilt.y);p*=uScale;float z=3.2-p.z;vec2 q=p.xy/z*2.1;q.x/=uAsp;q+=uOff;' +
     'vec2 dm=q-uMouse;dm.x*=uAsp;float dl=length(dm);float push=exp(-dl*dl*26.)*.085;q+=normalize(dm+1e-5)*push*vec2(1./uAsp,1.);' +
     'gl_Position=vec4(q,0.,1.);gl_PointSize=(1.7+fract(aS*7.)*2.6)*uDpr*(3.2/z)*(1.+push*7.)*(1.+glow*.7)*uSm;' +
-    'vA=(.55+.45*fract(aS*13.))*uFade*clamp(1.9-z*.3,.35,1.)*(1.+push*6.)*(1.+glow*1.3);vS=aS;}';
-  var FS = 'precision mediump float;varying float vA;varying float vS;void main(){vec2 c=gl_PointCoord-.5;float d=length(c);if(d>.5)discard;' +
+    'vA=(.55+.45*fract(aS*13.))*uFade*mix(1.,.5+.5*uFade,uLightV)*clamp(1.9-z*.3,.35,1.)*(1.+push*6.)*(1.+glow*1.3);vS=aS;}';
+  var FS = 'precision mediump float;uniform float uLight;varying float vA;varying float vS;void main(){vec2 c=gl_PointCoord-.5;float d=length(c);if(d>.5)discard;' +
     'float a=smoothstep(.5,.05,d);vec3 aq=vec3(.643,.824,.859),ro=vec3(.902,.733,.71),wh=vec3(.97,.97,.97);' +
-    'vec3 col=fract(vS*3.7)<.14?ro:(fract(vS*5.3)<.3?wh:aq);gl_FragColor=vec4(col,a*vA);}';
+    'if(uLight>.5){aq=vec3(.26,.49,.54);ro=vec3(.78,.47,.43);wh=vec3(.16,.31,.35);}' +
+    'vec3 col=fract(vS*3.7)<.14?ro:(fract(vS*5.3)<.3?wh:aq);gl_FragColor=vec4(col,a*min(1.,vA)*mix(1.,.9,uLight));}';
   function sh(t, s) { var o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; }
   var pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr);
   if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { cv.remove(); return; }
   gl.useProgram(pr);
-  var U = {}; ['uMix', 'uT', 'uAsp', 'uDpr', 'uSpinA', 'uSpinB', 'uScale', 'uFade', 'uMode', 'uSm', 'uMouse', 'uOff', 'uTilt'].forEach(function (n) { U[n] = gl.getUniformLocation(pr, n); });
+  var U = {}; ['uMix', 'uT', 'uAsp', 'uDpr', 'uSpinA', 'uSpinB', 'uScale', 'uFade', 'uMode', 'uSm', 'uLight', 'uLightV', 'uMouse', 'uOff', 'uTilt'].forEach(function (n) { U[n] = gl.getUniformLocation(pr, n); });
   var seeds = new Float32Array(N); for (var i = 0; i < N; i++) seeds[i] = Math.random();
   var bS = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, bS); gl.bufferData(gl.ARRAY_BUFFER, seeds, gl.STATIC_DRAW);
   var lS = gl.getAttribLocation(pr, 'aS'); gl.enableVertexAttribArray(lS); gl.vertexAttribPointer(lS, 1, gl.FLOAT, false, 0, 0);
@@ -198,7 +200,8 @@
   var lA = gl.getAttribLocation(pr, 'aA'), lB = gl.getAttribLocation(pr, 'aB');
   gl.enableVertexAttribArray(lA); gl.enableVertexAttribArray(lB);
   function bind(loc, name) { gl.bindBuffer(gl.ARRAY_BUFFER, buf(name)); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0); }
-  gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE); gl.clearColor(0, 0, 0, 0);
+  function pblend() { if (LIGHT) gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA); else gl.blendFunc(gl.SRC_ALPHA, gl.ONE); }
+  gl.enable(gl.BLEND); pblend(); gl.clearColor(0, 0, 0, 0);
 
   // ---------- foto do rosto em relevo 3D (desenhada atras das particulas quando a forma e o rosto)
   var ph = null;
@@ -210,8 +213,8 @@
       'void main(){float dd=aP.y-uScan;float m=smoothstep(-.1,.1,dd);float st=mix(uFrom,uTo,m);vG=exp(-dd*dd*520.)*uSweep;' +
       'vec3 p=aP+aDv*(1.-st);p=ry(p,ang(uSpin));p=rx(ry(p,uTilt.x),uTilt.y);p*=uScale;float z=3.2-p.z;vec2 q=p.xy/z*2.1;q.x/=uAsp;q+=uOff;' +
       'gl_Position=vec4(q*z,(z-3.2)*.25*z,z);vUV=aUV;}';
-    var FS2 = 'precision mediump float;uniform sampler2D uTex;uniform float uAlpha;varying vec2 vUV;varying float vG;' +
-      'void main(){vec4 c=texture2D(uTex,vUV);vec3 k=c.rgb*vec3(.95,.98,1.)+vec3(.643,.824,.859)*vG*.4;gl_FragColor=vec4(k,c.a*uAlpha);}';
+    var FS2 = 'precision mediump float;uniform sampler2D uTex;uniform float uAlpha,uLight;varying vec2 vUV;varying float vG;' +
+      'void main(){vec4 c=texture2D(uTex,vUV);vec3 k=uLight>.5?mix(c.rgb,vec3(.337,.502,.533),vG*.55):c.rgb*vec3(.95,.98,1.)+vec3(.643,.824,.859)*vG*.4;gl_FragColor=vec4(k,c.a*uAlpha);}';
     var p2 = gl.createProgram(); gl.attachShader(p2, sh(gl.VERTEX_SHADER, VS2)); gl.attachShader(p2, sh(gl.FRAGMENT_SHADER, FS2)); gl.linkProgram(p2);
     if (!gl.getProgramParameter(p2, gl.LINK_STATUS)) return;
     var g = dec(SF.g), gx = SF.gx, gy = SF.gy, nv = gx * gy, v = new Float32Array(nv * 8), i, j, n = 0;
@@ -225,7 +228,7 @@
     var vb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, vb); gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
     var ib = gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, idx, gl.STATIC_DRAW);
     var tx = gl.createTexture(), U2 = {};
-    ['uT', 'uAsp', 'uScale', 'uSpin', 'uScan', 'uFrom', 'uTo', 'uSweep', 'uOff', 'uTilt', 'uTex', 'uAlpha'].forEach(function (k) { U2[k] = gl.getUniformLocation(p2, k); });
+    ['uT', 'uAsp', 'uScale', 'uSpin', 'uScan', 'uFrom', 'uTo', 'uSweep', 'uOff', 'uTilt', 'uTex', 'uAlpha', 'uLight'].forEach(function (k) { U2[k] = gl.getUniformLocation(p2, k); });
     ph = { p: p2, vb: vb, ib: ib, n: idx.length, tx: tx, U: U2, ok: false, a: 0, lp: gl.getAttribLocation(p2, 'aP'), ld: gl.getAttribLocation(p2, 'aDv'), lu: gl.getAttribLocation(p2, 'aUV') };
     var im = new Image(), mp = window.SPMAP;
     im.onload = function () {
@@ -259,9 +262,10 @@
     gl.uniform2f(u.uOff, st.ox, st.oy); gl.uniform2f(u.uTilt, tilt.x, tilt.y);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, ph.tx); gl.uniform1i(u.uTex, 0);
     gl.uniform1f(u.uAlpha, ph.a * Math.min(1, st.fade * 1.15));
+    gl.uniform1f(u.uLight, LIGHT ? 1 : 0);
     gl.drawElements(gl.TRIANGLES, ph.n, gl.UNSIGNED_SHORT, 0);
     // volta ao programa das particulas
-    gl.disable(gl.DEPTH_TEST); gl.blendFunc(gl.SRC_ALPHA, gl.ONE); gl.useProgram(pr);
+    gl.disable(gl.DEPTH_TEST); pblend(); gl.useProgram(pr);
     gl.bindBuffer(gl.ARRAY_BUFFER, bS); gl.vertexAttribPointer(lS, 1, gl.FLOAT, false, 0, 0);
     bind(lA, from); bind(lB, to);
   }
@@ -323,6 +327,7 @@
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     drawPhoto(now, dt);
     gl.uniform1f(U.uSm, ph ? 1 - .5 * ph.a : 1);
+    gl.uniform1f(U.uLight, LIGHT ? 1 : 0); gl.uniform1f(U.uLightV, LIGHT ? 1 : 0);
     gl.uniform1f(U.uMix, mix); gl.uniform1f(U.uT, (now - t0) / 1000); gl.uniform1f(U.uAsp, W / H); gl.uniform1f(U.uDpr, dpr);
     gl.uniform1f(U.uSpinA, spin[from] || 0); gl.uniform1f(U.uSpinB, spin[to] || 0);
     gl.uniform1f(U.uScale, st.sc * (W < 760 ? .62 : 1)); gl.uniform1f(U.uFade, st.fade);

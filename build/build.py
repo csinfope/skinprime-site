@@ -73,7 +73,7 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{E(full)}</title>
 <meta name="description" content="{E(desc[:300])}">
-<meta name="theme-color" content="#1d2b2d">
+<meta name="theme-color" content="#f7f7f7">
 <meta property="og:title" content="{E(full)}">
 <meta property="og:description" content="{E(desc[:300])}">
 <meta property="og:image" content="https://www.skinprime.com.br/{og}">
@@ -84,10 +84,10 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
 </head>
 <body>
 <canvas id="fx" data-shape="{shape}" aria-hidden="true"></canvas>
-<div class="boot" aria-hidden="true"><div class="boot__in"><img src="{R}assets/img/brand/logo-bone.png" alt="" width="500" height="234"><div class="boot__bar"><i></i></div><p class="label"><span data-boot-n>0</span>% · calibrando sensores</p></div></div>
+<div class="boot" aria-hidden="true"><div class="boot__in"><img src="{R}assets/img/brand/logo-teal.png" alt="" width="500" height="234"><div class="boot__bar"><i></i></div><p class="label"><span data-boot-n>0</span>% · calibrando sensores</p></div></div>
 <div class="prog" aria-hidden="true"><i></i></div><div class="veil" aria-hidden="true"></div>
 <header class="hdr"><div class="wrap hdr__in">
-<a class="hdr__logo" href="{R}index.html" aria-label="Skin Prime — início"><img src="{R}assets/img/brand/logo-bone.png" alt="Skin Prime" width="500" height="234"></a>
+<a class="hdr__logo" href="{R}index.html" aria-label="Skin Prime — início"><img src="{R}assets/img/brand/logo-teal.png" alt="Skin Prime" width="500" height="234"></a>
 <button class="find" type="button" data-pal aria-label="Buscar no site">{ICON_S}<span>Buscar</span><kbd>/</kbd></button>
 <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
 <nav class="nav" aria-label="Principal">{nav}<a class="btn btn--solid" href="{WA_MSG}" target="_blank" rel="noopener">Agendar</a></nav>
@@ -345,7 +345,7 @@ home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" d
 <div class="facts"><div><b data-count="{len(TEAM)}">{len(TEAM)}</b><span>Especialistas</span></div><div><b data-count="{len(tech)}">{len(tech)}</b><span>Tecnologias</span></div><div><b data-count="{len(DIS)}">{len(DIS)}</b><span>Doenças catalogadas</span></div><div><b data-count="{N_IMG}">{NI}</b><span>Imagens no atlas</span></div></div>
 </div></section>
 
-<section class="sec" id="encontre" data-fx="face" data-fx-x=".7" data-fx-y=".3" data-fx-s=".8" data-fx-f=".4"><div class="wrap">
+<section class="sec" id="encontre" data-fx="face" data-fx-x=".72" data-fx-y=".42" data-fx-s=".7" data-fx-f=".3"><div class="wrap">
 <div class="sec__head"><p class="label">Explore</p><h2 class="split">O que você quer <em>cuidar</em> hoje?</h2><p>Escolha a região e o objetivo para ver os tratamentos relacionados que a clínica oferece. A indicação certa é definida em consulta, com avaliação do seu caso.</p></div>
 <div class="finder rv" data-finder>
 <div class="finder__l" data-finder-areas></div>
