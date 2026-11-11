@@ -566,3 +566,4 @@ body::after{display:none}
   .card__img img,.reel__track img,.tour img,.atlas img,.gal img,.doc__ph img,.profile__ph img,.cover img{position:absolute;top:0;left:0}
   .atlas .ph,.gal a,.cover{position:relative}
 }
+.no-gl #fx{display:none}

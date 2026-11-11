@@ -3,10 +3,27 @@
 (function () {
   var cv = document.getElementById('fx');
   if (!cv) return;
-  var gl = cv.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: false });
+  var gl = cv.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'low-power' }) || cv.getContext('experimental-webgl', { alpha: false });
   if (!gl) { document.documentElement.classList.add('no-gl'); cv.remove(); return; }
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var LIGHT = document.documentElement.getAttribute('data-theme') !== 'dark';
+  var COARSE = window.matchMedia('(pointer: coarse)').matches;
+  var errs = 0, slow = 0, frames = 0, dead = false;
+  // reserva: imagem estatica do rosto e fundo do proprio CSS
+  function fallback() {
+    if (dead) return; dead = true;
+    document.documentElement.classList.add('no-gl');
+    try { cv.style.display = 'none'; } catch (e) { }
+  }
+  // aparelho lento: desliga o fundo animado; se continuar lento, usa a reserva
+  function watch(ms) {
+    if (still || document.hidden) return;
+    frames++; if (ms > 70) slow++;
+    if (frames === 90) {
+      if (slow > 30) { if (bgp) { bgp = null; slow = 0; frames = 0; } else fallback(); }
+      else frames = 91;
+    }
+  }
   var small = Math.min(window.innerWidth, window.innerHeight) < 700;
   var N = small ? 7000 : 15000;
   var R = document.documentElement.getAttribute('data-root') || '';
@@ -201,7 +218,7 @@
   gl.enableVertexAttribArray(lA); gl.enableVertexAttribArray(lB);
   function bind(loc, name) { gl.bindBuffer(gl.ARRAY_BUFFER, buf(name)); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0); }
   function pblend() { if (LIGHT) gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA); else gl.blendFunc(gl.SRC_ALPHA, gl.ONE); }
-  gl.enable(gl.BLEND); pblend(); gl.clearColor(0, 0, 0, 0);
+  gl.enable(gl.BLEND); pblend(); gl.clearColor(.969, .969, .969, 1);
 
   // ---------- foto do rosto em relevo 3D (desenhada atras das particulas quando a forma e o rosto)
   var ph = null;
@@ -216,7 +233,7 @@
     var FS2 = 'precision mediump float;uniform sampler2D uTex;uniform float uAlpha,uLight;varying vec2 vUV;varying float vG;' +
       'void main(){vec4 c=texture2D(uTex,vUV);vec3 k=uLight>.5?mix(c.rgb,vec3(.643,.824,.859),vG*.6):c.rgb*vec3(.95,.98,1.)+vec3(.643,.824,.859)*vG*.4;gl_FragColor=vec4(k,c.a*uAlpha);}';
     var p2 = gl.createProgram(); gl.attachShader(p2, sh(gl.VERTEX_SHADER, VS2)); gl.attachShader(p2, sh(gl.FRAGMENT_SHADER, FS2)); gl.linkProgram(p2);
-    if (!gl.getProgramParameter(p2, gl.LINK_STATUS)) return;
+    if (!gl.getProgramParameter(p2, gl.LINK_STATUS)) { fallback(); return; }
     var g = dec(SF.g), gx = SF.gx, gy = SF.gy, nv = gx * gy, v = new Float32Array(nv * 8), i, j, n = 0;
     for (j = 0; j < gy; j++) for (i = 0; i < gx; i++) {
       var o = (j * gx + i) * 6;
@@ -238,6 +255,7 @@
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
       ph.ok = true; need();
     };
+    im.onerror = fallback;
     im.src = (mp && mp[SF.tex]) || (R + SF.tex);
   })();
   var stateOf = { face: 0, face2: 1 };
@@ -280,8 +298,8 @@
   (function () {
     var ext = gl.getExtension('OES_standard_derivatives');
     var V = 'attribute vec2 aQ;void main(){gl_Position=vec4(aQ,0.,1.);}';
-    var Fb = (ext ? '#extension GL_OES_standard_derivatives : enable\n' : '') + 'precision mediump float;uniform vec2 uRes,uM;uniform float uT,uS,uL;' +
-      'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
+    var Fb = (ext ? '#extension GL_OES_standard_derivatives : enable\n' : '') + '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\nuniform vec2 uRes,uM;uniform float uT,uS,uL;' +
+      'float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}' +
       'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}' +
       'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<3;i++){v+=a*n(p);p=p*2.03+7.1;a*=.5;}return v;}' +
       'void main(){vec2 p=gl_FragCoord.xy/uRes.y;float t=uT*.03;p.y+=uS*.22;' +
@@ -291,7 +309,7 @@
       'float v=b*10.;' + (ext ? 'float w=fwidth(v)*1.15;' : 'float w=.05;') + 'float l=1.-smoothstep(0.,w,abs(fract(v-.5)-.5));' +
       'c=mix(c,mix(vec3(.643,.824,.859),vec3(.337,.502,.533),uL),l*.16);gl_FragColor=vec4(c,1.);}';
     var pg = gl.createProgram(); gl.attachShader(pg, sh(gl.VERTEX_SHADER, V)); gl.attachShader(pg, sh(gl.FRAGMENT_SHADER, Fb)); gl.linkProgram(pg);
-    if (!gl.getProgramParameter(pg, gl.LINK_STATUS)) return;
+    if (!gl.getProgramParameter(pg, gl.LINK_STATUS)) { gl.clearColor(LIGHT ? .969 : .114, LIGHT ? .969 : .169, LIGHT ? .969 : .176, 1); return; }
     var qb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, qb); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
     var u = {}; ['uRes', 'uM', 'uT', 'uS', 'uL'].forEach(function (k) { u[k] = gl.getUniformLocation(pg, k); });
     bgp = { p: pg, b: qb, u: u, l: gl.getAttribLocation(pg, 'aQ') };
@@ -343,7 +361,7 @@
     tg.ox = o.x || 0; tg.oy = o.y || 0; tg.sc = o.scale || 1; tg.fade = o.fade == null ? 1 : o.fade;
   }
   function size() {
-    dpr = Math.min(window.devicePixelRatio || 1, 1.5); W = cv.clientWidth; H = cv.clientHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, COARSE ? 1 : 1.5); W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; gl.viewport(0, 0, cv.width, cv.height);
   }
   size(); window.addEventListener('resize', function () { size(); need(); });
@@ -358,7 +376,7 @@
   var pending = 0;
   function need() { if (still) { pending = 3; kick(); } }
   // um unico ciclo de animacao: nunca agenda um quadro se ja houver um pendente
-  function kick() { if (!raf && vis && !lost) raf = requestAnimationFrame(frame); }
+  function kick() { if (!raf && vis && !lost && !dead) raf = requestAnimationFrame(frame); }
   document.addEventListener('visibilitychange', function () { vis = !document.hidden; if (vis) { last = 0; kick(); } });
   cv.addEventListener('webglcontextlost', function (e) { e.preventDefault(); lost = true; cv.style.opacity = 0; document.documentElement.classList.add('no-gl'); });
   cv.addEventListener('webglcontextrestored', function () {
@@ -369,7 +387,8 @@
     raf = 0;
     if (!vis || lost) return;
     try {
-    var dt = Math.min(.05, (now - last) / 1000 || .016); last = now;
+    var rdt = last ? (now - last) : 16; var dt = Math.min(.05, rdt / 1000 || .016); last = now;
+    watch(rdt);
     if (mode === 0) {
       mix += (mixT - mix) * Math.min(1, dt * 1.5); if (mixT - mix < .002) mix = 1;
       if (mix === 1 && pair[to] && !still) { mode = 1; from = to; to = pair[to]; mix = 0; hold = 1.2; bind(lA, from); bind(lB, to); }
@@ -394,7 +413,7 @@
     gl.uniform2f(U.uMouse, mouse.x, mouse.y); gl.uniform2f(U.uOff, st.ox, st.oy); gl.uniform2f(U.uTilt, tilt.x, tilt.y);
     gl.drawArrays(gl.POINTS, 0, N);
     }
-    } catch (e) { }
+    } catch (e) { if (++errs > 5) fallback(); }
     if (!still) kick(); else if (pending > 0) { pending--; kick(); }
   }
   if (still) { mix = 1; st = tg; }
@@ -418,6 +437,7 @@
     im.src = (mp && mp[src]) || (R + src);
   })();
 
+  if (document.querySelector('.hero')) setTimeout(function () { if (!ph || !ph.ok) fallback(); }, 6000);
   window.SPFX = { go: go, place: place, count: N, names: Object.keys(shapes) };
   window.dispatchEvent(new Event('fx:ready'));
 })();
