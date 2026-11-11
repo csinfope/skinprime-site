@@ -163,7 +163,7 @@
   var shapes = { helix: helix(), skin: skin(), cell: cell(), ring: ring(), toxin: toxin(), face: fc[0], face2: fc[1] };
   shapes.logo = shapes.ring;
   // giro: positivo = rotacao continua; negativo = vai e volta (amplitude em radianos)
-  var spin = { logo: 0, helix: 1, skin: .25, cell: 1, ring: 0, toxin: -.7, face: -.36, face2: -.36 };
+  var spin = { logo: 0, helix: 1, skin: .25, cell: 1, ring: 0, toxin: -.7, face: -.15, face2: -.15 };
   var pair = { face: 'face2', face2: 'face' };
 
   // ---------- GL
@@ -210,11 +210,11 @@
       'vec3 ry(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(p.x*c+p.z*s,p.y,-p.x*s+p.z*c);}' +
       'vec3 rx(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(p.x,p.y*c-p.z*s,p.y*s+p.z*c);}' +
       'float ang(float s){return s<0.?sin(uT*.45)*(-s):uT*.16*s;}' +
-      'void main(){float dd=aP.y-uScan;float m=smoothstep(-.1,.1,dd);float st=mix(uFrom,uTo,m);vG=exp(-dd*dd*520.)*uSweep;' +
+      'void main(){float dd=aP.y-uScan;float m=smoothstep(-.1,.1,dd);float st=mix(uFrom,uTo,m);vG=exp(-dd*dd*1400.)*uSweep;' +
       'vec3 p=aP+aDv*(1.-st);p=ry(p,ang(uSpin));p=rx(ry(p,uTilt.x),uTilt.y);p*=uScale;float z=3.2-p.z;vec2 q=p.xy/z*2.1;q.x/=uAsp;q+=uOff;' +
       'gl_Position=vec4(q*z,(z-3.2)*.25*z,z);vUV=aUV;}';
     var FS2 = 'precision mediump float;uniform sampler2D uTex;uniform float uAlpha,uLight;varying vec2 vUV;varying float vG;' +
-      'void main(){vec4 c=texture2D(uTex,vUV);vec3 k=uLight>.5?mix(c.rgb,vec3(.337,.502,.533),vG*.55):c.rgb*vec3(.95,.98,1.)+vec3(.643,.824,.859)*vG*.4;gl_FragColor=vec4(k,c.a*uAlpha);}';
+      'void main(){vec4 c=texture2D(uTex,vUV);vec3 k=uLight>.5?mix(c.rgb,vec3(.643,.824,.859),vG*.6):c.rgb*vec3(.95,.98,1.)+vec3(.643,.824,.859)*vG*.4;gl_FragColor=vec4(k,c.a*uAlpha);}';
     var p2 = gl.createProgram(); gl.attachShader(p2, sh(gl.VERTEX_SHADER, VS2)); gl.attachShader(p2, sh(gl.FRAGMENT_SHADER, FS2)); gl.linkProgram(p2);
     if (!gl.getProgramParameter(p2, gl.LINK_STATUS)) return;
     var g = dec(SF.g), gx = SF.gx, gy = SF.gy, nv = gx * gy, v = new Float32Array(nv * 8), i, j, n = 0;
@@ -245,8 +245,9 @@
     if (!ph) return;
     var want = pair[to] ? (mode === 1 ? 1 : Math.max(0, Math.min(1, (mix - .45) * 2.5))) : 0;
     ph.a += (want - ph.a) * Math.min(1, dt * (want ? 3 : 7)); if (still) ph.a = want;
-    if (!ph.ok || ph.a < .004) return;
     var isF = !!pair[to], sp = isF ? spin[to] : spin[from], f, t2, scan, sweep = 0;
+    placeMarks(now, sp || 0, ph.ok ? ph.a * Math.min(1, st.fade * 1.15) : 0);
+    if (!ph.ok || ph.a < .004) return;
     if (mode === 1) { f = stateOf[from]; t2 = stateOf[to]; scan = 1.45 - 2.9 * mix; sweep = 1; }
     else { f = t2 = isF ? stateOf[to] : (stateOf[from] || 0); scan = 9; }
     gl.useProgram(ph.p); gl.enable(gl.DEPTH_TEST);
@@ -268,6 +269,54 @@
     gl.disable(gl.DEPTH_TEST); pblend(); gl.useProgram(pr);
     gl.bindBuffer(gl.ARRAY_BUFFER, bS); gl.vertexAttribPointer(lS, 1, gl.FLOAT, false, 0, 0);
     bind(lA, from); bind(lB, to);
+  }
+
+  // ---------- fundo fluido nas cores da marca, com linhas finas de contorno
+  var PARTICLES = cv.getAttribute('data-particles') === '1';
+  var bgp = null;
+  (function () {
+    var ext = gl.getExtension('OES_standard_derivatives');
+    var V = 'attribute vec2 aQ;void main(){gl_Position=vec4(aQ,0.,1.);}';
+    var Fb = (ext ? '#extension GL_OES_standard_derivatives : enable\n' : '') + 'precision mediump float;uniform vec2 uRes,uM;uniform float uT,uS,uL;' +
+      'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
+      'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}' +
+      'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<3;i++){v+=a*n(p);p=p*2.03+7.1;a*=.5;}return v;}' +
+      'void main(){vec2 p=gl_FragCoord.xy/uRes.y;float t=uT*.03;p.y+=uS*.22;' +
+      'float a=fbm(p*1.2+vec2(t,-t*.6)+uM*.07);float b=fbm(p*1.7-vec2(t*.7,t)+a*1.2);' +
+      'vec3 base=mix(vec3(.114,.169,.176),vec3(.969),uL);vec3 aq=mix(vec3(.224,.333,.357),vec3(.643,.824,.859),uL);vec3 bl=mix(vec3(.6,.376,.349),vec3(.902,.733,.71),uL);' +
+      'vec3 c=mix(base,aq,smoothstep(.4,.78,a)*.62);c=mix(c,bl,smoothstep(.5,.82,b)*.45);' +
+      'float v=b*10.;' + (ext ? 'float w=fwidth(v)*1.15;' : 'float w=.05;') + 'float l=1.-smoothstep(0.,w,abs(fract(v-.5)-.5));' +
+      'c=mix(c,mix(vec3(.643,.824,.859),vec3(.337,.502,.533),uL),l*.16);gl_FragColor=vec4(c,1.);}';
+    var pg = gl.createProgram(); gl.attachShader(pg, sh(gl.VERTEX_SHADER, V)); gl.attachShader(pg, sh(gl.FRAGMENT_SHADER, Fb)); gl.linkProgram(pg);
+    if (!gl.getProgramParameter(pg, gl.LINK_STATUS)) return;
+    var qb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, qb); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+    var u = {}; ['uRes', 'uM', 'uT', 'uS', 'uL'].forEach(function (k) { u[k] = gl.getUniformLocation(pg, k); });
+    bgp = { p: pg, b: qb, u: u, l: gl.getAttribLocation(pg, 'aQ') };
+  })();
+  function drawBG(now) {
+    if (!bgp) return;
+    gl.useProgram(bgp.p); gl.disable(gl.BLEND); gl.disable(gl.DEPTH_TEST);
+    gl.bindBuffer(gl.ARRAY_BUFFER, bgp.b); gl.enableVertexAttribArray(bgp.l); gl.vertexAttribPointer(bgp.l, 2, gl.FLOAT, false, 0, 0);
+    gl.uniform2f(bgp.u.uRes, cv.width, cv.height); gl.uniform2f(bgp.u.uM, tilt.x * 2, -tilt.y * 2);
+    gl.uniform1f(bgp.u.uT, (now - t0) / 1000); gl.uniform1f(bgp.u.uS, (window.scrollY || 0) / Math.max(1, H)); gl.uniform1f(bgp.u.uL, LIGHT ? 1 : 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    gl.enable(gl.BLEND);
+  }
+  // marcadores do mapa facial (elementos HTML que acompanham o rosto 3D)
+  var marks = [], mlayer = document.querySelector('[data-fmap]');
+  if (mlayer && SF && SF.pts) [].slice.call(mlayer.querySelectorAll('[data-face-pt]')).forEach(function (el) { var q = SF.pts[el.getAttribute('data-face-pt')]; if (q) marks.push({ el: el, p: q }); });
+  function placeMarks(now, sp, vis2) {
+    if (!mlayer) return;
+    mlayer.style.opacity = Math.max(0, Math.min(1, (vis2 - .35) / .5)); mlayer.style.visibility = vis2 > .36 ? 'visible' : 'hidden';
+    if (vis2 <= .36) return;
+    var T = (now - t0) / 1000, an = sp < 0 ? Math.sin(T * .45) * (-sp) : T * .16 * sp, sc = st.sc * (W < 760 ? .62 : 1);
+    var c1 = Math.cos(an), s1 = Math.sin(an), c2 = Math.cos(tilt.x), s2 = Math.sin(tilt.x), c3 = Math.cos(tilt.y), s3 = Math.sin(tilt.y);
+    marks.forEach(function (m) {
+      var x = m.p[0], y = m.p[1], z = m.p[2];
+      var x1 = x * c1 + z * s1, z1 = -x * s1 + z * c1, x2 = x1 * c2 + z1 * s2, z2 = -x1 * s2 + z1 * c2, y3 = y * c3 - z2 * s3, z3 = y * s3 + z2 * c3;
+      var zz = 3.2 - z3 * sc, qx = x2 * sc / zz * 2.1 / (W / H) + st.ox, qy = y3 * sc / zz * 2.1 + st.oy;
+      m.el.style.transform = 'translate(' + ((qx * .5 + .5) * W).toFixed(1) + 'px,' + ((.5 - qy * .5) * H).toFixed(1) + 'px)';
+    });
   }
 
   var from = 'cell', to = cv.getAttribute('data-shape') || 'logo', mix = 0, mixT = 1;
@@ -320,12 +369,14 @@
       mix += dt / 3.4;
       if (mix >= 1) { from = to; to = pair[to]; mix = 0; hold = 1.8; bind(lA, from); bind(lB, to); }
     }
-    gl.uniform1f(U.uMode, mode);
     ['ox', 'oy', 'sc', 'fade'].forEach(function (k) { st[k] += (tg[k] - st[k]) * Math.min(1, dt * 3); });
     mouse.x += (mouse.tx - mouse.x) * .2; mouse.y += (mouse.ty - mouse.y) * .2;
     tilt.x += (tilt.tx - tilt.x) * .05; tilt.y += (tilt.ty - tilt.y) * .05;
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    drawBG(now);
     drawPhoto(now, dt);
+    if (PARTICLES) {
+    gl.useProgram(pr); pblend(); gl.uniform1f(U.uMode, mode);
     gl.uniform1f(U.uSm, ph ? 1 - .5 * ph.a : 1);
     gl.uniform1f(U.uLight, LIGHT ? 1 : 0); gl.uniform1f(U.uLightV, LIGHT ? 1 : 0);
     gl.uniform1f(U.uMix, mix); gl.uniform1f(U.uT, (now - t0) / 1000); gl.uniform1f(U.uAsp, W / H); gl.uniform1f(U.uDpr, dpr);
@@ -333,6 +384,7 @@
     gl.uniform1f(U.uScale, st.sc * (W < 760 ? .62 : 1)); gl.uniform1f(U.uFade, st.fade);
     gl.uniform2f(U.uMouse, mouse.x, mouse.y); gl.uniform2f(U.uOff, st.ox, st.oy); gl.uniform2f(U.uTilt, tilt.x, tilt.y);
     gl.drawArrays(gl.POINTS, 0, N);
+    }
     } catch (e) { }
     if (!still) kick();
   }

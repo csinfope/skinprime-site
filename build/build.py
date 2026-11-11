@@ -62,8 +62,7 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
     R = '../' * rel.count('/')
     nav = ''.join(f'<a href="{R}{h}"{" aria-current=\"page\"" if k == cur else ""}>{t}</a>' for h, t, k in NAV)
     soc = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener">{n}</a></li>' for n, _, u in SOCIAL)
-    shape = {'': 'logo', 'clinica': 'skin', 'especialistas': 'helix', 'tratamentos': 'helix', 'doencas': 'cell', 'atlas': 'ring'}.get(cur, 'ring')
-    body = body.replace('<section class="phead">', f'<section class="phead" data-fx="{shape}" data-fx-x=".55" data-fx-y=".1" data-fx-s=".8" data-fx-f=".75" data-fx-my=".5">')
+    shape = 'face' if rel == 'index.html' else 'ring'
     full = f'{title} · Skin Prime' if title else 'Skin Prime · A arte da dermatologia no Recife'
     return f'''<!doctype html>
 <html lang="pt-BR" data-root="{R}">
@@ -319,8 +318,15 @@ for n, k in TECHK:
     m = [i for i, p in enumerate(POSTS) if k in norm(p['title'])]
     if m:
         tech.append({'n': n, 'i': m[0]})
+FMAP = [('testa', 'Testa e glabela', 'Linhas de expressão e rugas dinâmicas.', ['toxina botulinica a', 'botox (toxina', 'toxina botulinica alem'], ''),
+        ('olhos', 'Olhos e olheiras', 'Olheiras, pálpebras e região periorbital.', ['olheiras', 'blefaroplastia'], ''),
+        ('macas', 'Maçãs do rosto', 'Volume, sustentação e estímulo de colágeno.', ['bioestimulador', 'preenchimento injetavel', 'rejuvenescimento 4d'], 'l'),
+        ('labios', 'Lábios', 'Contorno, hidratação e volume.', ['acido hialuronico', 'preenchimento ou btx'], 'l'),
+        ('mandibula', 'Mandíbula e contorno', 'Definição do contorno facial e sustentação.', ['fios de sustentacao', 'ultraformer', 'ulthera'], ''),
+        ('papada', 'Papada e pescoço', 'Gordura submentoniana e flacidez.', ['papada', 'ultrassom micro', 'radiofrequencia'], 'l')]
+fmap = [{'k': k, 't': t, 'd': d2, 'p': find_posts(keys, limit=3)} for k, t, d2, keys, _ in FMAP]
 data = {'posts': [[p['title'].strip(), p['s'], ' '.join(p['cats']), p['excerpt'][:170], p['cover_f']] for p in POSTS],
-        'dis': [[d['t'], d['s'], len(d['imgs'])] for d in DIS], 'quiz': quiz, 'tech': tech}
+        'dis': [[d['t'], d['s'], len(d['imgs'])] for d in DIS], 'quiz': quiz, 'tech': tech, 'fmap': fmap}
 write('assets/js/data.js', 'window.SP=' + json.dumps(data, separators=(',', ':')) + ';')
 print('quiz:', [(q['t'], [(g['t'], len(g['p'])) for g in q['g']]) for q in quiz], '· tech:', len(tech))
 
@@ -332,20 +338,18 @@ docs = ''.join(f'''<article class="doc glow rv" data-tilt><div class="doc__ph"><
 letters = ''.join((f'<a href="doencas/index.html#letra-{L}">{L}</a>' if L in BY_LETTER else f'<span>{L}</span>') for L in 'ABCDEFGHIJKLMNOPQRSTUVXZ')
 tick = ''.join(f'<span>{E(t)}</span>' for t in TECH) * 2
 reel = ''.join(f'<a href="assets/img/clinic/{k}.jpg" data-tour="{k}" data-alt="{E(c)}" draggable="false"><img src="assets/img/clinic/{k}-m.jpg" alt="{E(c)}" loading="lazy" width="900" height="600" draggable="false"><span class="cap3d">Ver em 3D</span><span class="cap">{i:02d} · {E(c)}</span></a>' for i, (k, c) in enumerate(CLINIC, 1))
-home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" data-fx-s=".82" data-fx-f="1" data-fx-my=".46">
-<div class="hud" aria-hidden="true"><span>Sistema <b>ativo</b></span><span>Partículas <b data-hud-n>15.000</b></span><span>Forma <b data-hud-shape>Marca</b></span><span>Ponteiro <b data-hud-p>0000 · 0000</b></span></div>
-<span class="corner corner--a" aria-hidden="true"></span><span class="corner corner--b" aria-hidden="true"></span>
+home = f'''<section class="hero" data-fx="face" data-fx-x=".43" data-fx-y=".04" data-fx-s="1.02" data-fx-f="1" data-fx-my=".5">
 <div class="wrap hero__in">
 <p class="label">Recife · RioMar Trade Center · 19º andar</p>
 <h1 class="split">A arte da <em>dermatologia</em></h1>
 <p class="lead">A experiência e a tecnologia se encontram para trazer uma estrutura clínica nunca vista no Recife quando o assunto é <strong>dermatologia, estética, nutrição e saúde</strong>.</p>
 <div class="hero__cta"><a class="btn btn--solid" href="#encontre">Encontre seu tratamento</a><a class="btn" href="{WA_MSG}" target="_blank" rel="noopener">{ICON_WA} Agendar pelo WhatsApp</a></div>
-<div class="modes" role="group" aria-label="Mudar a forma das partículas"><span>Interaja</span>
-<button class="chip" type="button" data-go="logo" aria-pressed="true">Marca</button><button class="chip" type="button" data-go="helix" aria-pressed="false">DNA</button><button class="chip" type="button" data-go="skin" aria-pressed="false">Camadas da pele</button><button class="chip" type="button" data-go="face" aria-pressed="false">Rosto em transformação</button><button class="chip" type="button" data-go="toxin" aria-pressed="false">Toxina botulínica</button><button class="chip" type="button" data-go="cell" aria-pressed="false">Célula</button></div>
+<div class="fpanel panel" data-fpanel aria-live="polite"><p class="label">Mapa facial</p><p class="fpanel__d">Toque nos pontos do rosto para ver os tratamentos de cada região.</p></div>
+<p class="fhint">Mapa facial interativo · toque nos pontos do rosto</p>
 <div class="facts"><div><b data-count="{len(TEAM)}">{len(TEAM)}</b><span>Especialistas</span></div><div><b data-count="{len(tech)}">{len(tech)}</b><span>Tecnologias</span></div><div><b data-count="{len(DIS)}">{len(DIS)}</b><span>Doenças catalogadas</span></div><div><b data-count="{N_IMG}">{NI}</b><span>Imagens no atlas</span></div></div>
 </div></section>
 
-<section class="sec" id="encontre" data-fx="face" data-fx-x=".72" data-fx-y=".42" data-fx-s=".7" data-fx-f=".3"><div class="wrap">
+<section class="sec" id="encontre"><div class="wrap">
 <div class="sec__head"><p class="label">Explore</p><h2 class="split">O que você quer <em>cuidar</em> hoje?</h2><p>Escolha a região e o objetivo para ver os tratamentos relacionados que a clínica oferece. A indicação certa é definida em consulta, com avaliação do seu caso.</p></div>
 <div class="finder rv" data-finder>
 <div class="finder__l" data-finder-areas></div>
@@ -353,14 +357,14 @@ home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" d
 <div class="finder__foot"><small><span class="label" data-finder-sum></span><br>Conteúdo informativo; não substitui avaliação médica.</small><a class="btn btn--solid" data-finder-cta href="{WA_MSG}" target="_blank" rel="noopener">{ICON_WA} Quero uma avaliação</a></div></div>
 </div></div></section>
 
-<section class="sec" id="tecnologia" data-fx="toxin" data-fx-x=".72" data-fx-y=".35" data-fx-s=".8" data-fx-f=".45"><div class="wrap">
+<section class="sec" id="tecnologia"><div class="wrap">
 <div class="sec__head"><p class="label">Tecnologia</p><h2 class="split">O que há de mais <em>moderno</em> num só lugar.</h2><p>Passe o cursor ou toque em cada equipamento para conhecer o que ele faz. São {len(tech)} tecnologias disponíveis na clínica.</p></div>
 <div class="tech rv" data-tech><div class="tech__list" data-tech-list></div><div class="tech__panel panel" data-tech-panel></div></div>
 </div>
 <div class="ticker" aria-hidden="true"><div>{tick}</div></div>
 </section>
 
-<section class="sec" id="clinica" data-fx="skin" data-fx-x=".5" data-fx-y=".3" data-fx-s="1" data-fx-f=".3">
+<section class="sec" id="clinica">
 <div class="wrap"><div class="sec__head"><p class="label">A clínica · 19º andar</p><h2 class="split">Uma estrutura nunca vista no <em>Recife</em>.</h2><p>Arraste para percorrer os ambientes e clique em uma foto para entrar nela em 3D: recepção, lounge com vista para a cidade, consultórios e salas de laser e procedimentos.</p></div></div>
 <div class="reel rv" data-reel><div class="reel__track">{reel}</div>
 <div class="wrap"><div class="reel__ui"><button type="button" data-reel-go="-1" aria-label="Anterior">←</button><div class="reel__bar"><i></i></div><button type="button" data-reel-go="1" aria-label="Próximo">→</button></div>
@@ -368,12 +372,12 @@ home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" d
 <p style="margin-top:28px"><a class="arrow" href="clinica.html">Visitar os ambientes</a></p></div></div>
 </section>
 
-<section class="sec" id="equipe" data-fx="helix" data-fx-x=".72" data-fx-y=".1" data-fx-s=".9" data-fx-f=".45"><div class="wrap">
+<section class="sec" id="equipe"><div class="wrap">
 <div class="sec__head"><p class="label">Equipe</p><h2 class="split">Conheça nossa equipe de <em>especialistas</em>.</h2><p>Dermatologistas, cirurgiões plásticos, fisioterapeutas, nutricionistas, nutrólogos, ginecologistas e esteticistas à sua disposição.</p></div>
 <div class="team">{docs}</div>
 </div></section>
 
-<section class="sec" id="biblioteca" data-fx="cell" data-fx-x=".6" data-fx-y=".05" data-fx-s=".85" data-fx-f=".4"><div class="wrap">
+<section class="sec" id="biblioteca"><div class="wrap">
 <div class="sec__head"><p class="label">Biblioteca dermatológica</p><h2 class="split">Entenda a sua <em>pele</em>.</h2><p>Um acervo de referência mantido pela clínica: doenças dermatológicas descritas em detalhe e um atlas de imagens clínicas.</p></div>
 <div class="lib rv">
 <div><form class="search" action="doencas/index.html" method="get" role="search"><label class="sr" for="q-home">Buscar doença</label><input id="q-home" name="q" type="search" data-live placeholder="Digite: acne, melasma, psoríase…" autocomplete="off"><button type="submit">Buscar →</button><div class="live" data-live-out hidden></div></form>
@@ -399,7 +403,7 @@ home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" d
 <div class="social">{''.join(f'<a href="{u}" target="_blank" rel="noopener"><span class="label">{n}</span><b>{E(h)}</b></a>' for n, h, u in SOCIAL)}</div>
 </div></section>
 
-<section class="sec" id="contato" style="padding-top:0" data-fx="ring" data-fx-x=".5" data-fx-y="0" data-fx-s="1.1" data-fx-f=".25"><div class="wrap">
+<section class="sec" id="contato" style="padding-top:0"><div class="wrap">
 <hr class="rule" style="margin-bottom:clamp(60px,9vw,120px)">
 <div class="contact">
 <div><p class="label" style="margin-bottom:22px">Contato</p><h2 class="split">Agende sua <em>consulta</em>.</h2>
@@ -425,6 +429,7 @@ home = f'''<section class="hero" data-fx="logo" data-fx-x=".46" data-fx-y=".2" d
 <img src="assets/img/clinic/lounge-m.jpg" alt="Lounge da Skin Prime" loading="lazy" width="900" height="600">
 </div>
 </div></div></section>'''
+home += '<div class="fmap" data-fmap>' + ''.join(f'<button class="fpt{" fpt--l" if side else ""}" type="button" data-face-pt="{k}" data-i="{i}" aria-pressed="false"><i></i><span>{E(t)}</span></button>' for i, (k, t, d2, keys, side) in enumerate(FMAP)) + '</div>'
 write('index.html', page('index.html', '', 'Skin Prime: dermatologia, estética, nutrição e saúde no RioMar Trade Center, Recife. Conheça a clínica, os especialistas, os tratamentos e a biblioteca de doenças dermatológicas.', home))
 
 

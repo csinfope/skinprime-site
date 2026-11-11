@@ -111,6 +111,16 @@ enc = lambda a: base64.b64encode(np.clip(np.round(a * SC), -32767, 32767).astype
 open('site/assets/js/face.js', 'w').write(
     '/* gerado por build/gen_face.py */\nwindow.SPFACE={n:%d,s:%d,a:"%s",b:"%s",gx:%d,gy:%d,g:"%s",tex:"assets/img/brand/face.webp"};\n'
     % (N, SC, enc(A), enc(B), GX, GY, enc(grid)))
+# pontos do mapa facial interativo (índices do MediaPipe FaceMesh)
+PTS = {'testa': 151, 'olhos': 450, 'macas': 205, 'labios': 13, 'mandibula': 397, 'papada': 152}
+pts = {}
+for kname, ix in PTS.items():
+    v = L3[ix].copy(); v[2] += .03
+    if kname == 'papada':
+        v[1] -= .09
+    pts[kname] = [round(float(t), 4) for t in v]
+_f = open('site/assets/js/face.js', encoding='utf-8').read().replace('tex:"assets/img/brand/face.webp"}', 'tex:"assets/img/brand/face.webp",pts:' + json.dumps(pts) + '}')
+open('site/assets/js/face.js', 'w', encoding='utf-8').write(_f)
 print('face.js ok · textura', tex.size, '· recorte', (x0, y0, x1, y1))
 
 if len(sys.argv) > 3:

@@ -125,20 +125,40 @@
       var mid = W.innerHeight * .5, best = null, bd = 1e9;
       secs.forEach(function (s) { var r = s.getBoundingClientRect(); if (r.top < mid + 80 && r.bottom > mid - 80) { var q = Math.abs((r.top + r.bottom) / 2 - mid); if (q < bd) { bd = q; best = s; } } });
       if (best && best !== cur) { cur = best; apply(best); sync(best.getAttribute('data-fx')); }
-      else if (!best && cur) { cur = null; F.place({ fade: .18 }); }
+      else if (!best && cur) { cur = null; F.place({ fade: 0 }); }
     }
     var modes = $$('[data-go]');
     function sync(n) { modes.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-go') === n); }); if (hud) hud.textContent = LAB[n] || n; }
     modes.forEach(function (b) { b.addEventListener('click', function () { auto = false; var n = b.getAttribute('data-go'); apply($('.hero') || secs[0], n); sync(n); }); });
     W.addEventListener('scroll', pick, { passive: true }); W.addEventListener('resize', function () { cur = null; pick(); }); pick();
     // no her\u00f3i, as formas se alternam sozinhas at\u00e9 o visitante escolher uma
-    var auto = !!$('.hero') && !still, seq = ['logo', 'face', 'helix', 'toxin', 'skin', 'cell'], si = 0;
+    var auto = false, seq = ['logo', 'face', 'helix', 'toxin', 'skin', 'cell'], si = 0;
     if (auto) setInterval(function () { if (!auto || cur !== $('.hero') || d.hidden) return; si = (si + 1) % seq.length; apply(cur, seq[si]); sync(seq[si]); }, 6500);
   }
   if (W.SPFX) fx(); else W.addEventListener('fx:ready', fx);
   var hp = $('[data-hud-p]');
   if (hp) W.addEventListener('pointermove', function (e) { hp.textContent = ('000' + e.clientX).slice(-4) + ' \u00b7 ' + ('000' + e.clientY).slice(-4); }, { passive: true });
 
+
+  /* ---------- mapa facial interativo */
+  var fmap = $('[data-fmap]'), fpan = $('[data-fpanel]');
+  if (fmap && fpan && SP.fmap && SP.fmap.length) {
+    var fpts = $$('[data-face-pt]', fmap), fsel = -1;
+    function showArea(i) {
+      if (i === fsel) return; fsel = i; var A = SP.fmap[i], h = '';
+      fpts.forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-i') === i); });
+      A.p.forEach(function (ix) { var q = SP.posts[ix]; h += '<a class="chip" href="' + postUrl(q) + '">' + esc(q[0]) + ' \u2192</a>'; });
+      fpan.innerHTML = '<p class="label">' + esc(A.t) + '</p><p class="fpanel__d">' + esc(A.d) + '</p><div class="fpanel__l">' + h + '</div>';
+      fpan.classList.remove('in'); void fpan.offsetWidth; fpan.classList.add('in');
+    }
+    fpts.forEach(function (b) {
+      var i = +b.getAttribute('data-i');
+      b.addEventListener('click', function () { showArea(i); });
+      if (fine) b.addEventListener('pointerenter', function () { showArea(i); });
+      b.addEventListener('focus', function () { showArea(i); });
+    });
+    showArea(4);
+  }
   /* ---------- encontre seu tratamento */
   var fd = $('[data-finder]');
   if (fd && SP.quiz.length) {
