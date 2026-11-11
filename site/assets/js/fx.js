@@ -4,7 +4,7 @@
   var cv = document.getElementById('fx');
   if (!cv) return;
   var gl = cv.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: false });
-  if (!gl) { cv.remove(); return; }
+  if (!gl) { document.documentElement.classList.add('no-gl'); cv.remove(); return; }
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var LIGHT = document.documentElement.getAttribute('data-theme') !== 'dark';
   var small = Math.min(window.innerWidth, window.innerHeight) < 700;
@@ -186,7 +186,7 @@
     'vec3 col=fract(vS*3.7)<.14?ro:(fract(vS*5.3)<.3?wh:aq);gl_FragColor=vec4(col,a*min(1.,vA));}';
   function sh(t, s) { var o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; }
   var pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr);
-  if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { cv.remove(); return; }
+  if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { document.documentElement.classList.add('no-gl'); cv.remove(); return; }
   gl.useProgram(pr);
   var U = {}; ['uMix', 'uT', 'uAsp', 'uDpr', 'uSpinA', 'uSpinB', 'uScale', 'uFade', 'uMode', 'uSm', 'uLight', 'uLightV', 'uMouse', 'uOff', 'uTilt'].forEach(function (n) { U[n] = gl.getUniformLocation(pr, n); });
   var seeds = new Float32Array(N); for (var i = 0; i < N; i++) seeds[i] = Math.random();
@@ -236,11 +236,14 @@
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-      ph.ok = true;
+      ph.ok = true; need();
     };
     im.src = (mp && mp[SF.tex]) || (R + SF.tex);
   })();
   var stateOf = { face: 0, face2: 1 };
+  // o rosto fica preso a abertura: sobe junto quando a pagina rola
+  var heroEl = document.querySelector('.hero');
+  function heroOff() { if (!heroEl || !pair[to]) return 0; var t = heroEl.getBoundingClientRect().top; return t < 0 ? -t * 2 / Math.max(1, H) : 0; }
   function drawPhoto(now, dt) {
     if (!ph) return;
     var want = pair[to] ? (mode === 1 ? 1 : Math.max(0, Math.min(1, (mix - .45) * 2.5))) : 0;
@@ -260,7 +263,7 @@
     var u = ph.U;
     gl.uniform1f(u.uT, (now - t0) / 1000); gl.uniform1f(u.uAsp, W / H); gl.uniform1f(u.uScale, st.sc * (W < 760 ? .62 : 1)); gl.uniform1f(u.uSpin, sp || 0);
     gl.uniform1f(u.uScan, scan); gl.uniform1f(u.uFrom, f); gl.uniform1f(u.uTo, t2); gl.uniform1f(u.uSweep, sweep);
-    gl.uniform2f(u.uOff, st.ox, st.oy); gl.uniform2f(u.uTilt, tilt.x, tilt.y);
+    gl.uniform2f(u.uOff, st.ox, st.oy + heroOff()); gl.uniform2f(u.uTilt, tilt.x, tilt.y);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, ph.tx); gl.uniform1i(u.uTex, 0);
     gl.uniform1f(u.uAlpha, ph.a * Math.min(1, st.fade * 1.15));
     gl.uniform1f(u.uLight, LIGHT ? 1 : 0);
@@ -314,7 +317,7 @@
     marks.forEach(function (m) {
       var x = m.p[0], y = m.p[1], z = m.p[2];
       var x1 = x * c1 + z * s1, z1 = -x * s1 + z * c1, x2 = x1 * c2 + z1 * s2, z2 = -x1 * s2 + z1 * c2, y3 = y * c3 - z2 * s3, z3 = y * s3 + z2 * c3;
-      var zz = 3.2 - z3 * sc, qx = x2 * sc / zz * 2.1 / (W / H) + st.ox, qy = y3 * sc / zz * 2.1 + st.oy;
+      var zz = 3.2 - z3 * sc, qx = x2 * sc / zz * 2.1 / (W / H) + st.ox, qy = y3 * sc / zz * 2.1 + st.oy + heroOff();
       m.el.style.transform = 'translate(' + ((qx * .5 + .5) * W).toFixed(1) + 'px,' + ((.5 - qy * .5) * H).toFixed(1) + 'px)';
     });
   }
@@ -328,19 +331,23 @@
 
   var mode = 0, hold = 0; // mode 1 = varredura continua entre os dois estados do rosto
   function go(name) {
+    need();
+    need();
     if (!shapes[name] || name === to || (pair[name] && pair[to])) return;
     if (mode === 1) { from = mix > .5 ? to : from; mode = 0; } else from = to;
     to = name; mix = 0; bind(lA, from); bind(lB, to);
     window.dispatchEvent(new CustomEvent('fx:shape', { detail: name }));
   }
   function place(o) { // o: {x,y,scale,fade}
+    need();
     tg.ox = o.x || 0; tg.oy = o.y || 0; tg.sc = o.scale || 1; tg.fade = o.fade == null ? 1 : o.fade;
   }
   function size() {
     dpr = Math.min(window.devicePixelRatio || 1, 1.5); W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; gl.viewport(0, 0, cv.width, cv.height);
   }
-  size(); window.addEventListener('resize', size);
+  size(); window.addEventListener('resize', function () { size(); need(); });
+  window.addEventListener('scroll', function () { need(); }, { passive: true });
   window.addEventListener('pointermove', function (e) {
     mouse.tx = e.clientX / W * 2 - 1; mouse.ty = -(e.clientY / H * 2 - 1);
     tilt.tx = (e.clientX / W - .5) * .5; tilt.ty = (e.clientY / H - .5) * .3;
@@ -348,10 +355,12 @@
   window.addEventListener('pointerleave', function () { mouse.tx = 9; mouse.ty = 9; });
 
   var t0 = performance.now(), vis = !document.hidden, last = 0, raf = 0, lost = false;
+  var pending = 0;
+  function need() { if (still) { pending = 3; kick(); } }
   // um unico ciclo de animacao: nunca agenda um quadro se ja houver um pendente
   function kick() { if (!raf && vis && !lost) raf = requestAnimationFrame(frame); }
   document.addEventListener('visibilitychange', function () { vis = !document.hidden; if (vis) { last = 0; kick(); } });
-  cv.addEventListener('webglcontextlost', function (e) { e.preventDefault(); lost = true; cv.style.opacity = 0; });
+  cv.addEventListener('webglcontextlost', function (e) { e.preventDefault(); lost = true; cv.style.opacity = 0; document.documentElement.classList.add('no-gl'); });
   cv.addEventListener('webglcontextrestored', function () {
     var again = false; try { again = !sessionStorage.getItem('sp-glr'); sessionStorage.setItem('sp-glr', '1'); } catch (e) { }
     if (again) location.reload();
@@ -386,7 +395,7 @@
     gl.drawArrays(gl.POINTS, 0, N);
     }
     } catch (e) { }
-    if (!still) kick();
+    if (!still) kick(); else if (pending > 0) { pending--; kick(); }
   }
   if (still) { mix = 1; st = tg; }
   kick();

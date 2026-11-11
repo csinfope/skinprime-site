@@ -145,9 +145,14 @@
   var fmap = $('[data-fmap]'), fpan = $('[data-fpanel]');
   if (fmap && fpan && SP.fmap && SP.fmap.length) {
     var fpts = $$('[data-face-pt]', fmap), fsel = -1;
+    var fbar = d.createElement('div'); fbar.className = 'fareas'; fbar.setAttribute('role', 'group'); fbar.setAttribute('aria-label', 'Regi\u00f5es do rosto');
+    fbar.innerHTML = SP.fmap.map(function (A, i) { return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="false">' + esc(A.t) + '</button>'; }).join('');
+    fpan.parentNode.insertBefore(fbar, fpan);
+    var fchips = $$('button', fbar);
+    fchips.forEach(function (b) { b.addEventListener('click', function () { showArea(+b.getAttribute('data-i')); }); });
     function showArea(i) {
       if (i === fsel) return; fsel = i; var A = SP.fmap[i], h = '';
-      fpts.forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-i') === i); });
+      fpts.concat(fchips).forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-i') === i); });
       A.p.forEach(function (ix) { var q = SP.posts[ix]; h += '<a class="chip" href="' + postUrl(q) + '">' + esc(q[0]) + ' \u2192</a>'; });
       fpan.innerHTML = '<p class="label">' + esc(A.t) + '</p><p class="fpanel__d">' + esc(A.d) + '</p><div class="fpanel__l">' + h + '</div>';
       fpan.classList.remove('in'); void fpan.offsetWidth; fpan.classList.add('in');

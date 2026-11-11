@@ -339,6 +339,7 @@ letters = ''.join((f'<a href="doencas/index.html#letra-{L}">{L}</a>' if L in BY_
 tick = ''.join(f'<span>{E(t)}</span>' for t in TECH) * 2
 reel = ''.join(f'<a href="assets/img/clinic/{k}.jpg" data-tour="{k}" data-alt="{E(c)}" draggable="false"><img src="assets/img/clinic/{k}-m.jpg" alt="{E(c)}" loading="lazy" width="900" height="600" draggable="false"><span class="cap3d">Ver em 3D</span><span class="cap">{i:02d} · {E(c)}</span></a>' for i, (k, c) in enumerate(CLINIC, 1))
 home = f'''<section class="hero" data-fx="face" data-fx-x=".43" data-fx-y=".04" data-fx-s="1.02" data-fx-f="1" data-fx-my=".5">
+<img class="hero__face" src="assets/img/brand/face.webp" alt="Rosto feminino com contorno facial definido" width="720" height="654">
 <div class="wrap hero__in">
 <p class="label">Recife · RioMar Trade Center · 19º andar</p>
 <h1 class="split">A arte da <em>dermatologia</em></h1>
