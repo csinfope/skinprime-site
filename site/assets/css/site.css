@@ -535,7 +535,9 @@ a.sol__i:hover{border-color:var(--aqua);transform:translateY(-3px)}
 .fpanel__l .chip{text-transform:none;letter-spacing:.02em;font:400 .86rem/1.2 var(--f-body);padding:.6em 1em;background:rgba(var(--base),.7)}
 .fpanel__l .chip:hover{background:var(--aqua);color:var(--on);border-color:var(--aqua)}
 .fhint{margin-top:14px;font:400 .62rem var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
-@media(max-width:760px){.fpt span{display:none}.fhint{display:none}}
+.fpt b{font-weight:400}.fpt .sh{display:none}
+@media(max-width:760px){.fhint{display:none}.fpt .lg{display:none}.fpt .sh{display:inline}
+  .fpt span{left:24px;font-size:.54rem;letter-spacing:.12em;padding:5px 8px}.fpt--l span{left:auto;right:24px}.fpt span::before{width:8px}}
 body::after{display:none}
 @media(prefers-reduced-motion:no-preference){
   .js .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
@@ -567,3 +569,9 @@ body::after{display:none}
   .atlas .ph,.gal a,.cover{position:relative}
 }
 .no-gl #fx{display:none}
+
+/* reserva sem 3D: manchas da paleta derivando devagar (so CSS, leve) */
+.no-gl body::before{content:"";position:fixed;top:-20%;right:-20%;bottom:-20%;left:-20%;z-index:-1;pointer-events:none;
+  background:radial-gradient(38% 30% at 30% 30%,var(--bg-a),transparent 70%),radial-gradient(34% 28% at 72% 62%,var(--bg-b),transparent 70%),radial-gradient(30% 26% at 60% 18%,var(--bg-a),transparent 70%);
+  animation:spdrift 28s ease-in-out infinite alternate}
+@keyframes spdrift{0%{transform:translate3d(-4%,-3%,0) rotate(0)}50%{transform:translate3d(3%,2%,0) rotate(4deg)}100%{transform:translate3d(-2%,4%,0) rotate(-3deg)}}

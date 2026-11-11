@@ -16,14 +16,18 @@
     try { cv.style.display = 'none'; } catch (e) { }
   }
   // aparelho lento: desliga o fundo animado; se continuar lento, usa a reserva
+  // vigia de desempenho: ignora os primeiros segundos (carregamento); se o aparelho seguir lento,
+  // primeiro reduz a resolucao; so depois troca para a reserva (que tambem tem fundo em movimento)
+  var wt0 = performance.now(), acc = 0, lowres = false;
   function watch(ms) {
-    if (still || document.hidden) return;
-    frames++; if (ms > 70) slow++;
-    if (frames === 90) {
-      if (slow > 30) { if (bgp) { bgp = null; slow = 0; frames = 0; } else fallback(); }
-      else frames = 91;
+    if (document.hidden || performance.now() - wt0 < 4000) return;
+    frames++; acc += Math.min(ms, 250);
+    if (frames >= 120) {
+      var avg = acc / frames; frames = 0; acc = 0;
+      if (avg > 55) { if (!lowres) { lowres = true; size(); } else fallback(); }
     }
   }
+
   var small = Math.min(window.innerWidth, window.innerHeight) < 700;
   var N = small ? 7000 : 15000;
   var R = document.documentElement.getAttribute('data-root') || '';
@@ -279,7 +283,7 @@
     gl.enableVertexAttribArray(ph.lu); gl.vertexAttribPointer(ph.lu, 2, gl.FLOAT, false, 32, 24);
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ph.ib);
     var u = ph.U;
-    gl.uniform1f(u.uT, (now - t0) / 1000); gl.uniform1f(u.uAsp, W / H); gl.uniform1f(u.uScale, st.sc * (W < 760 ? .62 : 1)); gl.uniform1f(u.uSpin, sp || 0);
+    gl.uniform1f(u.uT, still ? 0 : (now - t0) / 1000); gl.uniform1f(u.uAsp, W / H); gl.uniform1f(u.uScale, st.sc * (W < 760 ? .62 : 1)); gl.uniform1f(u.uSpin, sp || 0);
     gl.uniform1f(u.uScan, scan); gl.uniform1f(u.uFrom, f); gl.uniform1f(u.uTo, t2); gl.uniform1f(u.uSweep, sweep);
     gl.uniform2f(u.uOff, st.ox, st.oy + heroOff()); gl.uniform2f(u.uTilt, tilt.x, tilt.y);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, ph.tx); gl.uniform1i(u.uTex, 0);
@@ -302,7 +306,7 @@
       'float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}' +
       'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}' +
       'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<3;i++){v+=a*n(p);p=p*2.03+7.1;a*=.5;}return v;}' +
-      'void main(){vec2 p=gl_FragCoord.xy/uRes.y;float t=uT*.03;p.y+=uS*.22;' +
+      'void main(){vec2 p=gl_FragCoord.xy/uRes.y;float t=uT*.065;p.y+=uS*.22;' +
       'float a=fbm(p*1.2+vec2(t,-t*.6)+uM*.07);float b=fbm(p*1.7-vec2(t*.7,t)+a*1.2);' +
       'vec3 base=mix(vec3(.114,.169,.176),vec3(.969),uL);vec3 aq=mix(vec3(.224,.333,.357),vec3(.643,.824,.859),uL);vec3 bl=mix(vec3(.6,.376,.349),vec3(.902,.733,.71),uL);' +
       'vec3 c=mix(base,aq,smoothstep(.4,.78,a)*.62);c=mix(c,bl,smoothstep(.5,.82,b)*.45);' +
@@ -330,7 +334,7 @@
     if (!mlayer) return;
     mlayer.style.opacity = Math.max(0, Math.min(1, (vis2 - .35) / .5)); mlayer.style.visibility = vis2 > .36 ? 'visible' : 'hidden';
     if (vis2 <= .36) return;
-    var T = (now - t0) / 1000, an = sp < 0 ? Math.sin(T * .45) * (-sp) : T * .16 * sp, sc = st.sc * (W < 760 ? .62 : 1);
+    var T = still ? 0 : (now - t0) / 1000, an = sp < 0 ? Math.sin(T * .45) * (-sp) : T * .16 * sp, sc = st.sc * (W < 760 ? .62 : 1);
     var c1 = Math.cos(an), s1 = Math.sin(an), c2 = Math.cos(tilt.x), s2 = Math.sin(tilt.x), c3 = Math.cos(tilt.y), s3 = Math.sin(tilt.y);
     marks.forEach(function (m) {
       var x = m.p[0], y = m.p[1], z = m.p[2];
@@ -361,7 +365,7 @@
     tg.ox = o.x || 0; tg.oy = o.y || 0; tg.sc = o.scale || 1; tg.fade = o.fade == null ? 1 : o.fade;
   }
   function size() {
-    dpr = Math.min(window.devicePixelRatio || 1, COARSE ? 1 : 1.5); W = cv.clientWidth; H = cv.clientHeight;
+    dpr = lowres ? .6 : Math.min(window.devicePixelRatio || 1, COARSE ? 1 : 1.5); W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; gl.viewport(0, 0, cv.width, cv.height);
   }
   size(); window.addEventListener('resize', function () { size(); need(); });
@@ -414,7 +418,7 @@
     gl.drawArrays(gl.POINTS, 0, N);
     }
     } catch (e) { if (++errs > 5) fallback(); }
-    if (!still) kick(); else if (pending > 0) { pending--; kick(); }
+    kick();
   }
   if (still) { mix = 1; st = tg; }
   kick();

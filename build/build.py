@@ -430,7 +430,8 @@ home = f'''<section class="hero" data-fx="face" data-fx-x=".43" data-fx-y=".04" 
 <img src="assets/img/clinic/lounge-m.jpg" alt="Lounge da Skin Prime" loading="lazy" width="900" height="600">
 </div>
 </div></div></section>'''
-home += '<div class="fmap" data-fmap>' + ''.join(f'<button class="fpt{" fpt--l" if side else ""}" type="button" data-face-pt="{k}" data-i="{i}" aria-pressed="false"><i></i><span>{E(t)}</span></button>' for i, (k, t, d2, keys, side) in enumerate(FMAP)) + '</div>'
+SHORT = {'testa': 'Testa', 'olhos': 'Olhos', 'macas': 'Maçãs', 'labios': 'Lábios', 'mandibula': 'Mandíbula', 'papada': 'Papada'}
+home += '<div class="fmap" data-fmap>' + ''.join(f'<button class="fpt{" fpt--l" if side else ""}" type="button" data-face-pt="{k}" data-i="{i}" aria-pressed="false"><i></i><span><b class="lg">{E(t)}</b><b class="sh">{E(SHORT.get(k, t))}</b></span></button>' for i, (k, t, d2, keys, side) in enumerate(FMAP)) + '</div>'
 write('index.html', page('index.html', '', 'Skin Prime: dermatologia, estética, nutrição e saúde no RioMar Trade Center, Recife. Conheça a clínica, os especialistas, os tratamentos e a biblioteca de doenças dermatológicas.', home))
 
 
