@@ -73,7 +73,7 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{E(full)}</title>
 <meta name="description" content="{E(desc[:300])}">
-<meta name="theme-color" content="#03080a">
+<meta name="theme-color" content="#1d2b2d">
 <meta property="og:title" content="{E(full)}">
 <meta property="og:description" content="{E(desc[:300])}">
 <meta property="og:image" content="https://www.skinprime.com.br/{og}">
@@ -654,7 +654,7 @@ write('atlas/index.html', page('atlas/index.html', 'Atlas de Imagens', f'Atlas d
 # ---------------------------------------------------------------- extras
 body = phead('', [('Página não encontrada', '')], 'Erro 404', 'Esta página saiu do <em>foco</em>.', 'O endereço pode ter mudado. Volte ao início ou fale com a clínica.') + '<section class="sec"><div class="wrap"><a class="btn" href="/">Voltar ao início</a></div></section>'
 write('404.html', page('404.html', 'Página não encontrada', 'Página não encontrada.', body).replace('href="assets/', 'href="/assets/').replace('src="assets/', 'src="/assets/'))
-write('assets/img/brand/favicon.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#071315"/><circle cx="32" cy="32" r="24" fill="none" stroke="#93ccd5" stroke-width="1.2"/><text x="32" y="43" text-anchor="middle" font-family="Didot,Bodoni MT,Georgia,serif" font-size="32" fill="#dba396">S</text></svg>')
+write('assets/img/brand/favicon.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#1d2b2d"/><circle cx="32" cy="32" r="24" fill="none" stroke="#a4d2db" stroke-width="1.2"/><text x="32" y="43" text-anchor="middle" font-family="Didot,Bodoni MT,Georgia,serif" font-size="32" fill="#cc8d85">S</text></svg>')
 urls = ['', 'clinica.html', 'especialistas.html', 'tratamentos/', 'doencas/', 'atlas/'] + [f"tratamentos/{p['s']}.html" for p in POSTS] + [f"doencas/{d['s']}.html" for d in DIS]
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>https://www.skinprime.com.br/{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://www.skinprime.com.br/sitemap.xml\n')

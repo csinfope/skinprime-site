@@ -59,7 +59,7 @@
     gl.useProgram(pr);
     ['uCam', 'uRot', 'uVP', 'uFit', 'uPan', 'uF', 'uT', 'uFade'].forEach(function (n) { U[n] = gl.getUniformLocation(pr, n); });
     vbuf = gl.createBuffer(); ibuf = gl.createBuffer(); tex = gl.createTexture();
-    gl.enable(gl.DEPTH_TEST); gl.clearColor(.012, .03, .04, 1);
+    gl.enable(gl.DEPTH_TEST); gl.clearColor(.114, .169, .176, 1);
   }
 
   var A = 1.5, VP = [0, 0];

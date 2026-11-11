@@ -74,8 +74,8 @@
   function wordmark() {
     return fromCanvas(function (x, w, h) {
       x.fillStyle = '#fff'; x.textAlign = 'center'; x.textBaseline = 'alphabetic';
-      x.font = '400 250px "Bodoni Moda",Didot,"Times New Roman",serif'; x.strokeStyle = '#fff'; x.lineWidth = 7; x.lineJoin = 'round'; x.fillText('SKIN', w / 2, 250); x.strokeText('SKIN', w / 2, 250); x.lineWidth = 3;
-      x.font = '400 62px "Bodoni Moda",Didot,"Times New Roman",serif';
+      x.font = '400 250px Belleza,"Bodoni Moda",Didot,serif'; x.strokeStyle = '#fff'; x.lineWidth = 7; x.lineJoin = 'round'; x.fillText('SKIN', w / 2, 250); x.strokeText('SKIN', w / 2, 250); x.lineWidth = 3;
+      x.font = '400 62px Belleza,"Bodoni Moda",Didot,serif';
       var t = 'PRIME', sp = 34, tw = 0, i; for (i = 0; i < t.length; i++) tw += x.measureText(t[i]).width + sp;
       var px = w / 2 + 300 - tw; x.textAlign = 'left'; for (i = 0; i < t.length; i++) { x.fillText(t[i], px, 340); x.strokeText(t[i], px, 340); px += x.measureText(t[i]).width + sp; }
     }, 1100, 380, 3.1);
@@ -180,7 +180,7 @@
     'gl_Position=vec4(q,0.,1.);gl_PointSize=(1.7+fract(aS*7.)*2.6)*uDpr*(3.2/z)*(1.+push*7.)*(1.+glow*.7)*uSm;' +
     'vA=(.55+.45*fract(aS*13.))*uFade*clamp(1.9-z*.3,.35,1.)*(1.+push*6.)*(1.+glow*1.3);vS=aS;}';
   var FS = 'precision mediump float;varying float vA;varying float vS;void main(){vec2 c=gl_PointCoord-.5;float d=length(c);if(d>.5)discard;' +
-    'float a=smoothstep(.5,.05,d);vec3 aq=vec3(.44,.89,.94),ro=vec3(.94,.66,.58),wh=vec3(.93,.97,.98);' +
+    'float a=smoothstep(.5,.05,d);vec3 aq=vec3(.643,.824,.859),ro=vec3(.902,.733,.71),wh=vec3(.97,.97,.97);' +
     'vec3 col=fract(vS*3.7)<.14?ro:(fract(vS*5.3)<.3?wh:aq);gl_FragColor=vec4(col,a*vA);}';
   function sh(t, s) { var o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; }
   var pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr);
@@ -211,7 +211,7 @@
       'vec3 p=aP+aDv*(1.-st);p=ry(p,ang(uSpin));p=rx(ry(p,uTilt.x),uTilt.y);p*=uScale;float z=3.2-p.z;vec2 q=p.xy/z*2.1;q.x/=uAsp;q+=uOff;' +
       'gl_Position=vec4(q*z,(z-3.2)*.25*z,z);vUV=aUV;}';
     var FS2 = 'precision mediump float;uniform sampler2D uTex;uniform float uAlpha;varying vec2 vUV;varying float vG;' +
-      'void main(){vec4 c=texture2D(uTex,vUV);vec3 k=c.rgb*vec3(.9,.97,1.)+vec3(.44,.89,.94)*vG*.4;gl_FragColor=vec4(k,c.a*uAlpha);}';
+      'void main(){vec4 c=texture2D(uTex,vUV);vec3 k=c.rgb*vec3(.95,.98,1.)+vec3(.643,.824,.859)*vG*.4;gl_FragColor=vec4(k,c.a*uAlpha);}';
     var p2 = gl.createProgram(); gl.attachShader(p2, sh(gl.VERTEX_SHADER, VS2)); gl.attachShader(p2, sh(gl.FRAGMENT_SHADER, FS2)); gl.linkProgram(p2);
     if (!gl.getProgramParameter(p2, gl.LINK_STATUS)) return;
     var g = dec(SF.g), gx = SF.gx, gy = SF.gy, nv = gx * gy, v = new Float32Array(nv * 8), i, j, n = 0;
@@ -335,14 +335,22 @@
   kick();
 
   // a marca \u00e9 amostrada depois que a fonte carrega
-  function logoReady() {
-    var a = null; try { a = wordmark(); } catch (e) { }
-    if (a) {
-      shapes.logo = a; if (bufs.logo) { gl.deleteBuffer(bufs.logo); delete bufs.logo; }
-      if (to === 'logo') { bind(lB, 'logo'); } if (from === 'logo') bind(lA, 'logo');
-    }
+  function setLogo(a) {
+    if (!a) return;
+    shapes.logo = a; if (bufs.logo) { gl.deleteBuffer(bufs.logo); delete bufs.logo; }
+    if (to === 'logo') { bind(lB, 'logo'); } if (from === 'logo') bind(lA, 'logo');
   }
-  if (document.fonts && document.fonts.load) document.fonts.load('400 250px "Bodoni Moda"').then(logoReady, logoReady); else logoReady();
+  function logoText() { var a = null; try { a = wordmark(); } catch (e) { } setLogo(a); }
+  (function () { // amostra o logo real; se a imagem nao puder ser lida, desenha o nome com a fonte
+    var im = new Image(), mp = window.SPMAP, src = 'assets/img/brand/logo-bone.png';
+    im.onload = function () {
+      var a = null;
+      try { a = fromCanvas(function (x, w, h) { var k = Math.min(w / im.naturalWidth, h / im.naturalHeight) * .96, dw = im.naturalWidth * k, dh = im.naturalHeight * k; x.drawImage(im, (w - dw) / 2, (h - dh) / 2, dw, dh); }, 1000, 470, 2.05); } catch (e) { }
+      if (a) setLogo(a); else logoText();
+    };
+    im.onerror = logoText;
+    im.src = (mp && mp[src]) || (R + src);
+  })();
 
   window.SPFX = { go: go, place: place, count: N, names: Object.keys(shapes) };
   window.dispatchEvent(new Event('fx:ready'));
