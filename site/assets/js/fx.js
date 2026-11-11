@@ -178,12 +178,12 @@
     'p+=.012*vec3(sin(uT*1.3+aS*40.),cos(uT*1.1+aS*70.),sin(uT*.9+aS*20.));' +
     'p=rx(ry(p,uTilt.x),uTilt.y);p*=uScale;float z=3.2-p.z;vec2 q=p.xy/z*2.1;q.x/=uAsp;q+=uOff;' +
     'vec2 dm=q-uMouse;dm.x*=uAsp;float dl=length(dm);float push=exp(-dl*dl*26.)*.085;q+=normalize(dm+1e-5)*push*vec2(1./uAsp,1.);' +
-    'gl_Position=vec4(q,0.,1.);gl_PointSize=(1.7+fract(aS*7.)*2.6)*uDpr*(3.2/z)*(1.+push*7.)*(1.+glow*.7)*uSm;' +
-    'vA=(.55+.45*fract(aS*13.))*uFade*mix(1.,.5+.5*uFade,uLightV)*clamp(1.9-z*.3,.35,1.)*(1.+push*6.)*(1.+glow*1.3);vS=aS;}';
+    'gl_Position=vec4(q,0.,1.);gl_PointSize=(1.7+fract(aS*7.)*2.6)*uDpr*(3.2/z)*(1.+push*7.)*(1.+glow*.7)*uSm*mix(1.,1.45,uLightV);' +
+    'vA=(.55+.45*fract(aS*13.))*uFade*mix(1.,mix(.5,1.5,smoothstep(.3,1.,uFade))*mix(.45,1.,(uSm-.5)*2.),uLightV)*clamp(1.9-z*.3,.35,1.)*(1.+push*6.)*(1.+glow*1.3);vS=aS;}';
   var FS = 'precision mediump float;uniform float uLight;varying float vA;varying float vS;void main(){vec2 c=gl_PointCoord-.5;float d=length(c);if(d>.5)discard;' +
-    'float a=smoothstep(.5,.05,d);vec3 aq=vec3(.643,.824,.859),ro=vec3(.902,.733,.71),wh=vec3(.97,.97,.97);' +
-    'if(uLight>.5){aq=vec3(.26,.49,.54);ro=vec3(.78,.47,.43);wh=vec3(.16,.31,.35);}' +
-    'vec3 col=fract(vS*3.7)<.14?ro:(fract(vS*5.3)<.3?wh:aq);gl_FragColor=vec4(col,a*min(1.,vA)*mix(1.,.9,uLight));}';
+    'float a=smoothstep(.5,mix(.05,.32,uLight),d);vec3 aq=vec3(.643,.824,.859),ro=vec3(.902,.733,.71),wh=vec3(.97,.97,.97);' +
+    'if(uLight>.5){aq=vec3(.16,.40,.46);ro=vec3(.72,.34,.29);wh=vec3(.09,.17,.19);}' +
+    'vec3 col=fract(vS*3.7)<.14?ro:(fract(vS*5.3)<.3?wh:aq);gl_FragColor=vec4(col,a*min(1.,vA));}';
   function sh(t, s) { var o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; }
   var pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr);
   if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { cv.remove(); return; }
