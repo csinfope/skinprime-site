@@ -124,10 +124,9 @@ def phead(R, crumbs, label, h1, lead='', extra=''):
         (f'<span><a href="{R}{h}">{E(t)}</a></span>' if h else f'<span>{E(t)}</span>') for t, h in crumbs)
     return f'''<section class="phead"><div class="wrap">
 <nav class="crumb" aria-label="Você está em">{c}</nav>
-<h1 class="split">{h1}</h1>
+{f'<div class="phead__row"><h1 class="split">{h1}</h1>{extra}</div>' if extra else f'<h1 class="split">{h1}</h1>'}
 {f'<p class="lead">{lead}</p>' if lead else ''}
 {f'<p class="label" style="margin-top:22px">{label}</p>' if label else ''}
-{extra}
 </div></section>'''
 
 

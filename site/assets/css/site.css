@@ -584,7 +584,10 @@ body::after{display:none}
 @supports not (aspect-ratio:1){.map{height:0;padding-top:75%;min-height:0}}
 
 /* ligacoes entre doenca e atlas */
-.xlinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;position:relative;z-index:1}
+.phead__row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 40px;position:relative;z-index:1}
+.phead__row h1{min-width:0;flex:1 1 auto}
+.xlinks{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:1;flex:none;justify-content:flex-end;margin-bottom:calc(.25em + 10px)}
+@media(max-width:860px){.phead__row{flex-direction:column;align-items:flex-start}.xlinks{justify-content:flex-start;margin:6px 0 0}}
 .xlinks__n{display:inline-grid;place-items:center;min-width:1.9em;height:1.9em;padding:0 .4em;border-radius:999px;background:var(--rose);color:var(--on);font:400 .7rem/1 var(--f-mono);letter-spacing:0}
 .btn:hover .xlinks__n{background:var(--ink);color:var(--bone)}
 .xlinks__none{font:400 .68rem/1.6 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
