@@ -21,6 +21,8 @@ CATS = [('face', 'Face'), ('corpo', 'Corpo'), ('cabelo', 'Cabelo'), ('procedimen
         ('cirurgia-plástica', 'Cirurgia Plástica'), ('nutrição', 'Nutrição'),
         ('dermatologia-clínica', 'Dermatologia Clínica'), ('news', 'News')]
 MESES = 'jan fev mar abr mai jun jul ago set out nov dez'.split()
+ICON_IMG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 8"/></svg>'
+ICON_TXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>'
 ICON_S = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
 ICON_WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.6-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.700.300-.900.900-1 2.100-.300 3.400a11.400 11.400 0 0 0 4.700 4.300c1.700.700 2.400.800 3.200.600.500-.100 1.500-.600 1.700-1.200.200-.600.200-1.100.100-1.200z"/></svg>'
 
@@ -117,7 +119,7 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
 '''
 
 
-def phead(R, crumbs, label, h1, lead=''):
+def phead(R, crumbs, label, h1, lead='', extra=''):
     c = f'<a href="{R}index.html">Início</a>' + ''.join(
         (f'<span><a href="{R}{h}">{E(t)}</a></span>' if h else f'<span>{E(t)}</span>') for t, h in crumbs)
     return f'''<section class="phead"><div class="wrap">
@@ -125,6 +127,7 @@ def phead(R, crumbs, label, h1, lead=''):
 <h1 class="split">{h1}</h1>
 {f'<p class="lead">{lead}</p>' if lead else ''}
 {f'<p class="label" style="margin-top:22px">{label}</p>' if label else ''}
+{extra}
 </div></section>'''
 
 
@@ -635,21 +638,44 @@ for i, d in enumerate(DIS):
     gal = ''
     if d['imgs']:
         gal = f'''<h2 id="imagens" style="font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:2.2em;padding-top:.9em;border-top:1px solid var(--line);scroll-margin-top:110px">Atlas de imagens <span class="label label--mute" style="margin-left:10px">{len(d['imgs'])}</span></h2>
+<p style="margin-top:.6em"><a class="arrow" href="../atlas/{d['s']}.html">Abrir no Atlas de Imagens</a></p>
 <div class="gal">{''.join(f'<a href="../assets/img/atlas/{n}.jpg" data-lb="atlas" data-alt="{E(d["t"])}"><img src="../assets/img/atlas/{n}.jpg" alt="{E(d["t"])} — imagem clínica {k}" loading="lazy" width="200" height="200"></a>' for k, n in enumerate(d['imgs'], 1))}</div>'''
     bib = f'<h3 style="margin-top:2.4em;font-size:1.2rem">Bibliografia</h3><p class="biblio" style="margin-top:.8em">{E(d["bib"])}</p>' if d['bib'] else ''
+    if d['imgs']:
+        xl = f'<div class="xlinks"><a class="btn" href="../atlas/{d["s"]}.html">{ICON_IMG} Ver no Atlas de Imagens <span class="xlinks__n">{len(d["imgs"])}</span></a></div>'
+        side_x = f'<a class="xside" href="../atlas/{d["s"]}.html">{ICON_IMG}<span>Atlas de imagens<small>{len(d["imgs"])} {"imagem" if len(d["imgs"]) == 1 else "imagens"} desta doença</small></span></a>'
+    else:
+        xl = '<div class="xlinks"><span class="xlinks__none">Esta doença ainda não tem imagens no atlas.</span></div>'
+        side_x = ''
     body = phead('../', [('Doenças Dermatológicas', 'doencas/index.html'), (d['t'], '')],
-                 ' · '.join(x for x in [f'Atualizado em {d["upd"]}' if d['upd'] else '', f'{len(d["imgs"])} imagens no atlas' if d['imgs'] else ''] if x), E(d['t'])) + f'''
+                 ' · '.join(x for x in [f'Atualizado em {d["upd"]}' if d['upd'] else ''] if x), E(d['t']), extra=xl) + f'''
 <section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap art">
-<aside class="art__side"><a class="arrow" style="justify-self:start" href="index.html">Voltar ao índice</a>{f'<ol>{toc}</ol>' if toc else ''}
+<aside class="art__side"><a class="arrow" style="justify-self:start" href="index.html">Voltar ao índice</a>{side_x}{f'<ol>{toc}</ol>' if toc else ''}
 <p class="note">Conteúdo informativo. Não substitui a consulta com um dermatologista. <a href="{WA_MSG}" target="_blank" rel="noopener" style="color:var(--aqua)">Agende sua avaliação</a>.</p></aside>
 <article><div class="prose">{d['body']}</div>{gal}{bib}{solucao(d)}</article>
 </div></section>
 <nav class="pn" aria-label="Outras doenças"><a href="{prev['s']}.html"><span class="label label--mute">← Anterior</span><b>{E(prev['t'])}</b></a><a href="{nxt['s']}.html"><span class="label label--mute">Próxima →</span><b>{E(nxt['t'])}</b></a></nav>'''
     write(f"doencas/{d['s']}.html", page('doencas/x.html', d['t'], d['lead'], body, 'doencas'))
 
+# ---------------------------------------------------------------- atlas: uma página por doença
+WI = [d for d in DIS if d['imgs']]
+for i, d in enumerate(WI):
+    prev, nxt = WI[i - 1], WI[(i + 1) % len(WI)]
+    n = len(d['imgs'])
+    back = f'<div class="xlinks"><a class="btn btn--solid" href="../doencas/{d["s"]}.html">{ICON_TXT} Ler sobre {E(d["t"])}</a><a class="btn" href="index.html">Todas as doenças do atlas</a></div>'
+    gal = ''.join(f'<a href="../assets/img/atlas/{m}.jpg" data-lb="atlas" data-alt="{E(d["t"])} · imagem {k} de {n}"><img src="../assets/img/atlas/{m}.jpg" alt="{E(d["t"])} — imagem clínica {k}" loading="lazy" width="300" height="300"></a>' for k, m in enumerate(d['imgs'], 1))
+    body = phead('../', [('Atlas de Imagens', 'atlas/index.html'), (d['t'], '')], f'{n} {"imagem clínica" if n == 1 else "imagens clínicas"} · toque para ampliar', E(d['t']), extra=back) + f'''
+<section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap">
+<div class="gal gal--atlas">{gal}</div>
+<div class="xback panel"><div><p class="label">Texto da doença</p><p>Epidemiologia, quadro clínico, diagnóstico e tratamento de {E(d["t"])}, e como a Skin Prime pode ajudar.</p></div><a class="btn btn--solid" href="../doencas/{d["s"]}.html">{ICON_TXT} Voltar ao texto da doença</a></div>
+<p class="note" style="margin-top:28px">Imagens clínicas de caráter educativo. Não substituem a avaliação de um dermatologista.</p>
+</div></section>
+<nav class="pn" aria-label="Outras doenças do atlas"><a href="{prev['s']}.html"><span class="label label--mute">← Anterior</span><b>{E(prev['t'])}</b></a><a href="{nxt['s']}.html"><span class="label label--mute">Próxima →</span><b>{E(nxt['t'])}</b></a></nav>'''
+    write(f"atlas/{d['s']}.html", page('atlas/x.html', f'{d["t"]} · Atlas de Imagens', f'Atlas de imagens clínicas de {d["t"]}: {n} imagens.', body, 'atlas'))
+
 # ---------------------------------------------------------------- atlas
 WI = [d for d in DIS if d['imgs']]
-grid = ''.join(f'<a href="../doencas/{d["s"]}.html#imagens" data-k="{E(norm(d["t"]))}"><div class="ph"><img src="../assets/img/atlas/{d["imgs"][0]}.jpg" alt="" loading="lazy" width="200" height="200"></div><b>{E(d["t"])}</b><small>{len(d["imgs"])} {"imagem" if len(d["imgs"])==1 else "imagens"}</small></a>' for d in WI)
+grid = ''.join(f'<a href="{d["s"]}.html" data-k="{E(norm(d["t"]))}"><div class="ph"><img src="../assets/img/atlas/{d["imgs"][0]}.jpg" alt="" loading="lazy" width="200" height="200"></div><b>{E(d["t"])}</b><small>{len(d["imgs"])} {"imagem" if len(d["imgs"])==1 else "imagens"}</small></a>' for d in WI)
 body = phead('../', [('Atlas de Imagens', '')], f'{NI} imagens · {len(WI)} doenças', 'Atlas de <em>imagens</em>.',
              'Registros clínicos organizados por doença, em ordem alfabética. Imagens reais, de caráter educativo.') + f'''
 <section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap">
@@ -664,7 +690,7 @@ write('atlas/index.html', page('atlas/index.html', 'Atlas de Imagens', f'Atlas d
 body = phead('', [('Página não encontrada', '')], 'Erro 404', 'Esta página saiu do <em>foco</em>.', 'O endereço pode ter mudado. Volte ao início ou fale com a clínica.') + '<section class="sec"><div class="wrap"><a class="btn" href="/">Voltar ao início</a></div></section>'
 write('404.html', page('404.html', 'Página não encontrada', 'Página não encontrada.', body).replace('href="assets/', 'href="/assets/').replace('src="assets/', 'src="/assets/'))
 write('assets/img/brand/favicon.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#1d2b2d"/><circle cx="32" cy="32" r="24" fill="none" stroke="#a4d2db" stroke-width="1.2"/><text x="32" y="43" text-anchor="middle" font-family="Didot,Bodoni MT,Georgia,serif" font-size="32" fill="#cc8d85">S</text></svg>')
-urls = ['', 'clinica.html', 'especialistas.html', 'tratamentos/', 'doencas/', 'atlas/'] + [f"tratamentos/{p['s']}.html" for p in POSTS] + [f"doencas/{d['s']}.html" for d in DIS]
+urls = ['', 'clinica.html', 'especialistas.html', 'tratamentos/', 'doencas/', 'atlas/'] + [f"tratamentos/{p['s']}.html" for p in POSTS] + [f"doencas/{d['s']}.html" for d in DIS] + [f"atlas/{d['s']}.html" for d in DIS if d['imgs']]
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>https://www.skinprime.com.br/{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://www.skinprime.com.br/sitemap.xml\n')
 print('ok:', len(urls), 'páginas')
