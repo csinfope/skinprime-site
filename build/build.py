@@ -10,6 +10,8 @@ E = html.escape
 WA = 'https://wa.me/558130364040'
 WA_MSG = WA + '?text=' + 'Ol%C3%A1%2C%20Skin%20Prime!%20Gostaria%20de%20agendar%20uma%20consulta.'
 MAPS = 'https://www.google.com/maps/search/?api=1&query=RioMar+Trade+Center+Torre+C+Av.+Rep%C3%BAblica+do+L%C3%ADbano+251+Pina+Recife'
+MAP_EMBED = 'https://www.google.com/maps?q=RioMar+Trade+Center+Torre+C,+Av.+Rep%C3%BAblica+do+L%C3%ADbano,+251,+Pina,+Recife+-+PE&z=16&output=embed'
+MAP_HTML = f'<div class="map"><iframe src="{MAP_EMBED}" title="Mapa: Skin Prime no RioMar Trade Center, Recife" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a class="map__open" href="{MAPS}" target="_blank" rel="noopener">Abrir no Google Maps →</a></div>'
 REVISTA = 'https://www.skinprime.com.br/_files/ugd/96b8be_44971ebf18c04e0eb636ec94da8b884f.pdf'
 SOCIAL = [('Instagram', '@skinprime_', 'https://www.instagram.com/skinprime_/'),
           ('Facebook', 'skinprimeoficial', 'https://www.facebook.com/skinprimeoficial'),
@@ -427,7 +429,7 @@ home = f'''<section class="hero" data-fx="face" data-fx-x=".43" data-fx-y=".04" 
 <div><dt>Trabalhe conosco</dt><dd><a href="mailto:contato@skinprime.com.br?subject=Vagas%20de%20Emprego%20Skin%20Prime">Envie seu currículo</a></dd></div>
 </dl>
 <div class="coord"><span>8°05′S · 34°53′W</span><a class="arrow" style="border:0;padding:0" href="{MAPS}" target="_blank" rel="noopener">Abrir no mapa</a></div>
-<img src="assets/img/clinic/lounge-m.jpg" alt="Lounge da Skin Prime" loading="lazy" width="900" height="600">
+{MAP_HTML}
 </div>
 </div></div></section>'''
 SHORT = {'testa': 'Testa', 'olhos': 'Olhos', 'macas': 'Maçãs', 'labios': 'Lábios', 'mandibula': 'Mandíbula', 'papada': 'Papada'}
@@ -454,7 +456,7 @@ body = phead('', [('A Clínica', '')], 'RioMar Trade Center · Torre C · 19º a
 <div><p class="label" style="margin-bottom:22px">Como chegar</p><h2>No coração do <em>Pina</em>.</h2></div>
 <div class="info"><dl><div><dt>Endereço</dt><dd>RioMar Trade Center · Av. República do Líbano, 251<br>Torre C, 19º andar – Sala 1905<br>Pina, Recife – PE · CEP 51110-160</dd></div>
 <div><dt>Telefone · WhatsApp</dt><dd class="big"><a href="{WA_MSG}" target="_blank" rel="noopener">(81) 3036-4040</a></dd></div></dl>
-<div class="coord"><span>8°05′S · 34°53′W</span><a class="arrow" style="border:0;padding:0" href="{MAPS}" target="_blank" rel="noopener">Abrir no mapa</a></div></div>
+<div class="coord"><span>8°05′S · 34°53′W</span><a class="arrow" style="border:0;padding:0" href="{MAPS}" target="_blank" rel="noopener">Abrir no mapa</a></div>{MAP_HTML}</div>
 </div></section>''' + cta('')
 write('clinica.html', page('clinica.html', 'A Clínica', 'Conheça os ambientes da Skin Prime no RioMar Trade Center, Recife: uma estrutura clínica para dermatologia, estética, nutrição e saúde.', body, 'clinica'))
 
