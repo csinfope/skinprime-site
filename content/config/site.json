@@ -1,0 +1,55 @@
+{
+  "nome": "Skin Prime",
+  "abertura": {
+    "rotulo": "Recife · RioMar Trade Center · 19º andar",
+    "titulo": "A arte da",
+    "titulo_destaque": "dermatologia",
+    "texto": "A experiência e a tecnologia se encontram para trazer uma estrutura clínica nunca vista no Recife quando o assunto é **dermatologia, estética, nutrição e saúde**."
+  },
+  "contato": {
+    "telefone": "(81) 3036-4040",
+    "whatsapp": "558130364040",
+    "mensagem_whatsapp": "Olá, Skin Prime! Gostaria de agendar uma consulta.",
+    "email": "contato@skinprime.com.br",
+    "endereco_linha1": "RioMar Trade Center · Av. República do Líbano, 251",
+    "endereco_linha2": "Torre C, 19º andar – Sala 1905",
+    "endereco_linha3": "Pina, Recife – PE · CEP 51110-160",
+    "busca_mapa": "RioMar Trade Center Torre C, Av. República do Líbano, 251, Pina, Recife - PE",
+    "coordenadas": "8°05′S · 34°53′W"
+  },
+  "empresa": {
+    "razao_social": "Clinical Center Rio Mar · Skin Prime",
+    "cnpj": "37.572.208/0001-95"
+  },
+  "revista_pdf": "https://www.skinprime.com.br/_files/ugd/96b8be_44971ebf18c04e0eb636ec94da8b884f.pdf",
+  "redes": [
+    {
+      "rede": "Instagram",
+      "usuario": "@skinprime_",
+      "link": "https://www.instagram.com/skinprime_/"
+    },
+    {
+      "rede": "Facebook",
+      "usuario": "skinprimeoficial",
+      "link": "https://www.facebook.com/skinprimeoficial"
+    },
+    {
+      "rede": "YouTube",
+      "usuario": "@skinprime3693",
+      "link": "https://www.youtube.com/@skinprime3693"
+    },
+    {
+      "rede": "Spotify",
+      "usuario": "Playlist Skin Prime",
+      "link": "https://open.spotify.com/playlist/4Vmj4nMBTfzhT5obi0249Q"
+    }
+  ],
+  "cores": {
+    "fundo": "#f7f7f7",
+    "texto": "#1d2b2d",
+    "texto_secundario": "#4f6468",
+    "botoes": "#996059",
+    "destaque": "#4a7079",
+    "rodape": "#1d2b2d"
+  }
+}

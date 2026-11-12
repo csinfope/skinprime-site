@@ -1,0 +1,12 @@
+{
+  "nome": "Dr. André Rosa",
+  "ordem": 5,
+  "funcao": "Dermatologista",
+  "registro": "CRM 13132 · RQE 7642",
+  "foto": "/assets/img/team/andre.jpg",
+  "frase": "Saúde, beleza e bem-estar com o rigor que a ciência pede.",
+  "titulo": "A especialidade que trata e cuida do maior órgão do corpo: a pele!",
+  "texto": "A dermatologia tornou-se minha paixão pela possibilidade de aliar saúde, beleza e bem-estar, com todo o rigor que a ciência pede e o acolhimento que nossos pacientes precisam.\n\nAqui exercemos nossa especialidade com compromisso, ética e amor.",
+  "link_rotulo": "Instagram",
+  "link_url": "https://www.instagram.com/andrerosadermato/"
+}

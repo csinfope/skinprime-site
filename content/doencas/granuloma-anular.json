@@ -1,0 +1,19 @@
+{
+  "titulo": "Granuloma anular",
+  "atualizado": "",
+  "texto": "Granuloma anular é uma desordem inflamatória benigna comum, de etiologia não esclarecida e curso crônico, com diferentes variantes clínicas.\n\n## Etiopatogenia\n\nFoi descrita pela primeira vez há mais de um século, em 1885, mas sua etiologia ainda permanece um enigma. Pode estar associada a doenças sistêmicas, principalmente endócrinas e auto-imunes, exposição solar e/ou tratamentos. Infere-se que poderia ser decorrente de reação auto-imune a algum estímulo. Há relatos de associação com diabetes melitus, podendo inclusive ser a primeira manifestação do DM, tireoidites auto-imunes, artrite reumatóide, sarcoidose, linfomas cutâneos ou sistêmicos, e infecções virais, como EBV, HIV, herpes, Hepatite C, dentre outros. Há relatos de surgimento de lesões também após vacinação BCG, e uso de medicações como paroxetina e biológicos anti-TNF. Recentemente, houve associação do granuloma anular com dislipidemia, devendo ser lembrada na pesquisa de investigação.\n\n## Epidemiologia\n\nPredomina em crianças e adultos jovens, especialmente menores de 30 anos, e no sexo feminino.\n\n## Manifestações clínicas\n\nCaracterizam-se por lesões anulares, compostas por anel de pápulas eritematosas firmes, que aumentam gradualmente e evoluem com clareamento central, principalmente em extremidades. As localizações mais comuns são pés, tornozelos, membros inferiores e superfície dorsal e lateral das mãos, mas pode atingir qualquer região.\n\nTêm sido descritas vários subtipos clínicos:\n\n-Localizado, o subtipo mais comum;\n\n-Disseminado, cerca de 15% dos casos;\n\n-Perfurante, forma rara, que se apresenta como pápulas umbilicadas, principalmente em dorso de mãos;\n\n-Subcutâneo, predomina em crianças e se apresenta como nódulo subcutâneo ou dérmico;\n\n-Eritematoso;\n\n-Actínico de O´Brian, relacionado à exposição solar, que será descrito em capítulo a parte.\n\nAs formas atípicas da doença como o disseminado e o perfurante, podem estar associadas a AIDS.\n\nHistologicamente se caracterizam por granulomas em paliçada com degeneração central do colágeno e rico em mucina.\n\nO granuloma anular pode regredir espontaneamente em alguns meses a dois anos ou mais, dependendo da extensão do quadro. A forma localizada normalmente regride espontaneamente em meses ou poucos anos, enquanto a forma disseminada tende a ser mais persistente.\n\n## Tratamento\n\nO tratamento da forma localizada geralmente é desnecessário, exceto se solicitado por questões estéticas. Pode ser feito com corticosteróides intra-lesionais ou aplicados sobre a lesão, com ou sem oclusão.\n\nBaseado na regressão espontânea após a biópsia, a realização de puncturas nas lesões também pode levar ao seu desaparecimento, assim como crioterapia com nitrogênio líquido.\n\nTacrolimus, pimecrolimus e imiquimod também são opções terapêuticas.\n\nHá descrição de tratamentos para as formas localizadas, com resultados promissores em relatos de casos, com uso do excimer laser, 595nm pulsed dye laser e lasers fracionados.\n\nEm casos mais extensos, como nas formas disseminadas, medicações orais podem ser necessárias, como isotretinoína, PUVA, dapsona, hidroxicloroquina, ésteres fumarínicos, iodeto de potássio e medicações anti-TNF.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/97a403f6880c4292a2334fef53697655.jpg",
+    "/assets/img/atlas/46cc966e7ded4b89b200940b6d6ee329.jpg",
+    "/assets/img/atlas/c11a9584ab22485182379f72a2187fbd.jpg",
+    "/assets/img/atlas/1091c17f89d645bfa0a0ea18e636f8a1.jpg",
+    "/assets/img/atlas/4afa000188584f14b7c90d874ec48060.jpg"
+  ],
+  "tratamentos": [
+    "Fototerapia"
+  ],
+  "exames": [
+    "Biópsia"
+  ]
+}

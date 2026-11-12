@@ -1,0 +1,542 @@
+# Configuração do painel (Sveltia CMS). Gerado por build/gen_admin.py — JSON também é YAML válido.
+{
+ "backend": {
+  "name": "github",
+  "repo": "csinfope/skinprime-site",
+  "branch": "main",
+  "commit_messages": {
+   "create": "Painel: cria {{collection}} “{{slug}}”",
+   "update": "Painel: atualiza {{collection}} “{{slug}}”",
+   "delete": "Painel: remove {{collection}} “{{slug}}”",
+   "uploadMedia": "Painel: envia imagem “{{path}}”",
+   "deleteMedia": "Painel: remove imagem “{{path}}”"
+  }
+ },
+ "site_url": "https://csinfope.github.io/skinprime-site/",
+ "display_url": "https://csinfope.github.io/skinprime-site/",
+ "logo": {
+  "src": "../assets/img/brand/logo-teal.png"
+ },
+ "media_folder": "site/assets/img/uploads",
+ "public_folder": "/assets/img/uploads",
+ "slug": {
+  "encoding": "ascii",
+  "clean_accents": true,
+  "sanitize_replacement": "-"
+ },
+ "collections": [
+  {
+   "name": "configuracoes",
+   "label": "Configurações do site",
+   "icon": "settings",
+   "editor": {
+    "preview": false
+   },
+   "files": [
+    {
+     "name": "site",
+     "label": "Informações gerais, contato e cores",
+     "file": "content/config/site.json",
+     "format": "json",
+     "fields": [
+      {
+       "label": "Nome da clínica",
+       "name": "nome",
+       "widget": "string"
+      },
+      {
+       "label": "Abertura da página inicial",
+       "name": "abertura",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Linha pequena acima do título",
+         "name": "rotulo",
+         "widget": "string"
+        },
+        {
+         "label": "Título",
+         "name": "titulo",
+         "widget": "string",
+         "hint": "Primeira parte do título. Ex.: “A arte da”."
+        },
+        {
+         "label": "Palavra em destaque",
+         "name": "titulo_destaque",
+         "widget": "string",
+         "hint": "Aparece em itálico, com degradê. Ex.: “dermatologia”."
+        },
+        {
+         "label": "Texto",
+         "name": "texto",
+         "widget": "text",
+         "hint": "Use **duas estrelas** em volta das palavras que devem ficar em negrito."
+        }
+       ]
+      },
+      {
+       "label": "Contato",
+       "name": "contato",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Telefone (como aparece no site)",
+         "name": "telefone",
+         "widget": "string",
+         "hint": "Ex.: (81) 3036-4040"
+        },
+        {
+         "label": "Número do WhatsApp",
+         "name": "whatsapp",
+         "widget": "string",
+         "hint": "Só números, com 55 e DDD. Ex.: 558130364040"
+        },
+        {
+         "label": "Mensagem pronta do WhatsApp",
+         "name": "mensagem_whatsapp",
+         "widget": "string"
+        },
+        {
+         "label": "E-mail",
+         "name": "email",
+         "widget": "string"
+        },
+        {
+         "label": "Endereço · linha 1",
+         "name": "endereco_linha1",
+         "widget": "string"
+        },
+        {
+         "label": "Endereço · linha 2",
+         "name": "endereco_linha2",
+         "widget": "string",
+         "required": false
+        },
+        {
+         "label": "Endereço · linha 3",
+         "name": "endereco_linha3",
+         "widget": "string",
+         "required": false
+        },
+        {
+         "label": "Endereço para o mapa do Google",
+         "name": "busca_mapa",
+         "widget": "string",
+         "hint": "O texto que o Google Maps vai procurar."
+        },
+        {
+         "label": "Coordenadas (texto decorativo)",
+         "name": "coordenadas",
+         "widget": "string",
+         "required": false
+        }
+       ]
+      },
+      {
+       "label": "Empresa",
+       "name": "empresa",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Razão social",
+         "name": "razao_social",
+         "widget": "string"
+        },
+        {
+         "label": "CNPJ",
+         "name": "cnpj",
+         "widget": "string"
+        }
+       ]
+      },
+      {
+       "label": "Link da revista digital (PDF)",
+       "name": "revista_pdf",
+       "widget": "string",
+       "required": false
+      },
+      {
+       "label": "Redes sociais",
+       "name": "redes",
+       "widget": "list",
+       "required": false,
+       "summary": "{{fields.rede}} · {{fields.usuario}}",
+       "fields": [
+        {
+         "label": "Rede",
+         "name": "rede",
+         "widget": "string",
+         "hint": "Ex.: Instagram"
+        },
+        {
+         "label": "Usuário ou nome exibido",
+         "name": "usuario",
+         "widget": "string"
+        },
+        {
+         "label": "Link",
+         "name": "link",
+         "widget": "string"
+        }
+       ]
+      },
+      {
+       "label": "Cores do site",
+       "name": "cores",
+       "widget": "object",
+       "hint": "Mudanças de cor aparecem em todo o site. O fundo animado e o rodapé usam a paleta da marca.",
+       "fields": [
+        {
+         "label": "Fundo",
+         "name": "fundo",
+         "widget": "color"
+        },
+        {
+         "label": "Texto principal",
+         "name": "texto",
+         "widget": "color"
+        },
+        {
+         "label": "Texto secundário",
+         "name": "texto_secundario",
+         "widget": "color"
+        },
+        {
+         "label": "Botões principais e WhatsApp",
+         "name": "botoes",
+         "widget": "color"
+        },
+        {
+         "label": "Destaques (rótulos, links, botões de seleção)",
+         "name": "destaque",
+         "widget": "color"
+        },
+        {
+         "label": "Rodapé",
+         "name": "rodape",
+         "widget": "color"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "clinica",
+     "label": "Fotos dos ambientes da clínica",
+     "file": "content/config/clinica.json",
+     "format": "json",
+     "media_folder": "/site/assets/img/clinic",
+     "public_folder": "/assets/img/clinic",
+     "fields": [
+      {
+       "label": "Fotos",
+       "name": "fotos",
+       "widget": "list",
+       "summary": "{{fields.legenda}}",
+       "hint": "Arraste para mudar a ordem. Fotos na horizontal funcionam melhor no tour 3D.",
+       "fields": [
+        {
+         "label": "Foto",
+         "name": "imagem",
+         "widget": "image"
+        },
+        {
+         "label": "Legenda",
+         "name": "legenda",
+         "widget": "string"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "doencas",
+   "label": "Doenças",
+   "label_singular": "Doença",
+   "icon": "medical_information",
+   "folder": "content/doencas",
+   "format": "json",
+   "extension": "json",
+   "create": true,
+   "delete": true,
+   "identifier_field": "titulo",
+   "slug": "{{titulo}}",
+   "summary": "{{titulo}}",
+   "sortable_fields": [
+    "titulo"
+   ],
+   "media_folder": "/site/assets/img/atlas",
+   "public_folder": "/assets/img/atlas",
+   "editor": {
+    "preview": false
+   },
+   "description": "Cada doença gera sua página e, se tiver imagens, uma página no Atlas.",
+   "fields": [
+    {
+     "label": "Nome da doença",
+     "name": "titulo",
+     "widget": "string"
+    },
+    {
+     "label": "Atualizado em",
+     "name": "atualizado",
+     "widget": "string",
+     "hint": "Ex.: 03/02/2025",
+     "required": false
+    },
+    {
+     "label": "Texto",
+     "name": "texto",
+     "widget": "markdown",
+     "hint": "Use “Heading 2” (Título 2) para as seções: Epidemiologia, Quadro clínico, Tratamento… Elas viram o índice lateral."
+    },
+    {
+     "label": "Bibliografia",
+     "name": "bibliografia",
+     "widget": "text",
+     "required": false
+    },
+    {
+     "label": "Imagens do atlas",
+     "name": "imagens",
+     "widget": "list",
+     "required": false,
+     "hint": "Imagens clínicas desta doença. A primeira é a capa no Atlas.",
+     "field": {
+      "label": "Imagem",
+      "name": "imagem",
+      "widget": "image"
+     }
+    },
+    {
+     "label": "Tratamentos da clínica para esta doença",
+     "name": "tratamentos",
+     "widget": "select",
+     "multiple": true,
+     "required": false,
+     "options": [
+      "Toxina botulínica",
+      "Preenchimento com ácido hialurônico",
+      "Peelings químicos",
+      "Dermoabrasão e microdermoabrasão",
+      "Microagulhamento",
+      "Laser de CO2",
+      "Laser ND-YAG / Q-Switched",
+      "Luz intensa pulsada",
+      "Lasers",
+      "Depilação a laser",
+      "Fototerapia",
+      "LED",
+      "Eletrocauterização",
+      "Curetagem dermatológica",
+      "Pequenas cirurgias",
+      "Tricologia e tratamentos capilares",
+      "Radiofrequência",
+      "Acompanhamento nutricional"
+     ],
+     "hint": "Aparecem no bloco “Na Skin Prime” no fim da página. Peça a revisão de um dermatologista."
+    },
+    {
+     "label": "Exames da clínica para esta doença",
+     "name": "exames",
+     "widget": "select",
+     "multiple": true,
+     "required": false,
+     "options": [
+      "Biópsia",
+      "Dermatoscopia digital"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "tratamentos",
+   "label": "Tratamentos e News",
+   "label_singular": "Publicação",
+   "icon": "spa",
+   "folder": "content/tratamentos",
+   "format": "json",
+   "extension": "json",
+   "create": true,
+   "delete": true,
+   "identifier_field": "titulo",
+   "slug": "{{titulo}}",
+   "summary": "{{titulo}} · {{data}}",
+   "sortable_fields": [
+    "data",
+    "titulo"
+   ],
+   "media_folder": "/site/assets/img/posts",
+   "public_folder": "/assets/img/posts",
+   "editor": {
+    "preview": false
+   },
+   "fields": [
+    {
+     "label": "Título",
+     "name": "titulo",
+     "widget": "string"
+    },
+    {
+     "label": "Data",
+     "name": "data",
+     "widget": "datetime",
+     "format": "YYYY-MM-DD",
+     "time_format": false,
+     "date_format": "DD/MM/YYYY"
+    },
+    {
+     "label": "Categorias",
+     "name": "categorias",
+     "widget": "select",
+     "multiple": true,
+     "required": false,
+     "options": [
+      {
+       "label": "Face",
+       "value": "face"
+      },
+      {
+       "label": "Corpo",
+       "value": "corpo"
+      },
+      {
+       "label": "Cabelo",
+       "value": "cabelo"
+      },
+      {
+       "label": "Procedimentos",
+       "value": "procedimentos"
+      },
+      {
+       "label": "Cirurgia Plástica",
+       "value": "cirurgia-plástica"
+      },
+      {
+       "label": "Nutrição",
+       "value": "nutrição"
+      },
+      {
+       "label": "Dermatologia Clínica",
+       "value": "dermatologia-clínica"
+      },
+      {
+       "label": "News",
+       "value": "news"
+      }
+     ],
+     "hint": "“News” coloca a publicação na seção de novidades da página inicial."
+    },
+    {
+     "label": "Imagem de capa",
+     "name": "capa",
+     "widget": "image",
+     "required": false
+    },
+    {
+     "label": "Resumo",
+     "name": "resumo",
+     "widget": "text",
+     "hint": "Aparece nos cartões. Se ficar vazio, usa o começo do texto.",
+     "required": false
+    },
+    {
+     "label": "Texto",
+     "name": "texto",
+     "widget": "markdown"
+    }
+   ]
+  },
+  {
+   "name": "equipe",
+   "label": "Equipe",
+   "label_singular": "Membro da equipe",
+   "icon": "groups",
+   "folder": "content/equipe",
+   "format": "json",
+   "extension": "json",
+   "create": true,
+   "delete": true,
+   "identifier_field": "nome",
+   "slug": "{{nome}}",
+   "summary": "{{ordem}} · {{nome}} · {{funcao}}",
+   "sortable_fields": [
+    "ordem",
+    "nome"
+   ],
+   "media_folder": "/site/assets/img/team",
+   "public_folder": "/assets/img/team",
+   "editor": {
+    "preview": false
+   },
+   "fields": [
+    {
+     "label": "Nome",
+     "name": "nome",
+     "widget": "string"
+    },
+    {
+     "label": "Ordem de exibição",
+     "name": "ordem",
+     "widget": "number",
+     "hint": "Número: 1 aparece primeiro.",
+     "value_type": "int",
+     "default": 99
+    },
+    {
+     "label": "Função",
+     "name": "funcao",
+     "widget": "string",
+     "hint": "Ex.: Dermatologista"
+    },
+    {
+     "label": "Registro profissional",
+     "name": "registro",
+     "widget": "string",
+     "hint": "Ex.: CRM 5999 · RQE 636",
+     "required": false
+    },
+    {
+     "label": "Foto",
+     "name": "foto",
+     "widget": "image",
+     "hint": "Foto quadrada, com o rosto centralizado."
+    },
+    {
+     "label": "Frase curta (cartão da página inicial)",
+     "name": "frase",
+     "widget": "text",
+     "required": false
+    },
+    {
+     "label": "Título do perfil",
+     "name": "titulo",
+     "widget": "string",
+     "required": false
+    },
+    {
+     "label": "Texto do perfil",
+     "name": "texto",
+     "widget": "text",
+     "hint": "Separe os parágrafos com uma linha em branco.",
+     "required": false
+    },
+    {
+     "label": "Rótulo do link",
+     "name": "link_rotulo",
+     "widget": "string",
+     "hint": "Ex.: Instagram",
+     "required": false
+    },
+    {
+     "label": "Link (Instagram ou site)",
+     "name": "link_url",
+     "widget": "string",
+     "required": false
+    }
+   ]
+  }
+ ]
+}

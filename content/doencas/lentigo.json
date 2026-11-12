@@ -1,0 +1,17 @@
+{
+  "titulo": "Lentigo",
+  "atualizado": "",
+  "texto": "É uma mancha acastanhada, cincunscrita, de bordas regulares ou não, composta por proliferação localizada de melanócitos epidérmicos. Compreende 3 tipos básicos: lentigo simples, lentigo solar e lentigo maligno.\n\nO lentigo simples é observado em qualquer parte do corpo ou mucosas, sem predileção por áreas expostas ao sol, sendo congênito ou adquirido. Surge na infância mas pode aparecer em qualquer idade. Clinicamente, o lentigo simples é indistinguível do nevo juncional.\n\nO lentigo solar é representado por lesões isoladas ou múltiplas, desencadeadas pela exposição a fontes naturais ou artificiais de raios ultravioletas, portanto surgem em áreas expostas do corpo. Está presente em 90% de brancos acima de 60 anos e ocorre em 50% dos indivíduos submetidos a 5,7 anos de tratamento com PUVA.\n\nO lentigo maligno é uma mácula larga, desordenadamente pigmentada, que surge na pele danificada pelo sol, usualmente de pessoas idosas, consistindo de uma proliferação esparsa de variáveis melanócitos atípicos em uma epiderme atrófica. É a única variedade de displasia melanocítica intraepidérmica que é capaz de evoluir para um melanoma in situ e invasivo.\n\nExistem formas especiais de lentigos, que são: lentiginose centrofacial, síndrome de lentigos múltiplos(LEOPARD) e a síndrome de Peutz-Jeghers.\n\nA síndrome de Peutz-Jeghers é um transtorno autossômico dominante caracterizado por pigmentação mucocutânea e pólipos intestinais. Ocorrem manchas marrons ou pretas, semelhantes ao lentigo, em região perioral, mucosa oral, vermelho dos lábios, nariz, dorso e ventre das mãos e pés.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/e35e8cb535334f78aded0cb2f202d484.jpg",
+    "/assets/img/atlas/8c8a24bb309d4621a28a9d4333e89a9f.jpg",
+    "/assets/img/atlas/89b22bc691cd497f80ed5e3a615c9219.jpg",
+    "/assets/img/atlas/18a08987d23649abbb3e135bad7f3b5e.jpg",
+    "/assets/img/atlas/4dfb49a35e614dffae7e0000cd0356b5.jpg"
+  ],
+  "tratamentos": [
+    "Fototerapia"
+  ],
+  "exames": []
+}

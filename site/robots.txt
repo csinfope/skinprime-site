@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://www.skinprime.com.br/sitemap.xml

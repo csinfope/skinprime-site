@@ -1,0 +1,16 @@
+{
+  "titulo": "Leucoplasia Oral Pilosa",
+  "atualizado": "",
+  "texto": "Foi descrita pela primeira vez 1984 e usualmente relaciona-se a condições de imunossupressão, principalmente a infecção pelo HIV.\n\n## Epidemiologia e etiologia\n\nÉ resultado da reativação do vírus Epstein-Barr (EBV ou gamaherpesvirinae /HHV-4), nas células epiteliais, vírus que está presente em mais de 90% da população. Representa a quarta causa de lesões orais nos pacientes HIV positivos, e hoje,encontra-se presente em cerca de 10% desses pacientes.\n\nTrata-se de uma infecção oportunista dos pacientes HIV positivos, e a incidência é proporcional ao aumento da carga viral e diminuição do CD4, correlacionando-se com um nível médio de CD4+ de 235 células/mm3. Sua presença em indivíduos onde não se conhece o status sorológico para o HIV, é fortemente sugestiva de infecção pelo HIV. Também pode estar presente em outras formas de imunossupressão, como portadores de problemas hematológicos, transplantados medulares ou renais, neoplasias hematológicas e uso de quimioterapia.\n\nAcredita-se que nessas condições de baixa de imunidade, haveria diminuição das células T citotóxicas específicas contra EBV e diminuição das células de Langerhans (células mediadoras da imunidade), ocorrendo reativação do vírus de EBV nas células epiteliais.\n\n## Quadro clínico\n\nClinicamente se apresenta como placa branca fixa ondulada, com aspecto papilomatoso nas bordas laterais da língua, uni ou bilaterais, mas não de forma simétrica, e usualmente é assintomática. Pode acometer também face ventral ou dorsal da língua, gengiva ou mesmo mucosa oral. Uma característica importante da leucoplasia pilosa oral, é que esta encontra-se firmemente aderida à mucosa ou superfície da língua, o que pode ajudar a distinguir de outras lesões orais, como a candidíase.\n\nO histopatológico evidenciará hiperqueratose, papilomatose e acantose, além de degeneração baloniforme da epiderme.\n\n## Tratamento\n\nNormalmente não está indicado pelo caráter assintomático das lesões e pois costumam regredir com o tratamento antiretroviral pela melhora da imunidade. Sua prevalência vem diminuindo com a instituição da terapia antiretroviral.\n\nEm associação ao tratamento antiretroviral, pastilhas de clotrimazol ou suspensão oral de nistatina podem ser usadas com sucesso. A terapia alternativa com antivirais orais geralmente leva à resolução da lesão dentro de 1-2 semanas com aciclovir em doses elevadas (800 mg 5 vezes por dia), valaciclovir (1000 mg 3 vezes ao dia) ou fanciclovir (500 mg 3 vezes ao dia). Antivirais inibem a replicação do EBV, mas não eliminam o estado de infecção latente.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/28b4f8ed982b4400b0423df1847b1b4d.jpg",
+    "/assets/img/atlas/f578eaaad9e74f4493fe4b65b14b2216.jpg",
+    "/assets/img/atlas/b619999dc8e94204a216d3a39fcde2d5.jpg",
+    "/assets/img/atlas/03048b6419b4498d8e9c1b30771d3ac1.jpg"
+  ],
+  "tratamentos": [],
+  "exames": [
+    "Biópsia"
+  ]
+}

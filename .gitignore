@@ -5,3 +5,15 @@ previa/
 *.zip
 __pycache__/
 build/*.v1.*
+# páginas e arquivos gerados pela publicação automática (build/build.py)
+site/*.html
+!site/admin/index.html
+site/doencas/
+site/atlas/
+site/tratamentos/
+site/assets/js/data.js
+site/assets/css/theme.css
+site/sitemap.xml
+site/robots.txt
+__pycache__/
+build/*.pre-cms.py

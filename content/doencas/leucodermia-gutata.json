@@ -1,0 +1,18 @@
+{
+  "titulo": "Leucodermia gutata",
+  "atualizado": "",
+  "texto": "Leucodermia gutata ou hipomelanose puntata caracteriza-se por lesões hipocrômicas adquiridas benignas, sendo uma condição muito comum na população geral, principalmente em indivíduos de meia-idade e pele clara. Não acarreta morbidade, sendo um problema exclusivamente estético.\n\n## Epidemiologia\n\nCondição benigna muito prevalente, mais comum em mulheres de pele clara e meia-idade, em torno dos trinta anos de idade, porém qualquer sexo, raça ou idade podem ser acometidas. Em locais com alto grau de exposição solar, a doença é mais incidente.\n\n## Etiopatogenia\n\nA causa é desconhecida, mas estaria relacionada à exposição solar cumulativa, especialmente em indivíduos de fototipos menores, pelo efeito tóxico da radiação ultravioleta sobre os melanócitos. A alteração levaria a uma redução de quase 50% da quantidade de melanócitos, além da perda de função dos mesmos, pela redução da enzima Dopa oxidase, responsável pela conversão final da tirosina à melanina (pigmento da pele).\n\nHerança familiar é observada e há relatos de associação positiva entre o HLA-DQ3 e a leucodermia gutata.\n\n## Quadro clínico\n\nNormalmente se apresenta por máculas hipocrômicas e/ou acrômicas porcelânicas, bem delimitadas, de pequenas dimensões, variando de 1mm a 2cm de diâmetro, principalmente em áreas expostas de pernas e braços de mulheres jovens. Usualmente inicia-se pelos membros inferiores, com progressão para membros superiores. Raramente há comprometimento de face. O diagnóstico é clínico e o exame com a luz de Wood pode ser útil no diagnóstico diferencial com vitiligo.\n\n## Tratamento\n\nO melhor tratamento ainda é a prevenção, sendo o uso do filtro solar sempre recomendado. O tratamento é indicado unicamente para fins estéticos pelo caráter benigno do problema. Crioterapia, dermabrasão, corticóides tópicos, retinóides, e imunomoduladores como pimecrolimus podem ser usados com resultados variáveis. Laser de CO2 fracionado vem sendo utilizado com relativo sucesso.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/84a08e7d0d3245509271a25a5f5e1ba1.jpg",
+    "/assets/img/atlas/7024fa43e6074c1ca1c3ca90582843b8.jpg",
+    "/assets/img/atlas/c6c22521e6564540908173293a2dbd7f.jpg",
+    "/assets/img/atlas/01f8ceba38f54c92a4445e4517504ce4.jpg",
+    "/assets/img/atlas/a761fa4e430f4c7194bcc357112cd6ac.jpg"
+  ],
+  "tratamentos": [
+    "Dermoabrasão e microdermoabrasão",
+    "Laser de CO2"
+  ],
+  "exames": []
+}

@@ -1,0 +1,15 @@
+{
+  "titulo": "Sarampo",
+  "atualizado": "",
+  "texto": "Doença altamente contagiosa causada por paramixovírus, sendo uma das principais causas de óbito em crianças de 1 a 4 anos de idade. Caracteriza-se por febre, tosse, coriza, conjuntivite, exantema maculopapular confluente e um enantema patognomônico.\n\nO contágio ocorre por inalação ou contato com as partículas do vírus que o doente elimina de 2 dias antes até 4 dias após o surgimento do rash. O período de incubação é de 8 a 12 dias, sendo os pródromos marcantes e com duração de 3 a 5 dias (febre alta, mal-estar, coriza, conjuntivite, tosse e inapetência). Dois dias antes do final do período prodrômico podem ser observadas na face interna das bochechas oposta aos dentes pré-molares pequenos pontos brancos, algo elevados, com halo eritematoso chamadosmanchas de Koplik, características da doença.\n\nA seguir o exantema morbiliforme que se inicia na região retroauricualr se espalha para face, pescoço, tronco e extremidades. A febre alta não regride com o aparecimento do exantema, ou até se eleva, o que é importante no diagnóstico diferencial com outras doenças exantemáticas. A partir do terceiro (quinto) dia do seu início, o exantema tende a esmaecer, com descamação fina e furfurácea, na mesma ordem em que apareceu. A persistência da febre daí por diante, leva a forte suspeita de complicação da doença como otite, pneumonia, encefalite e miocardite.\n\nEm crianças desnutridas, o exantema leva um tempo mais longo para desaparecer, durando mais de 10 dias em alguns casos. A linfadenopatia é manifestação comum no sarampo, com localização predominantemente cervical e occiptal. Uma complicação tardia é a panencefalite esclerosante subaguda.\n\nO diagnóstico diferencial do sarampo pode ser feito com praticamente todas as doenças que apresentam exantema maculopapular.\n\nO tratamento é sintomático. A vacinação é eficaz, sendo feita com vírus atenuado entre os 15 e 18 (12 a 15) meses de vida, evitando assim que anticorpos maternos, caso existentes, possam interferir na resposta imunitária. Uma segunda dose deve ser dada entre os 4 e 6 anos de idade.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/99ab5f86fee446508083a3371c3ee3b3.jpg",
+    "/assets/img/atlas/3d3a8fdce01e490eb23c94b526994d4e.jpg",
+    "/assets/img/atlas/23c1f63b33be42aca727f33715ea9621.jpg",
+    "/assets/img/atlas/76628edea04947dea7b1b521098c8487.jpg",
+    "/assets/img/atlas/a70404c3c24c44f4a606a19d75feb755.jpg"
+  ],
+  "tratamentos": [],
+  "exames": []
+}

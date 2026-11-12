@@ -1,0 +1,20 @@
+{
+  "titulo": "Melanose solar",
+  "atualizado": "",
+  "texto": "Melanoses solares, lentigos solares ou as popularmente conhecidas “manchas senis”, são lesões benignas decorrentes da atividade aumentada dos melanócitos, células responsáveis pela produção do pigmento na pele. Caracterizam-se por manchas hiperpigmentadas acastanhadas em áreas expostas a radiação solar.\n\n## Etiologia\n\nApesar do termo mancha senil, as lesões são na verdade decorrentes do dano solar ao longo dos anos. A radiação ultravioleta estimula maior produção e atividade dos melanócitos, estimulando hiperprodução de melanina, pigmento escuro da pele, o que originará as manchas. Como o dano solar é cumulativo, costumam surgir em pessoas com idade mais avançada e pele mais clara, pela maior sensibilidade dos melanócitos à radiação ultravioleta.\n\n## Quadro clínico\n\nCaracterizam-se por máculas hipercrômicas de coloração acastanhada que variam do marrom claro ao escuro, e podem variar de milímetros a alguns centímetros. Localizam-se em áreas de exposição solar, principalmente face, colo, antebraços e dorso de mãos. Um fator importante durante o exame físico do paciente é a exclusão de lesões pré-neoplásicas, já que as melanoses também são decorrentes do dano solar cumulativo.\n\n## Tratamento\n\nO melhor tratamento ainda é a prevenção. Deve-se usar filtro solar diariamente, o que previne não só as manchas, como as lesões neoplásicas e pré-neoplásicas.\n\nPara tratamento das manchas já instaladas, podemos optar por tratamentos diversos com resultados terapêuticos variáveis.\n\nA cauterização química pode ser realizada pela aplicação pontual de ácido tricloroacético na superfície da lesão. A criocirugia com nitrogênio líquido também pode ser usada, ambas as técnicas com resultados pouco satisfatórios.\n\nA opção por um peeling de ácido tricloroacético em toda superfície acometida apresenta bons resultados, com a desvantagem de ser um procedimento relativamente agressivo, com descamação de toda superfície tratada.\n\nA luz intensa pulsada tem apresentado resultados excelentes para o tratamento das melanoses solares, assim como os lasers de pulso curto, como o Nd-YAG Q-Switch. Ambos terão como alvo a melanina, o pigmento escuro da pele, que se concentra nas lesões. O pigmento absorverá a luz, a qual promoverá a destruição da lesão. Como a luz intensa pulsada e o Nd-YAG Q- Switch só atuarão no pigmento, o procedimento torna-se menos agressivo e mais seguro, pois só atuará nas lesões pigmentadas. Em geral são necessárias entre 3 a 5 sessões para uma regressão completa das lesões.\n\nFotoproteção é fundamental antes, durante e após o tratamento.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/f66bd9ac4120426b880f683d248c32ba.jpg",
+    "/assets/img/atlas/51c8e430077a45b4ad8afc895bdcfd35.jpg",
+    "/assets/img/atlas/ee6bd2aa222a4a78b9cedfd471d6d0a9.jpg",
+    "/assets/img/atlas/6d99136ee02247e9bdd1d089d608cb51.jpg",
+    "/assets/img/atlas/381ceda4713e420a947c64d28368f77f.jpg"
+  ],
+  "tratamentos": [
+    "Peelings químicos",
+    "Laser ND-YAG / Q-Switched",
+    "Luz intensa pulsada",
+    "Eletrocauterização"
+  ],
+  "exames": []
+}

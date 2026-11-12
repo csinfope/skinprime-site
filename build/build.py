@@ -6,17 +6,37 @@ import json, re, os, html, unicodedata, datetime, collections, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'site')
 IMG = os.path.join(OUT, 'assets', 'img')
+# páginas geradas antes são apagadas: assim, uma doença ou publicação removida no painel some do site
+for _sub in ('doencas', 'atlas', 'tratamentos'):
+    _d = os.path.join(OUT, _sub)
+    if os.path.isdir(_d):
+        for _stale in os.listdir(_d):
+            if _stale.endswith('.html'):
+                os.remove(os.path.join(_d, _stale))
 E = html.escape
-WA = 'https://wa.me/558130364040'
-WA_MSG = WA + '?text=' + 'Ol%C3%A1%2C%20Skin%20Prime!%20Gostaria%20de%20agendar%20uma%20consulta.'
-MAPS = 'https://www.google.com/maps/search/?api=1&query=RioMar+Trade+Center+Torre+C+Av.+Rep%C3%BAblica+do+L%C3%ADbano+251+Pina+Recife'
-MAP_EMBED = 'https://www.google.com/maps?q=RioMar+Trade+Center+Torre+C,+Av.+Rep%C3%BAblica+do+L%C3%ADbano,+251,+Pina,+Recife+-+PE&z=16&output=embed'
-MAP_HTML = f'<div class="map"><iframe src="{MAP_EMBED}" title="Mapa: Skin Prime no RioMar Trade Center, Recife" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a class="map__open" href="{MAPS}" target="_blank" rel="noopener">Abrir no Google Maps →</a></div>'
-REVISTA = 'https://www.skinprime.com.br/_files/ugd/96b8be_44971ebf18c04e0eb636ec94da8b884f.pdf'
-SOCIAL = [('Instagram', '@skinprime_', 'https://www.instagram.com/skinprime_/'),
-          ('Facebook', 'skinprimeoficial', 'https://www.facebook.com/skinprimeoficial'),
-          ('YouTube', '@skinprime3693', 'https://www.youtube.com/@skinprime3693'),
-          ('Spotify', 'Playlist Skin Prime', 'https://open.spotify.com/playlist/4Vmj4nMBTfzhT5obi0249Q')]
+CONTENT = os.path.join(HERE, '..', 'content')
+
+
+def jload(*parts):
+    return json.load(open(os.path.join(CONTENT, *parts), encoding='utf-8'))
+
+
+SITE = jload('config', 'site.json')
+CT = SITE['contato']
+HERO = SITE.get('abertura', {})
+WA = 'https://wa.me/' + re.sub(r'\D', '', str(CT.get('whatsapp', '')))
+WA_MSG = WA + '?text=' + urllib.parse.quote(CT.get('mensagem_whatsapp', ''))
+MAPS = 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote_plus(CT.get('busca_mapa', ''))
+MAP_EMBED = 'https://www.google.com/maps?q=' + urllib.parse.quote_plus(CT.get('busca_mapa', '')) + '&z=16&output=embed'
+MAP_HTML = f'<div class="map"><iframe src="{MAP_EMBED}" title="Mapa: Skin Prime" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a class="map__open" href="{MAPS}" target="_blank" rel="noopener">Abrir no Google Maps →</a></div>'
+REVISTA = SITE.get('revista_pdf', '')
+SOCIAL = [(r.get('rede', ''), r.get('usuario', ''), r.get('link', '')) for r in SITE.get('redes', []) if r.get('link')]
+PHONE = CT.get('telefone', '')
+EMAIL = CT.get('email', '')
+ADDR = [x for x in (CT.get('endereco_linha1'), CT.get('endereco_linha2'), CT.get('endereco_linha3')) if x]
+ADDR_BR = '<br>'.join(html.escape(x) for x in ADDR)
+COORD = CT.get('coordenadas', '')
+EMP = SITE.get('empresa', {})
 CATS = [('face', 'Face'), ('corpo', 'Corpo'), ('cabelo', 'Cabelo'), ('procedimentos', 'Procedimentos'),
         ('cirurgia-plástica', 'Cirurgia Plástica'), ('nutrição', 'Nutrição'),
         ('dermatologia-clínica', 'Dermatologia Clínica'), ('news', 'News')]
@@ -84,6 +104,7 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="{R}assets/img/brand/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{R}assets/css/site.css">
+<link rel="stylesheet" href="{R}assets/css/theme.css">
 </head>
 <body>
 <canvas id="fx" data-shape="{shape}" aria-hidden="true"></canvas>
@@ -102,10 +123,10 @@ def page(rel, title, desc, body, cur='', og='assets/img/clinic/vista.jpg'):
 <div class="ftr__top">
 <div><img src="{R}assets/img/brand/logo-bone.png" alt="Skin Prime" width="500" height="234" loading="lazy"><p>A arte da dermatologia.<br>Saúde, beleza e bem-estar no Recife.</p></div>
 <div><h4>Navegar</h4><ul>{''.join(f'<li><a href="{R}{h}">{t}</a></li>' for h, t, _ in NAV)}</ul></div>
-<div><h4>Endereço</h4><p>RioMar Trade Center<br>Av. República do Líbano, 251<br>Torre C · 19º andar · Sala 1905<br>Pina, Recife – PE · 51110-160</p></div>
-<div><h4>Contato</h4><ul><li><a href="{WA_MSG}" target="_blank" rel="noopener">(81) 3036-4040 · WhatsApp</a></li><li><a href="mailto:contato@skinprime.com.br">contato@skinprime.com.br</a></li>{soc}</ul></div>
+<div><h4>Endereço</h4><p>{ADDR_BR}</p></div>
+<div><h4>Contato</h4><ul><li><a href="{WA_MSG}" target="_blank" rel="noopener">{E(PHONE)} · WhatsApp</a></li><li><a href="mailto:{EMAIL}">{E(EMAIL)}</a></li>{soc}</ul></div>
 </div>
-<div class="ftr__bot"><span>© {datetime.date.today().year} Clinical Center Rio Mar · Skin Prime · CNPJ 37.572.208/0001-95</span><span>8°05′S · 34°53′W · 19º andar</span></div>
+<div class="ftr__bot"><span>© {datetime.date.today().year} {E(EMP.get("razao_social", ""))} · CNPJ {E(EMP.get("cnpj", ""))}</span><span>{E(COORD)} · 19º andar</span></div>
 </div></footer>
 <a class="wa" href="{WA_MSG}" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">{ICON_WA}</a>
 <div class="pal" role="dialog" aria-modal="true" aria-label="Busca"><div class="pal__box"><div class="pal__in">{ICON_S}<label class="sr" for="pal-q">Buscar</label><input id="pal-q" type="search" placeholder="Busque um tratamento ou doença…" autocomplete="off"><kbd>esc</kbd></div><div class="pal__out"></div></div></div>
@@ -140,61 +161,64 @@ def cta(R):
 
 
 # ---------------------------------------------------------------- dados
-POSTS = json.load(open(os.path.join(HERE, 'data', 'posts.json'), encoding='utf-8'))
-RAW = json.load(open(os.path.join(HERE, 'data', 'doencas.json'), encoding='utf-8'))
-seen = set()
-for p in POSTS:
-    s = slug(p['title']) or slug(p['slug'])
-    while s in seen:
-        s += '-2'
-    seen.add(s)
-    p['s'] = s
-    p['cover_f'] = imgname(p['cover']) if p['cover'] and has(f"posts/{imgname(p['cover'])}.jpg") else ''
-    p['video'] = p['vids'][0] if p.get('vids') else ''
-    text = re.sub(r'<[^>]+>', ' ', p['body'])
-    p['excerpt'] = (p['desc'] or re.sub(r'\s+', ' ', text)).strip()[:220]
-    p['words'] = len(text.split())
+import markdown as _md
 
-KEYS = ['epidemiologia', 'etiopatogenia', 'etiologia', 'patogenia', 'patogênese', 'fisiopatologia', 'fisiopatogenia',
-        'clínica', 'manifestações clínicas', 'quadro clínico', 'aspectos clínicos', 'diagnóstico diferencial',
-        'diagnóstico', 'diagnose', 'tratamento', 'terapêutica', 'prognóstico', 'histopatologia', 'histologia',
-        'classificação', 'complicações', 'prevenção', 'profilaxia', 'evolução', 'exames', 'laboratório',
-        'introdução', 'definição', 'sinonímia', 'conceito', 'transmissão', 'formas clínicas', 'causas', 'sintomas']
-HEAD = re.compile(r'^([A-ZÁÉÍÓÚÂÊÔÃÕÇ][^.:\n]{2,48})[.:]\s*(?=\S|$)')
+
+def mdhtml(t):
+    return _md.markdown(t or '', extensions=['extra', 'sane_lists'])
+
+
+def asset(p):
+    return (p or '').strip().lstrip('/')
+
+
+def thumb(p):
+    p = asset(p)
+    if not p:
+        return ''
+    b, e = os.path.splitext(p)
+    return b + '-m' + e if os.path.exists(os.path.join(OUT, b + '-m' + e)) else p
+
+
+def entries(folder):
+    d = os.path.join(CONTENT, folder)
+    return [(f[:-5], jload(folder, f)) for f in sorted(os.listdir(d)) if f.endswith('.json')] if os.path.isdir(d) else []
+
+
+POSTS = []
+for fname, j in entries('tratamentos'):
+    if not (j.get('titulo') or '').strip():
+        continue
+    body_html = mdhtml(j.get('texto', ''))
+    text = re.sub(r'<[^>]+>', ' ', body_html)
+    p = dict(title=j['titulo'].strip(), s=slug(fname), date=str(j.get('data') or '2000-01-01')[:10], cats=j.get('categorias') or [],
+             cover=asset(j.get('capa')), ordem=j.get('ordem', 9999), html=body_html)
+    p['thumb'] = thumb(p['cover']); p['cover_f'] = p['cover']
+    p['video'] = 'video' if '<video' in body_html else ''
+    p['excerpt'] = (j.get('resumo') or re.sub(r'\s+', ' ', text)).strip()[:220]
+    p['words'] = len(text.split())
+    POSTS.append(p)
+POSTS.sort(key=lambda p: (-int(re.sub(r'\D', '', p['date']) or 0), p['ordem'] if isinstance(p['ordem'], (int, float)) else 9999))
+
 DIS = []
-seen = set()
-for r in RAW:
-    t = re.sub(r'\s+', ' ', r['title']).strip()
-    s = slug(t)
-    while s in seen:
-        s += '-2'
-    seen.add(s)
-    imgs = []
-    for im in r.get('imagens') or []:
-        m = re.match(r'wix:image://v1/([^/]+)/', im.get('src', ''))
-        if m and has(f'atlas/{imgname(m.group(1))}.jpg'):
-            n = imgname(m.group(1))
-            if n not in imgs:
-                imgs.append(n)
-    paras, toc = [], []
-    for raw in re.split(r'\n\s*\n|\n', r['texto']):
-        raw = raw.strip()
-        if not raw:
-            continue
-        m = HEAD.match(raw)
-        if m and len(m.group(1).split()) <= 5 and any(m.group(1).lower().startswith(k) for k in KEYS):
-            hid = slug(m.group(1))
-            while hid in [x[0] for x in toc]:
-                hid += '-2'
-            toc.append((hid, m.group(1)))
-            paras.append(f'<h2 id="{hid}">{E(m.group(1))}</h2>')
-            raw = raw[m.end():].strip()
-            if not raw:
-                continue
-        paras.append(f'<p>{E(raw)}</p>')
-    bib = (r.get('bibliografia') or '').strip()
-    DIS.append(dict(t=t, s=s, imgs=imgs, body='\n'.join(paras), toc=toc, bib=bib, upd=(r.get('atualizao') or '').strip(),
-                    lead=re.sub(r'\s+', ' ', r['texto']).strip()[:240], letter=norm(t)[0].upper()))
+for fname, j in entries('doencas'):
+    t = re.sub(r'\s+', ' ', j.get('titulo') or '').strip()
+    if not t:
+        continue
+    toc = []
+
+    def _hid(m, toc=toc):
+        label = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+        h = slug(label) or 'secao'
+        while h in [x[0] for x in toc]:
+            h += '-2'
+        toc.append((h, label))
+        return f'<h2 id="{h}">{m.group(1)}</h2>'
+    body_html = re.sub(r'<h2>(.*?)</h2>', _hid, mdhtml(j.get('texto', '')))
+    plain = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', body_html)).strip()
+    DIS.append(dict(t=t, s=slug(fname), imgs=[asset(x) for x in (j.get('imagens') or []) if x], body=body_html, toc=toc,
+                    bib=(j.get('bibliografia') or '').strip(), upd=str(j.get('atualizado') or '').strip(),
+                    lead=plain[:240], letter=(norm(t)[:1] or '#').upper(), trat=j.get('tratamentos') or [], exam=j.get('exames') or []))
 DIS.sort(key=lambda d: norm(d['t']))
 N_IMG = sum(len(d['imgs']) for d in DIS)
 NI = f'{N_IMG:,}'.replace(',', '.')
@@ -206,7 +230,7 @@ print(f'{len(POSTS)} posts · {len(DIS)} doenças · {N_IMG} imagens de atlas')
 
 def card(p, R):
     if p['cover_f']:
-        im = f'<div class="card__img{" card__img--video" if p["video"] else ""}"><img src="{R}assets/img/posts/{p["cover_f"]}-m.jpg" alt="" loading="lazy" width="640" height="480"></div>'
+        im = f'<div class="card__img{" card__img--video" if p["video"] else ""}"><img src="{R}{p["thumb"]}" alt="" loading="lazy" width="640" height="480"></div>'
     else:
         im = f'<div class="card__img card__img--none{" card__img--video" if p["video"] else ""}"><span>{E(p["title"].strip()[0])}</span></div>'
     cats = ' · '.join(dict(CATS)[c] for c in p['cats'][:2])
@@ -219,48 +243,20 @@ def card(p, R):
 
 
 # ---------------------------------------------------------------- especialistas
-TEAM = [
-    dict(k='emmanuel', n='Dr. Emmanuel França', role='Dermatologista', reg='CRM 5999 · RQE 636',
-         h='A pele revela seu Eu', link=('Site pessoal', 'https://www.emmanuelfranca.com.br/'),
-         short='Sentir-se bem, física e mentalmente, é fantástico. A pele reflete isto.',
-         tx=['Sentir-se bem, física e mentalmente é fantástico. A pele reflete isto. E revela seu Eu. Tudo que a dermatologia faz é para que você alcance essa plenitude.',
-             'Tenho acompanhado a dermatologia em todos os seus aspectos e conseguimos colocar num só lugar os recursos que podem solucionar as necessidades que sua pele precisa.',
-             'Saber que estamos oferecendo o melhor para nosso paciente é o grande objetivo da Skin Prime.']),
-    dict(k='francisco', n='Dr. Francisco Assis Filho', role='Dermatologista', reg='CRM 18608 · RQE 4565',
-         h='Afinal, a beleza é igual pra todo mundo?', link=('Site pessoal', 'https://www.franciscoassisdermato.com.br/'),
-         short='A matemática por trás dos tratamentos que realçam a beleza de cada um.',
-         tx=['Durante toda minha formação médica, sempre me perguntei: por que nos preocupamos tanto com a beleza? Confesso que até hoje me encanto com a matemática por trás dos tratamentos que nos possibilitam encontrar a simetria ideal, promover a jovialidade e ser assertivo nas proporções, que realçam ainda mais a beleza de cada um.',
-             'Concordo que a beleza é subjetiva, mas quem nunca pensou em ter uma pele nutrida, saudável e jovem? Valorizo a beleza natural, mas também sou a favor de ressaltar o que há de melhor em cada pessoa. Por isso, tenho me empenhado nestes últimos anos em aplicar associações de tratamentos, com o que há de mais moderno em tecnologias e formulações.',
-             'A SkinPrime é a concretização de um sonho, vai muito além de uma clínica humanizada. Aqui, cada mínimo detalhe foi pensado para oferecer o cuidado especial e personalizado que você merece. Queremos que não lhe falte motivos pra enxergar a beleza da vida. Porque você e sua pele merecem mais!',
-             'Reunimos uma equipe formada por renomados dermatologistas, cirurgiões plásticos, fisioterapeutas, nutricionistas, nutrólogos, ginecologistas e esteticistas, que estão à sua disposição. Entendemos que o cuidado com você deve ser pensado de forma global, afinal, diversos fatores interferem na saúde da sua pele.']),
-    dict(k='daniela', n='Daniela Saldanha', role='Nutricionista', reg='CRN 29209/P',
-         h='A nutrição com um olhar mais amplo.', link=('Instagram', 'https://www.instagram.com/nutridanielasaldanhafranca/'),
-         short='Estar saudável por dentro para se ver mais bonito por fora.',
-         tx=['Se engana quem acha que a saúde da pele não tem a ver com o que comemos. Acredite em mim, manter cabelos volumosos, bonitos, unhas fortes, além de uma pele bem cuidada e hidratada, também depende da qualidade da nossa alimentação. Precisamos pensar na nutrição com um olhar mais amplo.',
-             'Estou aqui pra te ajudar a manter uma rotina mais saudável. Tenho certeza que novos hábitos vão fazer você se sentir bem melhor. Afinal, quem não gosta de dar um UP na aparência?',
-             'Na minha especialização em nutrição clínica funcional, mergulhei na análise de dietas que interferem na estética, através da reposição de nutrientes, que vão influenciar os quesitos da beleza. Estar saudável por dentro para se ver mais bonito por fora tem tudo a ver com o que você come. Pense nisso!',
-             'É um prazer te receber na Skin Prime.']),
-    dict(k='yana', n='Dra. Yana Carvalho', role='Dermatologista', reg='CRM 26131 · RQE 11047',
-         h='Beleza e cuidado!', link=('Instagram', 'https://www.instagram.com/yanacarvalho/'),
-         short='O futuro da sua pele ainda pode ser desenhado.',
-         tx=['“Sua pele revela muito sobre você. Para um olhar atento, ela pode dizer o que se passa no seu corpo e na sua mente. Seu passado e o seu presente estão escritos em suas linhas. Já o futuro, ainda pode ser desenhado. E minha paixão como dermatologista é entender essas nuances e fazer parte dessa história.”',
-             'Dra. Yana Carvalho cursou a graduação em Medicina na Universidade Federal de Pernambuco (UFPE) e realizou sua Residência médica em Dermatologia na Universidade de Pernambuco (UPE). Atualmente participa do mestrado em Ciências da Saúde na UPE e é professora de Dermatologia da Faculdade de Medicina de Olinda e preceptora na Universidade de Pernambuco.',
-             'É membra da Sociedade Brasileira de Dermatologia e atua nos cuidados com Pele, Cabelos e Unhas.']),
-    dict(k='andre', n='Dr. André Rosa', role='Dermatologista', reg='CRM 13132 · RQE 7642',
-         h='A especialidade que trata e cuida do maior órgão do corpo: a pele!', link=('Instagram', 'https://www.instagram.com/andrerosadermato/'),
-         short='Saúde, beleza e bem-estar com o rigor que a ciência pede.',
-         tx=['A dermatologia tornou-se minha paixão pela possibilidade de aliar saúde, beleza e bem-estar, com todo o rigor que a ciência pede e o acolhimento que nossos pacientes precisam.',
-             'Aqui exercemos nossa especialidade com compromisso, ética e amor.']),
-    dict(k='aleksana', n='Dra. Aleksana Viana', role='Dermatologista', reg='CRM 16907',
-         h='A Arte da Dermatologia', link=('Instagram', 'https://www.instagram.com/aleksanavianadermato/'),
-         short='Rejuvenescimento elegante e seguro, com muita naturalidade.',
-         tx=['Sou médica dermatologista graduada pela UFPE, membro da SBD e tenho 15 anos de carreira. Entre os incontáveis cursos e congressos nacionais e internacionais, o aprendizado que mais valorizo é a boa relação médico-paciente, em que alinhamos as expectativas para um melhor resultado final.',
-             'O que mais gosto do meu trabalho é ver a satisfação em cada rosto tratado por mim. É sobre devolver autoestima, autocuidado, amor próprio. Entrego resultados estéticos com muita naturalidade, buscando um rejuvenescimento elegante e seguro, realçando a própria beleza de cada paciente.',
-             'A dermatologia é a arte de cuidar da pele, cabelos e unhas. Manter a pele jovem, bonita e, principalmente, saudável, além de devolver a autoestima dos pacientes, são a minha missão.']),
-]
-CLINIC = [('vista', 'Vista do 19º andar'), ('lounge', 'Lounge'), ('recepcao', 'Recepção'), ('espera', 'Sala de espera'),
-          ('cafe', 'Café'), ('consultorio', 'Consultório'), ('sala-laser', 'Sala de laser'),
-          ('sala-procedimentos', 'Sala de procedimentos'), ('capilar', 'Terapia capilar'), ('detalhe', 'Detalhes')]
+TEAM = []
+for fname, j in entries('equipe'):
+    if not (j.get('nome') or '').strip():
+        continue
+    TEAM.append(dict(k=slug(fname), n=j['nome'].strip(), role=j.get('funcao', ''), reg=j.get('registro', ''), h=j.get('titulo', ''),
+                     link=(j.get('link_rotulo') or 'Saiba mais', j.get('link_url') or ''), short=j.get('frase', ''),
+                     tx=[x.strip() for x in re.split(r'\n\s*\n', j.get('texto') or '') if x.strip()],
+                     foto=asset(j.get('foto')) or 'assets/img/brand/favicon.svg', ordem=j.get('ordem') if isinstance(j.get('ordem'), (int, float)) else 99))
+TEAM.sort(key=lambda t: (t['ordem'], t['n']))
+CLINIC = []
+for _ph in jload('config', 'clinica.json').get('fotos', []):
+    _full = asset(_ph.get('imagem'))
+    if _full:
+        CLINIC.append((slug(os.path.splitext(os.path.basename(_full))[0]), _ph.get('legenda', ''), _full, thumb(_full)))
 TECH = ['Atria II', 'Morpheus', 'Ulthera', 'Ultraformer 3', 'CoolSculpting', 'Emsculpt', 'Exilis Ultra 360º', 'Vanquish',
         'X-Wave', 'Vela Shape 2', 'Spectra XT', 'EndyMed', 'Vectra H2', 'LifeViz', 'ZYE Smart Laser', 'Laser de CO2',
         'Dermatoscopia Digital', 'Laser de Picossegundos', 'Ultraction 3D']
@@ -329,25 +325,26 @@ FMAP = [('testa', 'Testa e glabela', 'Linhas de expressão e rugas dinâmicas.',
         ('mandibula', 'Mandíbula e contorno', 'Definição do contorno facial e sustentação.', ['fios de sustentacao', 'ultraformer', 'ulthera'], ''),
         ('papada', 'Papada e pescoço', 'Gordura submentoniana e flacidez.', ['papada', 'ultrassom micro', 'radiofrequencia'], 'l')]
 fmap = [{'k': k, 't': t, 'd': d2, 'p': find_posts(keys, limit=3)} for k, t, d2, keys, _ in FMAP]
-data = {'posts': [[p['title'].strip(), p['s'], ' '.join(p['cats']), p['excerpt'][:170], p['cover_f']] for p in POSTS],
+data = {'posts': [[p['title'].strip(), p['s'], ' '.join(p['cats']), p['excerpt'][:170], p['thumb']] for p in POSTS],
         'dis': [[d['t'], d['s'], len(d['imgs'])] for d in DIS], 'quiz': quiz, 'tech': tech, 'fmap': fmap}
 write('assets/js/data.js', 'window.SP=' + json.dumps(data, separators=(',', ':')) + ';')
 print('quiz:', [(q['t'], [(g['t'], len(g['p'])) for g in q['g']]) for q in quiz], '· tech:', len(tech))
 
 # ---------------------------------------------------------------- home
 R = ''
-docs = ''.join(f'''<article class="doc glow rv" data-tilt><div class="doc__ph"><img src="assets/img/team/{t['k']}.jpg" alt="{E(t['n'])}" loading="lazy" width="640" height="640"></div>
+HERO_LEAD = re.sub(r'^<p>|</p>$', '', mdhtml(HERO.get('texto', '')).strip())
+docs = ''.join(f'''<article class="doc glow rv" data-tilt><div class="doc__ph"><img src="{t['foto']}" alt="{E(t['n'])}" loading="lazy" width="640" height="640"></div>
 <div><h3>{E(t['n'])}</h3></div><p class="reg"><b>{t['role']}</b>{t['reg']}</p><p>{E(t['short'])}</p>
 <a class="arrow" href="especialistas.html#{t['k']}">Conhecer</a></article>''' for t in TEAM)
 letters = ''.join((f'<a href="doencas/index.html#letra-{L}">{L}</a>' if L in BY_LETTER else f'<span>{L}</span>') for L in 'ABCDEFGHIJKLMNOPQRSTUVXZ')
 tick = ''.join(f'<span>{E(t)}</span>' for t in TECH) * 2
-reel = ''.join(f'<a href="assets/img/clinic/{k}.jpg" data-tour="{k}" data-alt="{E(c)}" draggable="false"><img src="assets/img/clinic/{k}-m.jpg" alt="{E(c)}" loading="lazy" width="900" height="600" draggable="false"><span class="cap3d">Ver em 3D</span><span class="cap">{i:02d} · {E(c)}</span></a>' for i, (k, c) in enumerate(CLINIC, 1))
+reel = ''.join(f'<a href="{full}" data-tour="{k}" data-alt="{E(c)}" draggable="false"><img src="{th}" alt="{E(c)}" loading="lazy" width="900" height="600" draggable="false"><span class="cap3d">Ver em 3D</span><span class="cap">{i:02d} · {E(c)}</span></a>' for i, (k, c, full, th) in enumerate(CLINIC, 1))
 home = f'''<section class="hero" data-fx="face" data-fx-x=".43" data-fx-y=".04" data-fx-s="1.02" data-fx-f="1" data-fx-my=".5">
 <img class="hero__face" src="assets/img/brand/face.webp" alt="Rosto feminino com contorno facial definido" width="720" height="654">
 <div class="wrap hero__in">
-<p class="label">Recife · RioMar Trade Center · 19º andar</p>
-<h1 class="split">A arte da <em>dermatologia</em></h1>
-<p class="lead">A experiência e a tecnologia se encontram para trazer uma estrutura clínica nunca vista no Recife quando o assunto é <strong>dermatologia, estética, nutrição e saúde</strong>.</p>
+<p class="label">{E(HERO.get("rotulo", ""))}</p>
+<h1 class="split">{E(HERO.get("titulo", ""))} <em>{E(HERO.get("titulo_destaque", ""))}</em></h1>
+<p class="lead">{HERO_LEAD}</p>
 <div class="hero__cta"><a class="btn btn--solid" href="#encontre">Encontre seu tratamento</a><a class="btn" href="{WA_MSG}" target="_blank" rel="noopener">{ICON_WA} Agendar pelo WhatsApp</a></div>
 <div class="fpanel panel" data-fpanel aria-live="polite"><p class="label">Mapa facial</p><p class="fpanel__d">Toque nos pontos do rosto para ver os tratamentos de cada região.</p></div>
 <p class="fhint">Mapa facial interativo · toque nos pontos do rosto</p>
@@ -425,12 +422,12 @@ home = f'''<section class="hero" data-fx="face" data-fx-x=".43" data-fx-y=".04" 
 </form></div>
 <div class="info">
 <dl>
-<div><dt>Telefone · WhatsApp</dt><dd class="big"><a href="{WA_MSG}" target="_blank" rel="noopener">(81) 3036-4040</a></dd></div>
-<div><dt>Endereço</dt><dd>RioMar Trade Center · Av. República do Líbano, 251<br>Torre C, 19º andar – Sala 1905<br>Pina, Recife – PE · CEP 51110-160</dd></div>
-<div><dt>E-mail</dt><dd><a href="mailto:contato@skinprime.com.br">contato@skinprime.com.br</a></dd></div>
-<div><dt>Trabalhe conosco</dt><dd><a href="mailto:contato@skinprime.com.br?subject=Vagas%20de%20Emprego%20Skin%20Prime">Envie seu currículo</a></dd></div>
+<div><dt>Telefone · WhatsApp</dt><dd class="big"><a href="{WA_MSG}" target="_blank" rel="noopener">{E(PHONE)}</a></dd></div>
+<div><dt>Endereço</dt><dd>{ADDR_BR}</dd></div>
+<div><dt>E-mail</dt><dd><a href="mailto:{EMAIL}">{E(EMAIL)}</a></dd></div>
+<div><dt>Trabalhe conosco</dt><dd><a href="mailto:{EMAIL}?subject=Vagas%20de%20Emprego%20Skin%20Prime">Envie seu currículo</a></dd></div>
 </dl>
-<div class="coord"><span>8°05′S · 34°53′W</span><a class="arrow" style="border:0;padding:0" href="{MAPS}" target="_blank" rel="noopener">Abrir no mapa</a></div>
+<div class="coord"><span>{E(COORD)}</span><a class="arrow" style="border:0;padding:0" href="{MAPS}" target="_blank" rel="noopener">Abrir no mapa</a></div>
 {MAP_HTML}
 </div>
 </div></div></section>'''
@@ -440,7 +437,7 @@ write('index.html', page('index.html', '', 'Skin Prime: dermatologia, estética,
 
 
 # ---------------------------------------------------------------- clínica
-tour = ''.join(f'<a href="assets/img/clinic/{k}.jpg" data-tour="{k}" data-alt="{E(c)}"><img src="assets/img/clinic/{k}-m.jpg" alt="{E(c)}" loading="lazy" width="900" height="600"><span class="cap3d">Ver em 3D</span><span class="cap">{E(c)}</span></a>' for k, c in CLINIC)
+tour = ''.join(f'<a href="{full}" data-tour="{k}" data-alt="{E(c)}"><img src="{th}" alt="{E(c)}" loading="lazy" width="900" height="600"><span class="cap3d">Ver em 3D</span><span class="cap">{E(c)}</span></a>' for k, c, full, th in CLINIC)
 body = phead('', [('A Clínica', '')], 'RioMar Trade Center · Torre C · 19º andar · Sala 1905', 'Uma estrutura clínica nunca vista no <em>Recife</em>.',
              'A experiência e a tecnologia se encontram quando o assunto é dermatologia, estética, nutrição e saúde. Clique em uma foto para entrar no ambiente em 3D.') + f'''
 <section class="sec"><div class="wrap">
@@ -456,15 +453,15 @@ body = phead('', [('A Clínica', '')], 'RioMar Trade Center · Torre C · 19º a
 </div></div></section>
 <section class="sec"><div class="wrap contact">
 <div><p class="label" style="margin-bottom:22px">Como chegar</p><h2>No coração do <em>Pina</em>.</h2></div>
-<div class="info"><dl><div><dt>Endereço</dt><dd>RioMar Trade Center · Av. República do Líbano, 251<br>Torre C, 19º andar – Sala 1905<br>Pina, Recife – PE · CEP 51110-160</dd></div>
-<div><dt>Telefone · WhatsApp</dt><dd class="big"><a href="{WA_MSG}" target="_blank" rel="noopener">(81) 3036-4040</a></dd></div></dl>
-<div class="coord"><span>8°05′S · 34°53′W</span><a class="arrow" style="border:0;padding:0" href="{MAPS}" target="_blank" rel="noopener">Abrir no mapa</a></div>{MAP_HTML}</div>
+<div class="info"><dl><div><dt>Endereço</dt><dd>{ADDR_BR}</dd></div>
+<div><dt>Telefone · WhatsApp</dt><dd class="big"><a href="{WA_MSG}" target="_blank" rel="noopener">{E(PHONE)}</a></dd></div></dl>
+<div class="coord"><span>{E(COORD)}</span><a class="arrow" style="border:0;padding:0" href="{MAPS}" target="_blank" rel="noopener">Abrir no mapa</a></div>{MAP_HTML}</div>
 </div></section>''' + cta('')
 write('clinica.html', page('clinica.html', 'A Clínica', 'Conheça os ambientes da Skin Prime no RioMar Trade Center, Recife: uma estrutura clínica para dermatologia, estética, nutrição e saúde.', body, 'clinica'))
 
 # ---------------------------------------------------------------- especialistas
 profs = ''.join(f'''<article class="profile" id="{t['k']}">
-<div class="profile__id"><div class="profile__ph"><img src="assets/img/team/{t['k']}.jpg" alt="{E(t['n'])}" loading="lazy" width="640" height="640"></div>
+<div class="profile__id"><div class="profile__ph"><img src="{t['foto']}" alt="{E(t['n'])}" loading="lazy" width="640" height="640"></div>
 <h2>{E(t['n'])}</h2><p class="reg"><b>{t['role']}</b>{t['reg']}</p>
 <a class="arrow" style="justify-self:start" href="{t['link'][1]}" target="_blank" rel="noopener">{t['link'][0]}</a></div>
 <div class="profile__txt"><h3>{E(t['h'])}</h3><div class="prose">{''.join(f'<p>{E(x)}</p>' for x in t['tx'])}</div></div>
@@ -490,34 +487,17 @@ write('tratamentos/index.html', page('tratamentos/index.html', 'Tratamentos', 'P
 
 
 def post_body(p):
-    b = p['body']
-    b = re.sub(r'(<br>\s*)+', '', b)
-
-    def im(m):
-        n = imgname(m.group(1))
-        if not has(f'posts/{n}.jpg') or n == p['cover_f']:
-            return ''
-        return f'<img src="../assets/img/posts/{n}.jpg" alt="{m.group(2)}" loading="lazy">'
-    b = re.sub(r'<img data-id="([^"]+)" alt="([^"]*)">', im, b)
-    vids = list(p.get('vids') or [])
-
-    def vd(m):
-        if not vids:
-            return ''
-        v = vids.pop(0)
-        return f'<video controls preload="metadata" playsinline src="https://video.wixstatic.com/video/{v}/720p/mp4/file.mp4"></video>'
-    b = re.sub(r'<video></video>', vd, b)
-    b = re.sub(r'<iframe[^>]*></iframe>', '', b)
-    b = re.sub(r'<a href="(https?://[^"]*)">', r'<a href="\1" target="_blank" rel="noopener">', b)
-    b = re.sub(r'<li><p>(.*?)</p></li>', r'<li>\1</li>', b, flags=re.S)
-    b = re.sub(r'<(p|h2|h3|h4)>\s*</\1>', '', b)
+    b = p['html']
+    b = re.sub(r'(src|href)="/?assets/', r'\1="../assets/', b)
+    b = b.replace('<img ', '<img loading="lazy" ')
+    b = re.sub(r'<a href="(https?://[^"]*)"', r'<a href="\1" target="_blank" rel="noopener"', b)
     return b
 
 
 for i, p in enumerate(POSTS):
     cats = ' · '.join(dict(CATS)[c] for c in p['cats'])
     mins = max(1, round(p['words'] / 200))
-    cover = f'<div class="cover"><img src="../assets/img/posts/{p["cover_f"]}.jpg" alt="" width="1280" height="640"></div>' if p['cover_f'] else ''
+    cover = f'<div class="cover"><img src="../{p["cover"]}" alt="" width="1280" height="640"></div>' if p['cover_f'] else ''
     prev, nxt = POSTS[i - 1], POSTS[(i + 1) % len(POSTS)]
     rel = [q for q in POSTS if q is not p and set(q['cats']) & set(p['cats'])][:3] or [q for q in POSTS if q is not p][:3]
     body = phead('../', [('Tratamentos', 'tratamentos/index.html'), (p['title'].strip(), '')],
@@ -531,7 +511,7 @@ for i, p in enumerate(POSTS):
 <div class="cards">{''.join(card(q, '../') for q in rel)}</div></div></section>
 <nav class="pn" aria-label="Outras publicações"><a href="{prev['s']}.html"><span class="label label--mute">← Anterior</span><b>{E(prev['title'].strip())}</b></a><a href="{nxt['s']}.html"><span class="label label--mute">Próximo →</span><b>{E(nxt['title'].strip())}</b></a></nav>'''
     write(f"tratamentos/{p['s']}.html", page('tratamentos/x.html', p['title'].strip(), p['excerpt'], body, 'tratamentos',
-                                              f"assets/img/posts/{p['cover_f']}.jpg" if p['cover_f'] else 'assets/img/clinic/vista.jpg'))
+                                              p['cover'] if p['cover_f'] else 'assets/img/clinic/vista.jpg'))
 
 
 # bloco "Na Skin Prime" ao final de cada doença, a partir do cruzamento (build/cruzamento.py)
@@ -563,6 +543,7 @@ SERV = {
     'Dermatoscopia digital': ('Dermatoscopia digital', 'dermatoscopia'),
 }
 OK_LEVELS = ('Indicado no texto', 'Área de atuação', 'Citado como exame')
+DISP = {v[0]: v[1] for v in SERV.values()}
 
 
 def post_by(key):
@@ -574,14 +555,8 @@ def post_by(key):
 
 def solucao(d):
     """Bloco final da página da doença: o que a clínica oferece para aquela condição."""
-    c = CRUZ.get(d['t'], {'itens': []})
-    trat, diag = [], []
-    for it in c['itens']:
-        if not it['nivel'].startswith(OK_LEVELS) or it['servico'] not in SERV:
-            continue
-        nome, key = SERV[it['servico']]
-        p = post_by(key)
-        (diag if it['tipo'] == 'Diagnóstico' else trat).append((nome, p))
+    trat = [(n, post_by(DISP.get(n) or norm(n))) for n in d.get('trat', [])]
+    diag = [(n, post_by(DISP.get(n) or norm(n))) for n in d.get('exam', [])]
     wa = WA + '?text=' + urllib.parse.quote(f"Olá, Skin Prime! Gostaria de agendar uma avaliação sobre {d['t']}.")
 
     def lista(items):
@@ -638,7 +613,7 @@ for i, d in enumerate(DIS):
     if d['imgs']:
         gal = f'''<h2 id="imagens" style="font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:2.2em;padding-top:.9em;border-top:1px solid var(--line);scroll-margin-top:110px">Atlas de imagens <span class="label label--mute" style="margin-left:10px">{len(d['imgs'])}</span></h2>
 <p style="margin-top:.6em"><a class="arrow" href="../atlas/{d['s']}.html">Abrir no Atlas de Imagens</a></p>
-<div class="gal">{''.join(f'<a href="../assets/img/atlas/{n}.jpg" data-lb="atlas" data-alt="{E(d["t"])}"><img src="../assets/img/atlas/{n}.jpg" alt="{E(d["t"])} — imagem clínica {k}" loading="lazy" width="200" height="200"></a>' for k, n in enumerate(d['imgs'], 1))}</div>'''
+<div class="gal">{''.join(f'<a href="../{n}" data-lb="atlas" data-alt="{E(d["t"])}"><img src="../{n}" alt="{E(d["t"])} — imagem clínica {k}" loading="lazy" width="200" height="200"></a>' for k, n in enumerate(d['imgs'], 1))}</div>'''
     bib = f'<h3 style="margin-top:2.4em;font-size:1.2rem">Bibliografia</h3><p class="biblio" style="margin-top:.8em">{E(d["bib"])}</p>' if d['bib'] else ''
     if d['imgs']:
         xl = f'<div class="xlinks"><a class="btn" href="../atlas/{d["s"]}.html">{ICON_IMG} Ver no Atlas de Imagens <span class="xlinks__n">{len(d["imgs"])}</span></a></div>'
@@ -662,7 +637,7 @@ for i, d in enumerate(WI):
     prev, nxt = WI[i - 1], WI[(i + 1) % len(WI)]
     n = len(d['imgs'])
     back = f'<div class="xlinks"><a class="btn btn--solid" href="../doencas/{d["s"]}.html">{ICON_TXT} Ler sobre {E(d["t"])}</a><a class="btn" href="index.html">Todas as doenças do atlas</a></div>'
-    gal = ''.join(f'<a href="../assets/img/atlas/{m}.jpg" data-lb="atlas" data-alt="{E(d["t"])} · imagem {k} de {n}"><img src="../assets/img/atlas/{m}.jpg" alt="{E(d["t"])} — imagem clínica {k}" loading="lazy" width="300" height="300"></a>' for k, m in enumerate(d['imgs'], 1))
+    gal = ''.join(f'<a href="../{m}" data-lb="atlas" data-alt="{E(d["t"])} · imagem {k} de {n}"><img src="../{m}" alt="{E(d["t"])} — imagem clínica {k}" loading="lazy" width="300" height="300"></a>' for k, m in enumerate(d['imgs'], 1))
     body = phead('../', [('Atlas de Imagens', 'atlas/index.html'), (d['t'], '')], f'{n} {"imagem clínica" if n == 1 else "imagens clínicas"} · toque para ampliar', E(d['t']), extra=back) + f'''
 <section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap">
 <div class="gal gal--atlas">{gal}</div>
@@ -674,7 +649,7 @@ for i, d in enumerate(WI):
 
 # ---------------------------------------------------------------- atlas
 WI = [d for d in DIS if d['imgs']]
-grid = ''.join(f'<a href="{d["s"]}.html" data-k="{E(norm(d["t"]))}"><div class="ph"><img src="../assets/img/atlas/{d["imgs"][0]}.jpg" alt="" loading="lazy" width="200" height="200"></div><b>{E(d["t"])}</b><small>{len(d["imgs"])} {"imagem" if len(d["imgs"])==1 else "imagens"}</small></a>' for d in WI)
+grid = ''.join(f'<a href="{d["s"]}.html" data-k="{E(norm(d["t"]))}"><div class="ph"><img src="../{d["imgs"][0]}" alt="" loading="lazy" width="200" height="200"></div><b>{E(d["t"])}</b><small>{len(d["imgs"])} {"imagem" if len(d["imgs"])==1 else "imagens"}</small></a>' for d in WI)
 body = phead('../', [('Atlas de Imagens', '')], f'{NI} imagens · {len(WI)} doenças', 'Atlas de <em>imagens</em>.',
              'Registros clínicos organizados por doença, em ordem alfabética. Imagens reais, de caráter educativo.') + f'''
 <section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap">
@@ -684,6 +659,19 @@ body = phead('../', [('Atlas de Imagens', '')], f'{NI} imagens · {len(WI)} doen
 <p class="empty" hidden>Nenhum resultado no atlas.</p>
 </div></section>''' + cta('../')
 write('atlas/index.html', page('atlas/index.html', 'Atlas de Imagens', f'Atlas dermatológico da Skin Prime com {N_IMG} imagens clínicas organizadas por doença.', body, 'atlas'))
+
+# ---------------------------------------------------------------- cores do painel
+def _hex(v, d):
+    return v if isinstance(v, str) and re.fullmatch(r'#[0-9a-fA-F]{6}', v.strip()) else d
+
+
+_c = SITE.get('cores', {})
+_t = dict(ink=_hex(_c.get('fundo'), '#f7f7f7'), bone=_hex(_c.get('texto'), '#1d2b2d'), mute=_hex(_c.get('texto_secundario'), '#4f6468'),
+          rose=_hex(_c.get('botoes'), '#996059'), aqua=_hex(_c.get('destaque'), '#4a7079'), ftr=_hex(_c.get('rodape'), '#1d2b2d'))
+write('assets/css/theme.css', '/* gerado a partir das cores do painel (content/config/site.json) */\n'
+      f":root{{--ink:{_t['ink']};--bone:{_t['bone']};--mute:{_t['mute']};--rose:{_t['rose']};--aqua:{_t['aqua']};"
+      f"--grad:linear-gradient(100deg,{_t['aqua']},{_t['rose']})}}\n"
+      f"body{{background:{_t['ink']}}}\n.ftr{{--ink:{_t['ftr']}}}\n")
 
 # ---------------------------------------------------------------- extras
 body = phead('', [('Página não encontrada', '')], 'Erro 404', 'Esta página saiu do <em>foco</em>.', 'O endereço pode ter mudado. Volte ao início ou fale com a clínica.') + '<section class="sec"><div class="wrap"><a class="btn" href="/">Voltar ao início</a></div></section>'

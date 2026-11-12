@@ -1,0 +1,19 @@
+{
+  "titulo": "Nevo Displásico",
+  "atualizado": "",
+  "texto": "Também chamado nevo clinicamente atípico, corresponde a nevos melanocíticos, usualmente compostos, que são marcadores e possíveis precursores do melanoma maligno. Em geral, são lesões numerosas (10 a 100), maiores que os nevos habituais (6 a 15mm), com cores matizadas (rósea, marrom), com variação de morfologia, borda irregular, denteada, esmaecida e geralmente maculosa. Têm predileção pelo dorso e áreas cobertas (nádegas, mama, couro cabeludo) e o desenvolvimento das lesões continua até os 40 anos ou mais.\n\nTem sido uma entidade controversa desde sua primeira descrição por Clark em 1978. Descobertas genéticas, epigenéticas e transcriptômicas recentes revelaram que um subconjunto de nevo displásico exibe um perfil genômico que é intermediário entre o de nevo benigno e o melanoma. Estes novos insights genômicos sugerem que uma proporção de nevo displásico tem uma maior propensão a evoluir para o melanoma. A taxa média de recomendação para a exéreese de nevos atípicos foi de 9,3%. Os pacientes idosos tiveram uma taxa estatisticamente maior de excisões recomendadas em comparação com coortes mais jovens (13% versus 7% de excisões recomendadas em pacientes ≥ 51 vs. ≤ 50 anos de idade, respectivamente, p <0,001).\n\nO risco de transformação aumenta nos casos familiares dos nevos displásicos (Síndrome do nevo displásico) e com antecedentes familiares de melanoma maligno. Há uma possível herança autossômica dominante com alta penetrância. Nos pacientes imunodeprimidos o risco de malignização é maior. Deve ser feita excisão cirúrgica e estudo histopatológico de duas ou três lesões para confirmação diagnóstica. Realizar a exérese das lesões suspeitas de ser melanoma.\n\nControle clínico do paciente a cada 3-6 meses, com acompanhamento fotográfico incluindo uma régua milimetrada próximo às lesões mais suspeitas. Diante de um paciente com nevo displásico é obrigatória a avaliação dos familiares consangüíneos e sua orientação em relação ao sol e ao uso de fotoprotetores.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/671996fc606349b3ab1e85b5b00a4b03.jpg",
+    "/assets/img/atlas/3379e65b70ff43ec86d9b56f700cea30.jpg",
+    "/assets/img/atlas/16780bbd2edd45bd9692a90e02126a2f.jpg",
+    "/assets/img/atlas/011e99d5efe749cc8a1e00aa93206eca.jpg",
+    "/assets/img/atlas/85f796a2d3f44dcf86bb27760a3f61ea.jpg"
+  ],
+  "tratamentos": [
+    "Pequenas cirurgias"
+  ],
+  "exames": [
+    "Biópsia"
+  ]
+}

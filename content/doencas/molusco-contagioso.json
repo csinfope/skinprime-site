@@ -1,0 +1,17 @@
+{
+  "titulo": "Molusco Contagioso",
+  "atualizado": "",
+  "texto": "Enfermidade benigna que acomete pele e mucosas, facilmente transmissível, sendo auto e hetero inoculável, causada pelo vírus do molusco contagioso.\n\nOcorre com maior freqüência nas crianças do sexo masculino entre os 3 e os 7 anos, principalmente nas atópicas, porém, pode ocorrer em qualquer idade. Nos imunossuprimidos as lesões são maiores, atípicas e abundantes. Na AIDS é freqüentemente uma marca de um estágio tardio da doença com prevalência de 5 a 18%. O período de incubação vai de 14 dias a 6 meses.\n\nCaracteriza-se por pápulas com centro umbilicado, hemisféricas, translúcidas, cor da pele, com 2 a 5 mm, podendo atingir 3 cm em diâmetro, normalmente agrupadas. A distribuição topográfica é geralmente assimétrica e o número variável, podendo ocorrer de uma até dezenas delas. Nas crianças, a localização mais freqüente é na face, pálpebras, tronco e extremidades; nos adultos, nas regiões púbica e genital, sendo, por isso, atualmente incluída como uma doença sexualmente transmissível (DST). Raramente atinge couro cabeludo, lábios, língua, membranas mucosas e região plantar, onde sua aparência é atípica. Em 10% dos pacientes é possível se observar um aspecto inflamatório ou eczematoso, após trauma ou espontaneamente, devido à imunidade celular, em volta de algumas lesões.\n\nNão tratada, a duração de uma lesão individual e do ataque é muito variável, geralmente de 6 a 9 meses, mas pode persistir por 3 a 4 anos. Ao regredirem, as lesões não deixam seqüelas, nem imunidade, podendo ocorrer reinfecção e recidivas.\n\nDesde que as pápulas usualmente se resolvem dentro de 6 meses a 1 ano, às vezes, o tratamento não é recomendado. Optando-se pelo tratamento, objetiva-se a destruição do tecido infectado, o que pode ser feito pelo uso de uma cureta, laser de CO2, pulsed dye laser, cantaridina 0,7% ou criocirurgia. Pode-se ainda perfurar a pápula com agulha hipodérmica, em seguida comprimir a lesão com um extrator de comedões, aplicando-se, em seguida no centro da lesão, fenol, solução iodada ou ácido tricloroacético em solução de 50 a 75%.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/fe1cb5a34af04c79a92bf0ce9cf49345.jpg",
+    "/assets/img/atlas/f2119994072243e48f88b239470a4219.jpg",
+    "/assets/img/atlas/708ccab0aae94237a3984a50f704ce3a.jpg",
+    "/assets/img/atlas/aae3fad7b7334552990c9079d1c734e4.jpg",
+    "/assets/img/atlas/bd47ed34acff40f3a77f59ce3141030c.jpg"
+  ],
+  "tratamentos": [
+    "Laser de CO2"
+  ],
+  "exames": []
+}

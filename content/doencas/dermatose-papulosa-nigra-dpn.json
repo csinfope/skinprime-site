@@ -1,0 +1,35 @@
+{
+  "titulo": "Dermatose Papulosa Nigra (DPN)",
+  "atualizado": "07/02/2025",
+  "texto": "Dermatose papulosa nigra (DPN) é uma condição benigna cutânea mais comum na população negra (10 a 35%), particularmente nas mulheres. É uma variante da queratose seborreica, representada por pápulas hiperpigmentadas de 1 a 5 mm, pouco elevadas, assintomáticas e localizadas na face, pescoço e tronco. Histologicamente, assemelha-se à queratose seborreica. Exibem hiperceratose, acantose irregular, cistos córneos e marcada hiperpigmentação da camada basal. Está associada a mutações no gene FGFR3 semelhantes às da ceratose seborreica. Na dermatoscopia, a DPN mostra aberturas, fissuras e cristas semelhantes a comedão, mostrando um padrão cerebriforme.\n\nA condição pode ser esteticamente indesejável para alguns pacientes. A DPN geralmente começa na adolescência e é rara em pessoas com menos de 7 anos. A incidência de dermatose papulosa nigra, bem como o número e o tamanho das lesões individuais, aumenta com a idade.\n\nProvavelmene a DPN é determinada geneticamente, com 40-54% dos pacientes com história familiar de envolvimento. Acredita-se ser causada por um defeito nevoide no desenvolvimento do folículo pilossebáceo. Hairston et al sugeriram que a dermatose papulosa nigra deva ser classificada dentro do grupo dos nevos epiteliais.\n\nNenhum tratamento é geralmente indicado para dermatose papulosa nigra, a menos que as lesões sejam cosmeticamente indesejáveis. Terapêuticas agressivas têm sido complicadas por hiperpigmentação pós-operatória, hipopigmentação ou cicatrizes. Formação de queloide é uma complicação potencial. Curetagem abrasiva com ou sem anestesia, crioterapia superficial com nitrogênio líquido para pacientes de pele clara, eletrodissecção seguida de curetagem pode ser eficaz. Tomar cuidado com todas as terapias, minimizando a profundidade do tratamento. Podemos usar dispositivos de laser, incluindo laser de titanilfosfato de potássio de 532 nm, laser de diodo de 532 nm, laser de corante pulsado de 585 nm, laser de granada de ítrio e alumínio dopado com neodímio de 1.064 nm, laser fracionado dopado com érbio de 1.550 nm e dióxido de carbono de 10.600 nm foram relatados com sucesso.\n\nREFERÊNCIAS BIBLIOGRÁFICAS\n\n1. Dermatosis papulosa nigra: a clinically and histopathologically distinct entity. Metin SA, Lee BW, Lambert WC, Parish LC. Clin Dermatol. 2017 Sep-Oct;35(5):491-496.\n\n2. Early-onset dermatosis papulosa nigra. Veraitch O, Rickaby W, Robson A, Higgins E, Mellerio JE. Br J Dermatol. 2016 May;174(5):1148-50.\n\n3. A Systematic Review on the Treatment of Dermatosis Papulosa Nigra. Maghfour J, Ogunleye T. J Drugs Dermatol. 2021 Apr 1;20(4):467-472.\n\n4. Elective Treatment of Dermatosis Papulosa Nigra: A Review of Treatment Modalities. Tran M, Richer V. Skin Therapy Lett. 2020 Sep;25(4):1-5.\n\n5. Superimposed segmental dermatosis papulosa nigra. Grimalt R, Happle R. Clin Exp Dermatol. 2020 Jun;45(4):521-523.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/733bde61ac494b4ab1c8f66c3be124d9.jpg",
+    "/assets/img/atlas/6c066179ae0045c39152050a167f309d.jpg",
+    "/assets/img/atlas/7f713fd5cf2247c2a58631d75588c5f5.jpg",
+    "/assets/img/atlas/fab107b48bb24f88ade5707a29189054.jpg",
+    "/assets/img/atlas/75f533cc2d184e7b85d38c345d6f5eec.jpg",
+    "/assets/img/atlas/240350b143a946949ca1d6d00096442e.jpg",
+    "/assets/img/atlas/a1f91c2ecfa74db19131424238dedaa7.jpg",
+    "/assets/img/atlas/1020b74fee964c1bab26d0d82495c4ea.jpg",
+    "/assets/img/atlas/37e7bd45098441a0af70449b5da76ba6.jpg",
+    "/assets/img/atlas/5ccfc9f01e3347c99d15a078c6a93d9d.jpg",
+    "/assets/img/atlas/96efdf9afd3a4da49d147168f947bc03.jpg",
+    "/assets/img/atlas/28085a33fff4483390801023915db120.jpg",
+    "/assets/img/atlas/29be0dbfedd04016af80995d0347c809.jpg",
+    "/assets/img/atlas/f50a4ea470d74d3d905ed009f62e8549.jpg",
+    "/assets/img/atlas/4a58acf8d710462fa2472deb72cb2350.jpg",
+    "/assets/img/atlas/8ba94c441ec0469292fefeedfaf97fc1.jpg",
+    "/assets/img/atlas/b50753b5916c42928371ed8199a4502d.jpg",
+    "/assets/img/atlas/0ccee2a2d3794f33b3f7ce08154326f7.jpg",
+    "/assets/img/atlas/2ce23eb331364bc281ef7290e41c3410.jpg",
+    "/assets/img/atlas/77c40f31a3eb47adb7c458235e46a687.jpg"
+  ],
+  "tratamentos": [
+    "Eletrocauterização",
+    "Curetagem dermatológica"
+  ],
+  "exames": [
+    "Dermatoscopia digital"
+  ]
+}

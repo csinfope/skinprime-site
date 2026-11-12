@@ -1,0 +1,17 @@
+{
+  "titulo": "Dengue",
+  "atualizado": "06/02/2025",
+  "texto": "Doença causada por vários vírus RNA da família Togaviridae, onde qualquer um dos quatro sorotipos do vírus é transmitido a humanos pelas fêmeas do mosquito Aedes aegypti. O período de incubação é de 2 a 7 dias. Há a forma clássica e a hemorrágica. Estima-se que seja a doença infecciosa tropical mais importante depois da malária, com uma estimativa de 100 milhões de casos de dengue, 500.000 casos de dengue hemorrágica e 25.000 mortes anualmente.\n\nO dengue clássico se expressa por febre, mal-estar, cefaléia, erupção cutânea, artralgias, mialgia, linfadenopatia e às vezes prostração. As lesões cutâneas surgem nos joelhos e cotovelos e em 2 ou 3 dias constituem um exantema morbiliforme ou escarlatiniforme. A evolução é benigna com remissão em 1 semana.\n\nO dengue hemorrágico apresenta-se com petéquias, epistaxes, gengivorragias, hematêmese e outros sangramentos em cavidades e, em algumas ocasiões choque, neste caso com elevada mortalidade, de até 44%.\n\nO diagnóstico diferencial deve ser feito com a influenza, hepatite, leptospirose e doenças virais capazes de dar febre e erupção. A púrpura trombocitopênica idiopática e a púrpura anafilactoide de Henoch-Schöelein devem ser consideradas.\n\nA Dengvaxia é a primeira vacina contra a dengue recomendada para uso nos Estados Unidos e uma das primeiras a exigir testes laboratoriais de potenciais receptores para serem elegíveis para vacinação.\n\nREFERÊNCIAS BIBLIOGRÁFICAS\n\n1. Dengue infection: Global importance, immunopathology and management. Kularatne SA, Dalugama C.\n\nClin Med (Lond). 2022 Jan;22(1):9-13.\n\n2. Dengue Fever: Causes, Complications, and Vaccine Strategies. Khetarpal N, Khanna I. J Immunol Res. 2016;2016:6803098.\n\n3. Dengue hemorrhagic fever: a growing global menace. Parveen S, Riaz Z, Saeed S, Ishaque U, Sultana M, Faiz Z, Shafqat Z, Shabbir S, Ashraf S, Marium A. J Water Health. 2023 Nov;21(11):1632-1650.\n\n4. History, epidemiology and diagnostics of dengue in the American and Brazilian contexts: a review.\n\nSalles TS, da Encarnação Sá-Guimarães T, de Alvarenga ESL, Guimarães-Ribeiro V, de Meneses MDF, de Castro-Salles PF, Dos Santos CR, do Amaral Melo AC, Soares MR, Ferreira DF, Moreira MF. Parasit Vectors. 2018 Apr 24;11(1):264.\n\n5. The pathogenesis of dengue. Whitehorn J, Simmons CP. Vaccine. 2011 Sep 23;29(42):7221-8.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/3358ae79d9a34fba92652e5a1a015c61.jpg",
+    "/assets/img/atlas/0445c7f1598c4700b6fafd5521bdcd39.jpg",
+    "/assets/img/atlas/3d7273e40f2540c2ae917920d1508115.jpg",
+    "/assets/img/atlas/c6a415ed780f4d86946a868a7b5a65d3.jpg",
+    "/assets/img/atlas/c789d530830f44709c951fc41b9af936.jpg",
+    "/assets/img/atlas/96a53b9fc6f84012ad365b835b315a40.jpg",
+    "/assets/img/atlas/6c6257b13419445f95802e008f4025f2.jpg"
+  ],
+  "tratamentos": [],
+  "exames": []
+}

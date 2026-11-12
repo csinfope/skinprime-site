@@ -1,0 +1,19 @@
+{
+  "titulo": "Hidradenite supurativa",
+  "atualizado": "",
+  "texto": "Também conhecida como acne inversa, trata-se de uma doença inflamatória crônica da pele decorrente da obstrução folicular nas áreas de glândulas apócrinas. Juntamente com a acne, foliculite dissecante e o cisto pilonidal, compõem a famosa família da tétrade de oclusão folicular.\n\nEstima-se que a prevalência é de 4% da população, sendo mais frequente no sexo feminino e negros. Diversos fatores estariam envolvidos em sua patogênese como história familiar, obesidade, tabagismo, sexo feminino e uso de anticoncepcionais orais ou injetáveis a base de medroxiprogesterona e levonorgestrel.\n\nUsualmente inicia-se após a puberdade, coincidindo com o início da atividade das glândulas apócrinas, e acomete justamente as áreas ricas nessas glândulas, como axilas, virilhas, períneo e região inframamária.\n\nApresenta-se como nódulos inflamados , podendo evoluir para abcessos fistulizados, com odor característicos, muito dolorosos e que frequentemente deixam cicatrizes inestéticas.\n\nA classificação adequada facilita o acompanhamento e tratamento dos pacientes. Os estágios de Hurley são os mais comumente utilizados e estão descritos abaixo.\n\nESTÁGIO I – Abcessos sem fistulização e sem cicatrizes\n\nESTÁGIO II – Abcessos recorrentes, com formação de pontes e cicatrização\n\nESTÁGIO III – Abcessos difusos ou pontes interconectadas e múltiplos abcessos\n\n## Tratamento\n\nAs medidas gerais de tratamento visam modificação do estilo de vida, redução do peso e cessação do tabagismo como pilares do tratamento. Para redução da inflamação, tratamentos tópicos, sistêmicos, lasers e cirurgias podem ser realizados.\n\nNos quadros mais leves, apenas a clindamicina tópica pode ser utilizada. A opção rifampicina e clindamicina oral 300mg 12/12horas é eficaz na maioria dos casos, mas com recidiva após a suspensão do tratamento.\n\nO laser Nd-YAG mensal em média de 3 a 4 sessões, evidenciaram melhora significativa em todos os pacientes tratados em estudos prospectivos e controlados com uso do laser, provavelmente por eliminar/ diminuir os folículos pilosos, importantes na fisopatologia da doença. Deve ser indicado em associação aos tratamentos escolhidos, em todos os estágio da doença.\n\nPara os casos resistentes ou recidivantes, há inúmeras opções terapêuticas que podem ser tentadas para controle do quadro:\n\nA isotretinóina, amplamente utilizada no tratamento da acne e hidradenite por inibir a queratinização, obstrução folicular e produção sebácea, não tem evidenciado resultados satisfatórios prolongados em estudos retrospectivos.\n\nA finasterida na dose de 5mg/dia tem mostrado resultados promissores e sustentados nos pacientes que não respondem aos antibióticos, mas faltam estudos em grandes grupos populacionais. A teratogenicidade da droga deve sempre ser lembrada.\n\nMetformina também pode ser tentada nos casos de falha terapêutica dos outros métodos.\n\nInfliximab, adalimumab e ertanacept mostram bons resultados para os estágios II e III, resistentes a outros métodos.\n\nO laser de CO2, induz vaporização das lesões e tem efeito bactericida gerado pelo calor, mostra excelentes resultados.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/1f5225245289498b84d45ebd7fc54b85.jpg",
+    "/assets/img/atlas/6769ce38c23348aeb9f43fdabff9a092.jpg",
+    "/assets/img/atlas/6ad60ca5895545b98c36d76c1d2ba9ff.jpg",
+    "/assets/img/atlas/2a6bd988ddde4253afdef437c739f0fa.jpg",
+    "/assets/img/atlas/6ab0bef0c2924b26ad4a808ecdd4242f.jpg"
+  ],
+  "tratamentos": [
+    "Laser de CO2",
+    "Laser ND-YAG / Q-Switched",
+    "Pequenas cirurgias"
+  ],
+  "exames": []
+}

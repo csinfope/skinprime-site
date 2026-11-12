@@ -1,0 +1,29 @@
+{
+  "titulo": "Ectima",
+  "atualizado": "20/02/2025",
+  "texto": "Ectima é uma infecção bacteriana da pele que afeta as camadas mais profundas da derme, podendo atingir a gordura subcutânea e deixar cicatrizes permanentes, sendo uma infecção com maior tendência à cronicidade. É considerada uma forma ulcerativa do impetigo não-bolhoso, sendo causada principalmente pelas bactérias Streptococcus pyogenes e Staphylococcus aureus, embora uma variante mais grave, o ectima gangrenoso, seja causada por Pseudomonas aeruginosa.\n\n## Etiologia e fatores de risco\n\nO ectima ocorre quando bactérias entram na pele através de feridas, cortes, picadas de insetos ou condições como escabiose. Fatores que aumentam o risco incluem:\n\n• Higiene precária;\n\n• Diabetes descontrolado;\n\n• Alcoolismo;\n\n• Desnutrição;\n\n• Imunodeficiências (como HIV/AIDS);\n\n• Ambientes quentes e úmidos.\n\n## Manifestações clínicas\n\nO quadro se inicia por pequena bolha ou pústula, evoluindo para múltiplas úlceras de até 3 cm de diâmetro recobertas por crostas espessas e aderentes. São lesões dolorosas que podem estar associadas com linfadenopatia. Pode ocorre linfangite e celulite secundárias. Localiza-se nas pernas, coxas e nádegas, geralmente em número menor que 10 lesões. Involui deixando cicatriz. Os sintomas incluem:\n\n• Bolhas ou pústulas que evoluem para úlceras profundas;\n\n• Crostas grossas e aderentes de coloração cinza-amarelada;\n\n• Dor, vermelhidão e inchaço ao redor das lesões;\n\n• Cicatrização lenta, podendo deixar marcas permanentes.\n\nNo caso do ectima gangrenoso, as lesões podem evoluir para úlceras necróticas com escaras escuras, podendo levar a infecções sistêmicas graves.\n\n## Diagnóstico\n\nÉ clínico, baseado na aparência das lesões. Em alguns casos, pode ser necessária uma biópsia ou cultura bacteriana para identificar o agente causador.\n\n## Diagnóstico diferencial\n\nDeve ser feito com infecções não usuais que lembrem muito o ectima como o carbúnculo, causado pelo Bacillus anthracis, a difteria cutânea, causada pelo Corynebacterium diphtheriae e o ectima gangrenoso, causada pela Pseudomona aeruginosa. Não esquecer as úlceras devido a vasculites e outras vasculopatias.\n\n## Tratamento\n\nEnvolve:\n\n1. Antibióticos: Tópicos (como mupirocina) ou orais (penicilina, cefalexina) para combater a infecção.\n\n2. Cuidados locais: Limpeza das lesões com água morna e sabão, remoção de crostas e aplicação de curativos estéreis.\n\n3. Casos graves: Antibióticos intravenosos ou cirurgia para remover tecido necrótico no ectima gangrenoso.\n\n## Prevenção\n\n• Manter boa higiene;\n\n• Evitar compartilhar itens pessoais;\n\n• Tratar feridas cutâneas prontamente;\n\n• Controlar condições como diabetes e imunodeficiências.\n\n## Complicações\n\nSe não tratado, o ectima pode evoluir para complicações como celulite, sepse ou glomerulonefrite pós-estreptocócica (esta, aproximadamente 1%).\n\nREFERÊNCIAS BIBLIOGRÁFICAS\n\n1. Ecthyma Gangrenosum. Korte AKM, Vos JM.N Engl J Med. 2017 Dec 7;377(23):e32.\n\n2. [Ecthyma]. Babiano Fernández MA.Semergen. 2015 Nov-Dec;41(8):e84-5.\n\n3. Ecthyma Gangrenosum. Shah M, Crane JS.2023 Jun 28. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 Jan–.PMID: 30521198\n\n4. Ecthyma amidst the global monkeypox outbreak: A key differential? -A case series. Nukaly HY, Alhawsawi WK, Nassar JY, Alharbi A, Tayeb S, Rabie N, Alqurashi M, Faraj R, Fadag R, Samannodi M.IDCases. 2024 Dec 15;39:e02125.\n\n5. Periocular ecthyma gangrenosum with Pseudomonas septicemia in an infant: A case report. Surukrattanaskul S, Pittayapongpat R, Wangtiraumnuay N.IDCases. 2023 Sep 7;34:e01894.",
+  "bibliografia": "",
+  "imagens": [
+    "/assets/img/atlas/eb48db75a2bb42b7bb05fd8eb525e467.jpg",
+    "/assets/img/atlas/51710940c97249099f660aefd0fde318.jpg",
+    "/assets/img/atlas/f1f924cac8f6457cbc1d3ec5d0d31089.jpg",
+    "/assets/img/atlas/6ca2e8304d374a8db0096cd0595734b3.jpg",
+    "/assets/img/atlas/a591fe7cded442bd9c3b3759b0f4bd50.jpg",
+    "/assets/img/atlas/1b1b0f0dbd9e41909e386a0331096b55.jpg",
+    "/assets/img/atlas/5449e603be6d4604bdca8c55bddfa784.jpg",
+    "/assets/img/atlas/4e175bc7d46445cd890295372565bf48.jpg",
+    "/assets/img/atlas/44bf6cb4955a46a8a7c0e25902fa057b.jpg",
+    "/assets/img/atlas/0c0101f3fe71430cb27cc19bae0cccc8.jpg",
+    "/assets/img/atlas/6ec840bef032415ab731ff447d56ff6d.jpg",
+    "/assets/img/atlas/1f920737cb7746aa9174031680c7f283.jpg",
+    "/assets/img/atlas/f6b2c19595a8410faf483faab34135b5.jpg",
+    "/assets/img/atlas/da63fe599890484fa249618daf59db1e.jpg",
+    "/assets/img/atlas/675a74e32145481bb4102ec5a1c70c92.jpg"
+  ],
+  "tratamentos": [
+    "Pequenas cirurgias"
+  ],
+  "exames": [
+    "Biópsia"
+  ]
+}

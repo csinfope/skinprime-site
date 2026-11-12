@@ -1,0 +1,44 @@
+{
+  "fotos": [
+    {
+      "imagem": "/assets/img/clinic/vista.jpg",
+      "legenda": "Vista do 19º andar"
+    },
+    {
+      "imagem": "/assets/img/clinic/lounge.jpg",
+      "legenda": "Lounge"
+    },
+    {
+      "imagem": "/assets/img/clinic/recepcao.jpg",
+      "legenda": "Recepção"
+    },
+    {
+      "imagem": "/assets/img/clinic/espera.jpg",
+      "legenda": "Sala de espera"
+    },
+    {
+      "imagem": "/assets/img/clinic/cafe.jpg",
+      "legenda": "Café"
+    },
+    {
+      "imagem": "/assets/img/clinic/consultorio.jpg",
+      "legenda": "Consultório"
+    },
+    {
+      "imagem": "/assets/img/clinic/sala-laser.jpg",
+      "legenda": "Sala de laser"
+    },
+    {
+      "imagem": "/assets/img/clinic/sala-procedimentos.jpg",
+      "legenda": "Sala de procedimentos"
+    },
+    {
+      "imagem": "/assets/img/clinic/capilar.jpg",
+      "legenda": "Terapia capilar"
+    },
+    {
+      "imagem": "/assets/img/clinic/detalhe.jpg",
+      "legenda": "Detalhes"
+    }
+  ]
+}
