@@ -12,7 +12,7 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function U(p) { var m = W.SPMAP; if (!m) return R + p; var k = p.split(/[?#]/)[0]; return (m[k] || k) + p.slice(k.length); }
   function postUrl(p) { return U('tratamentos/' + p[1] + '.html'); }
-  function postImg(p) { return p[4] ? U('assets/img/posts/' + p[4] + '-m.jpg') : ''; }
+  function postImg(p) { return p[4] ? U(p[4]) : ''; }
 
   /* ---------- abertura */
   var boot = $('.boot');
