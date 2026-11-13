@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Usuários · Painel Skin Prime</title>
+<link rel="icon" href="../assets/img/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="acesso.css">
+</head>
+<body class="skp">
+<div id="tela"></div>
+<script src="acesso.js"></script>
+<script>
+(function () {
+  const tela = document.getElementById('tela');
+  const $ = (s) => tela.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const LOGO = '<img src="../assets/img/brand/logo-teal.png" alt="Skin Prime">';
+  let ctx = null; // { eu, rawK, token, privJwk, dados }
+
+  function msg(texto, tipo) { const m = $('#msg'); m.className = 'msg ' + (tipo || 'erro'); m.textContent = texto; m.scrollIntoView({ block: 'nearest' }); }
+  async function trabalho(botao, rotulo, fn) {
+    const r0 = botao.textContent; botao.disabled = true; botao.textContent = rotulo;
+    try { await fn(); } catch (e) { msg(e.message); } finally { botao.disabled = false; botao.textContent = r0; }
+  }
+  async function salvar(dados, mensagem, token) {
+    await SKP.salvarNoGitHub(token || ctx.token, dados, `${mensagem} · por ${ctx.eu.nome}`);
+    ctx.dados = dados;
+    ctx.eu = dados.usuarios.find((u) => u.login === ctx.eu.login) || ctx.eu;
+  }
+
+  // 1) confirmar a senha (abre o cofre)
+  function telaConfirmar() {
+    const s = SKP.sessao();
+    tela.innerHTML = `<div class="skp-wrap"><form class="skp-card"><img class="skp-logo" src="../assets/img/brand/logo-teal.png" alt="Skin Prime">
+      <h1>Usuários do painel</h1><p class="sub">Confirme sua senha para continuar.</p>
+      <label for="u">Usuário</label><input id="u" autocomplete="username" autocapitalize="none" value="${s ? esc(s.login) : ''}" required>
+      <label for="p">Senha</label><input id="p" type="password" autocomplete="current-password" required>
+      <button class="full" type="submit">Continuar</button><div class="msg" id="msg"></div>
+      <p class="dica" style="text-align:center;margin-top:16px"><a href="./">Voltar ao painel</a></p></form></div>`;
+    $(s ? '#p' : '#u').focus();
+    $('form').onsubmit = (e) => {
+      e.preventDefault();
+      trabalho($('button'), 'Verificando…', async () => {
+        const pub = await SKP.lerPublicado();
+        if (!pub) { location.href = './'; return; }
+        const r = await SKP.desbloquear(pub, $('#u').value, $('#p').value);
+        let dados = pub;
+        try { dados = (await SKP.lerDoGitHub(r.token)).dados; } catch (e) { /* usa a cópia publicada */ }
+        ctx = { eu: r.usuario, rawK: r.rawK, token: r.token, privJwk: r.privJwk, dados };
+        telaGestao();
+      });
+    };
+  }
+
+  // 2) gestão
+  function telaGestao() {
+    const admin = ctx.eu.papel === 'admin';
+    const linhas = ctx.dados.usuarios.map((u) => `<tr><td><b>${esc(u.nome)}</b><br><span class="dica">${esc(u.login)} · desde ${esc(u.criado || '')}</span></td>
+      <td><span class="papel ${u.papel}">${u.papel === 'admin' ? 'Administrador' : 'Editor'}</span></td>
+      <td class="acoes">${admin && u.login !== ctx.eu.login ? `<button class="sec mini" data-senha="${esc(u.login)}">Nova senha</button><button class="perigo mini" data-rem="${esc(u.login)}">Remover</button>` : (u.login === ctx.eu.login ? '<span class="dica">você</span>' : '')}</td></tr>`).join('');
+    tela.innerHTML = `<div class="skp-wrap"><div class="skp-card wide">
+      <div class="topo">${LOGO}<a href="./" class="dica">← Voltar ao painel</a></div>
+      <h1 style="text-align:left;margin-top:18px">Usuários do painel</h1>
+      <p class="dica" style="margin-top:0">Cada pessoa entra com o próprio usuário e senha. Mudanças aqui valem para novos logins em cerca de 2 minutos.</p>
+      <div class="msg" id="msg"></div>
+      ${admin ? `<table><tr><th>Pessoa</th><th>Acesso</th><th></th></tr>${linhas}</table>
+      <div class="caixa"><h2>Adicionar usuário</h2><form id="novo">
+        <div class="grid"><div><label for="nn">Nome</label><input id="nn" required></div>
+        <div><label for="nu">Usuário</label><input id="nu" autocapitalize="none" spellcheck="false" autocomplete="off" required></div>
+        <div><label for="np">Senha inicial</label><input id="np" type="text" autocomplete="off" spellcheck="false" required></div>
+        <div><label for="nr">Acesso</label><select id="nr"><option value="editor">Editor: edita o site</option><option value="admin">Administrador: edita o site e gerencia usuários</option></select></div></div>
+        <p class="dica">Pelo menos ${SKP.MIN_SENHA} caracteres. Passe a senha à pessoa pessoalmente ou por um canal privado; ela pode trocá-la depois.</p>
+        <button type="submit" style="margin-top:10px">Adicionar</button></form></div>` : ''}
+      <div class="caixa" id="senha"><h2>Minha senha</h2><form id="minha">
+        <div class="grid"><div><label for="s1">Nova senha</label><input id="s1" type="password" autocomplete="new-password" required></div>
+        <div><label for="s2">Repita a nova senha</label><input id="s2" type="password" autocomplete="new-password" required></div></div>
+        <button type="submit" style="margin-top:14px">Trocar minha senha</button></form></div>
+      ${admin ? `<div class="caixa"><h2>Chave de acesso do GitHub</h2>
+        <p class="dica">Use quando a chave vencer, ou depois de remover alguém, para bloquear de vez quem saiu. Primeiro gere uma nova chave no GitHub (as mesmas permissões: <b>Contents: Read and write</b> só em ${SKP.REPO}) e apague a antiga lá. Os usuários continuam com as mesmas senhas.</p>
+        <form id="chave"><label for="tk">Nova chave</label><input id="tk" type="password" autocomplete="off" spellcheck="false" required>
+        <button type="submit" style="margin-top:14px">Trocar a chave</button></form></div>` : ''}
+    </div></div>`;
+
+    if (admin) {
+      $('#novo').onsubmit = (e) => {
+        e.preventDefault();
+        trabalho(e.target.querySelector('button'), 'Salvando…', async () => {
+          const login = SKP.norm($('#nu').value);
+          if (ctx.dados.usuarios.some((u) => u.login === login)) throw new Error('Já existe alguém com esse usuário.');
+          const u = await SKP.novoUsuario({ login, nome: $('#nn').value, papel: $('#nr').value }, $('#np').value, ctx.rawK);
+          await salvar({ ...ctx.dados, usuarios: [...ctx.dados.usuarios, u] }, `Painel: adiciona o usuário ${u.login}`);
+          telaGestao(); msg(`${u.nome} foi adicionado(a). Usuário: ${u.login}. Já pode entrar em cerca de 2 minutos.`, 'ok');
+        });
+      };
+      tela.querySelectorAll('[data-senha]').forEach((b) => { b.onclick = () => {
+        const login = b.dataset.senha;
+        const senha = prompt(`Nova senha para ${login} (pelo menos ${SKP.MIN_SENHA} caracteres):`);
+        if (senha == null) return;
+        trabalho(b, '…', async () => {
+          const antigo = ctx.dados.usuarios.find((u) => u.login === login);
+          const novo = await SKP.novoUsuario(antigo, senha, ctx.rawK);
+          novo.criado = antigo.criado;
+          await salvar({ ...ctx.dados, usuarios: ctx.dados.usuarios.map((u) => (u.login === login ? novo : u)) }, `Painel: nova senha para ${login}`);
+          telaGestao(); msg(`Senha de ${login} trocada. A senha antiga deixa de funcionar em cerca de 2 minutos.`, 'ok');
+        });
+      }; });
+      tela.querySelectorAll('[data-rem]').forEach((b) => { b.onclick = () => {
+        const login = b.dataset.rem;
+        if (!confirm(`Remover ${login}? A pessoa não conseguirá mais entrar.`)) return;
+        trabalho(b, '…', async () => {
+          await salvar({ ...ctx.dados, usuarios: ctx.dados.usuarios.filter((u) => u.login !== login) }, `Painel: remove o usuário ${login}`);
+          telaGestao(); msg(`${login} foi removido(a). Para garantir que um navegador já aberto por essa pessoa também perca o acesso, troque a chave do GitHub no fim desta página.`, 'ok');
+        });
+      }; });
+      $('#chave').onsubmit = (e) => {
+        e.preventDefault();
+        trabalho(e.target.querySelector('button'), 'Verificando…', async () => {
+          const token = $('#tk').value.trim();
+          await SKP.verificarToken(token);
+          const r = await SKP.trocarChave(ctx.dados, token);
+          await salvar(r.dados, 'Painel: troca a chave de acesso do GitHub', token);
+          ctx.rawK = r.rawK; ctx.token = token;
+          SKP.iniciarSessao(ctx.eu, token);
+          telaGestao(); msg('Chave trocada. Todos os usuários continuam entrando com as mesmas senhas.', 'ok');
+        });
+      };
+    }
+    $('#minha').onsubmit = (e) => {
+      e.preventDefault();
+      trabalho(e.target.querySelector('button'), 'Salvando…', async () => {
+        if ($('#s1').value !== $('#s2').value) throw new Error('As senhas não são iguais.');
+        SKP.validarSenha($('#s1').value);
+        const novo = { ...ctx.eu, ...(await SKP.cifrarPrivada(ctx.privJwk, $('#s1').value)) };
+        await salvar({ ...ctx.dados, usuarios: ctx.dados.usuarios.map((u) => (u.login === ctx.eu.login ? novo : u)) }, `Painel: ${ctx.eu.login} troca a própria senha`);
+        telaGestao(); msg('Sua senha foi trocada. Use a nova no próximo login.', 'ok');
+      });
+    };
+    if (location.hash === '#senha') $('#senha').scrollIntoView();
+  }
+
+  telaConfirmar();
+})();
+</script>
+</body>
+</html>

@@ -4,6 +4,7 @@
 - site/admin/index.html  : página do painel
 - site/admin/config.yml  : quais conteúdos e campos aparecem no painel (JSON é YAML válido)
 O código do Sveltia CMS fica em site/admin/vendor/ (versão fixa, copiada do pacote npm @sveltia/cms).
+A entrada por usuário e senha fica em site/admin/acesso.js, entrada.js, usuarios.html e usuarios.json.
 Uso: python3 build/gen_admin.py
 """
 import json, os, re, io, contextlib
@@ -157,9 +158,13 @@ with open('site/admin/index.html', 'w', encoding='utf-8') as f:
 <meta name="robots" content="noindex,nofollow">
 <title>Painel · Skin Prime</title>
 <link rel="icon" href="../assets/img/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="acesso.css">
 </head>
-<body>
-<script src="vendor/sveltia-cms.js"></script>
+<body class="skp">
+<!-- Entrada por usuário e senha (acesso.js + entrada.js). O painel só é carregado depois do login. -->
+<div id="tela"></div>
+<script src="acesso.js"></script>
+<script src="entrada.js"></script>
 </body>
 </html>
 ''')
